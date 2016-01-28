@@ -25,21 +25,23 @@ class Member extends CI_Controller {
 	 
 	public function index()
 	{
-		
+	   echo "This is the memeber landing page, Must return JSON";
+          
 	}
 	
 	public function login()
 	{
+            echo "This is the memeber Login page, Must return JSON";
 	}
 	
 	public function register()
 	{
-		
+		echo "This is the memeber Register page, Must return JSON";
 	}
 	
 	public function post()
 	{
-		
+		echo "This is the memeber post page, Must return JSON";
 	}
 	
 	public function comment()
