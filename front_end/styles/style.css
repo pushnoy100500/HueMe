@@ -40,10 +40,10 @@ body {
 .reg-log {
 	margin-top: 300px;
 }
-.actions {
+.actions { 
 	text-align: center;
 }
-.actions a {
+.actions a {  
 	color: #d7e0e9;
 	padding: 12px;
 	border-radius: 2px;
@@ -75,4 +75,9 @@ body {
 .post-text {
 	font-weight: lighter;
 	padding-left: 20px;
+}
+
+.col-xs-12
+{
+	height: 20vh; 
 }
