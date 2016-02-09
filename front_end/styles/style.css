@@ -1,0 +1,69 @@
+.row {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+body {
+	font-family: 'Biryani', sans-serif;
+}
+
+/* landing page styles */
+.landing-page {
+
+}
+.city-view {
+	color: #fff;
+	height: 1000px;
+	background-color: #3b6595;
+	background-image: url('styleImgs/city.png');
+	 background-size: 40% auto;
+	 background-repeat: no-repeat;
+	background-position: bottom center;
+	background-attachment: fixed;
+} 
+.city-view h1 {
+	margin-top: 100px;
+	font-weight: lighter;
+	text-align: center;
+	font-size: 42pt;
+}
+.city-view p {
+	font-weight: light;
+	text-align: center;
+}
+.reg-log {
+	margin-top: 300px;
+}
+.actions {
+	text-align: center;
+}
+.actions a {
+	color: #d7e0e9;
+	padding: 12px;
+	border-radius: 2px;
+	font-weight: lighter;
+	font-size: 16pt;
+	border: 2px solid #fff;
+	transition: 0.5s;
+}
+.actions a:hover {
+	text-decoration: none;
+	color: rgba(59,101,149,0.5);
+	background-color: rgba(256,256,256,0.5);
+}
+
+.post {
+	background-color: #d84226;
+	border: 2px solid #8c483c;
+	color: #fff;
+	padding: 30px;
+}
+/* this is just a dummy square for now */
+.voting {
+	width: 60px;
+	height: 80px;
+	background-color: #ad351e;
+}
+.post-text {
+	font-weight: lighter;
+	padding-left: 20px;
+}
