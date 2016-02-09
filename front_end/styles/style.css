@@ -26,6 +26,13 @@ body {
 	text-align: center;
 	font-size: 42pt;
 }
+
+.city-view h1 strong {
+	transition: 0.5s;
+}
+.city-view h1 strong:hover {
+	font-size: 60pt;
+}
 .city-view p {
 	font-weight: light;
 	text-align: center;
@@ -48,8 +55,9 @@ body {
 }
 .actions a:hover {
 	text-decoration: none;
-	color: rgba(59,101,149,0.7);
+	
 	background-color: rgba(256,256,256,0.3);
+		padding: 15px;
 }
 
 .post {
