@@ -25,7 +25,8 @@ class Member extends CI_Controller {
 	 
 	public function index()
 	{
-	   echo "This is the memeber landing page, Must return JSON";
+            
+            echo "This is the memeber landing page, Must return JSON";
           
 	}
 	
