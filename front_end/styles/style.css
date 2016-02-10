@@ -28,7 +28,7 @@ body {
 }
 
 .city-view h1 strong {
-	transition: 0.5s;
+	transition: 0.7s;
 }
 .city-view h1 strong:hover {
 	font-size: 60pt;

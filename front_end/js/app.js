@@ -10,8 +10,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			url: "/",
 			template: "<landing-dir></landing-dir>"
 		})
-		.state('register', {
-			url: "/register",
+		.state('landing.register', {
+			url: "register",
 			template: "<registration-dir></registration-dir>"
 		})
 });
