@@ -53,5 +53,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 $route['default_controller'] = 'Home';
-$route['Home'] = 'Home';//index accepts 2 arguments
-$route['Member'] = 'Member/index/$1';
+$route['Home'] = 'Home/index';//index accepts 2 arguments
+$route['Member'] = 'Member/index';
