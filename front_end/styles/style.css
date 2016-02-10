@@ -89,8 +89,9 @@ body {
 	height: 20vh; 
 }
 /* styles for register modal */
+
 .custom-modal {
-	/*position:fixed;  keeps the lightbox window in the current viewport */
+	/*  keeps the lightbox window in the current viewport */
 	position: absolute; 
 	top: 10%;
 	left: 50%;
