@@ -1,4 +1,4 @@
-<div class="container custom-modal">
+<div class="container">
 	<h1>Registration</h1> 
 		<form ng-submit="ctrl.onSubmit();" novalidate="novalidate">
 			<div class="form-group">
@@ -58,10 +58,11 @@
 		      
 		    </div>
 		  </div>
-   
 
 			<div class="form-group">
 				<button class="btn btn-danger ladda-button" ladda="submitting" data-style="expand-right" type="submit" ><span ng-show="submitting">Registering</span><span class="ladda-spin"></span><span ng-show="!submitting">Register</span></button>
+				<a ui-sref="landing" class="cancel-button">cancel</a>
 			</div>
+	
 		</form>
 	</div>
