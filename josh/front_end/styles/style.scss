@@ -1,0 +1,80 @@
+$blueHue: #3b6595;
+
+
+.row {
+	margin: 0;
+}
+
+body {
+	font: 16px/1.4 'Biryani', sans-serif;
+}
+
+/* landing page styles */
+.landing-page {
+
+}
+.city-view {
+	color: #fff;
+	height: 90vh;
+	min-height: 90vh;
+	background-color: $blueHue;
+	background-image: url('styleImgs/city.svg');
+	background-size: 40% auto;
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	background-attachment: fixed;
+} 
+.city-view h1 {
+	margin-top: 20vh;
+	font-weight: lighter;
+	text-align: center;
+	font-size: 3em;
+}
+
+.city-view h1 strong {
+	transition: 0.5s;
+}
+.city-view h1 strong:hover {
+	font-size: 60pt;
+}
+.city-view p {
+	font-weight: light;
+	text-align: center;
+}
+.reg-log {
+	margin-top: 20vh;
+}
+.actions {
+	text-align: center;
+}
+.actions a {
+	color: #d7e0e9;
+	border-radius: 2px;
+	font-weight: lighter;
+	font-size: 16pt;
+	border: 2px solid #fff;
+	text-decoration: none;
+	transition: 0.5s;
+}
+.actions a:hover {
+	text-decoration: none;
+	background-color: rgba(256,256,256,0.3);
+	padding: 15px;
+}
+
+.post {
+	background-color: #d84226;
+	border: 1.5px solid #8c483c;
+	color: #fff;
+	padding: 30px;
+}
+/* this is just a dummy square for now */
+.voting {
+	width: 60px;
+	height: 80px;
+	background-color: #ad351e;
+}
+.post-text {
+	font-weight: lighter;
+	padding-left: 20px;
+}

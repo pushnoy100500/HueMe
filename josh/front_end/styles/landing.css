@@ -1,0 +1,29 @@
+body {
+	margin: 0;
+	font: 16px/1.4 'Biryani', Verdana, Arial;
+}
+
+#landingWrap {
+	background-color: #4a7eba;
+}
+
+#cityWrap {
+	width: 100vw;
+	height: 90vh;
+	margin: 0 auto;
+	background: url('../img/cityscape.svg');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+#cityWrap::after {
+	display: block;
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 90vh;
+	background-color: rgba(0,0,0, 0.3);
+}

@@ -1,0 +1,33 @@
+.row { margin: 0; }
+
+body { font: 16px/1.4 'Biryani', sans-serif; }
+
+/* landing page styles */
+.jumbotron { padding: 0; width: 100vw; }
+
+.city-view { color: #fff; height: 90vh; min-height: 90vh; width: 100vw; min-wdith: 100vw; background-color: #3b6595; background-image: url("styleImgs/city.png"); background-size: 40% 50%; background-repeat: no-repeat; background-position: bottom center; background-attachment: fixed; }
+
+.city-view h1 { margin-top: 20vh; font-weight: lighter; text-align: center; font-size: 4.5em; }
+
+.city-view h1 strong:hover { text-shadow: 4px 4px rgba(0, 0, 0, 0.3); }
+
+.city-view h1 strong { text-shadow: 0 0 rgba(0, 0, 0, 0.3); transition: 0.5s; }
+
+.city-view p { font-weight: light; text-align: center; }
+
+.reg-log { margin-top: 20vh; }
+
+.actions { text-align: center; }
+
+.actions a { display: inline-block; vertical-align: top; color: white; font-weight: lighter; padding: 8px 8px 3px 8px; font-size: 1.5em; text-decoration: none; border: 2px solid #fff; border-radius: 3px; transition: all 0.2s ease-in-out; background-color: transparent; }
+
+.actions a:hover { transform: translate(-3px, -3px); background-color: rgba(255, 255, 255, 0.3); box-shadow: 5px 5px rgba(0, 0, 0, 0.3); }
+
+.post { background-color: #d84226; border: 2px solid #8c483c; color: #fff; padding: 30px; }
+
+/* this is just a dummy square for now */
+.voting { width: 60px; height: 80px; background-color: #ad351e; }
+
+.post-text { font-weight: lighter; padding-left: 20px; }
+
+.modal-body { height: 80vh; max-height: 80vh; overflow-y: auto; }

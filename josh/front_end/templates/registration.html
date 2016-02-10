@@ -1,0 +1,71 @@
+<div style="padding: 0 20px">
+	<div class="modal-header">
+		<button type="button" class="close" ng-click="cancel()" aria-hidden="true"><i class="fa fa-times"></i></button>
+		<h3>Registration</h3>
+	</div>
+	<div class="modal-body">
+		<form ng-submit="ctrl.onSubmit();" novalidate="novalidate" class="form-horizontal">
+			<div class="form-group">
+				<label for="username" class="control-label">Username: </label>
+				<input ng-model="ctrl.formModel.username" ng-pattern="/^[A-Za-z0-9_]{1,15}$/" ng-pattern-err-type="unameErr" ng-minlength="5" type="text" class="form-control col-sm-8" id="username" name="username" required autocomplete="off" /> 
+			</div>
+
+			<div class="form-group">
+				<label for="password" class="control-label">Password: </label>
+				<input ng-model="ctrl.formModel.password" ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/"  ng-minlength="8" ng-pattern-err-type="tooSimplePass" type="password" class="form-control col-sm-8" id="password" name="password" required autocomplete="off"/> 
+			</div>
+
+			<div class="form-group">
+				<label for="email" class="control-label">Email: </label>
+				<input ng-model="ctrl.formModel.email" type="email" class="form-control col-sm-8" id="email" name="email" required autocomplete="off"/> 
+			</div>
+
+			<div class="form-group">
+				<!--why don't we change to age since there's no way we can check their actual age...?(we can just add it to TOS that if it's found false... blah blah.. What's the point of using dob?-->
+				<!-- <label for="age">Age: </label>
+				<input ng-model="formModel.age" type="number" class="form-control" id="age" min="17" max="90" required /> -->
+				<label for="dob" class="control-label">D.O.B: </label>
+				<input ng-model="ctrl.formModel.dob" type="date" class="form-control" id="dob" placeholder="yyyy-MM-dd" name="dob" required autocomplete="off"/> 
+			</div>
+
+			<div class="form-group">
+				<label for="gender" class="control-label">Gender: </label>
+				<select ng-model="ctrl.formModel.gender" class="form-control" id="gender" name="gender" required />
+					<option value="" disabled selected></option>
+					<option value="Female">Female</option>
+					<option value="Male">Male</option>
+					<option value="Male">Other</option>
+				</select>  
+			</div>
+			
+			<div class="form-group">
+				I agree with the <a  data-toggle="modal" data-target="#tosFullView">terms and conditions</a>: 
+				<input ng-model="ctrl.formModel.tos" type="checkbox" id="tos" name="tos" required> 
+			</div>
+		  <div class="modal fade" id="tosFullView" role="dialog">
+		    <div class="modal-dialog">
+		    
+		      <!-- Modal content-->
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h4 class="modal-title">This is Hueme's Terms of Service Policy.</h4>
+		        </div>
+		        <div class="modal-body">
+		          <p>**************************************</p>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        </div>
+		      </div>
+		      
+		    </div>
+		  </div>
+   
+
+			<div class="form-group">
+				<button class="btn btn-success ladda-button" ladda="submitting" data-style="expand-right"><span ng-show="submitting">Registering</span><span class="ladda-spin"></span><span ng-show="!submitting">Register</span></button>
+			</div>
+		</form>
+	</div>
+</div>
