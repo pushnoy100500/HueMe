@@ -11,8 +11,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			template: "<landing-dir></landing-dir>"
 		})
 		.state('landing.register', {
-			url: "register",
+			url: "register/",
 			template: "<registration-dir class='custom-modal'></registration-dir>"
+		})
+		.state('landing.register.tos', {
+			url: "tos",
+			template: "<tos-dir class='custom-modal'></tos-dir>"
 		})
 });
 
