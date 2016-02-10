@@ -53,5 +53,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 $route['default_controller'] = 'Home';
-$route['Home'] = 'Home';//index accepts 2 arguments
-$route['Member'] = 'Member/index/$1';
+$route['Member'] = 'Member/index';
+$route['Home'] = 'Home/index';
+
+//$route['Home'] = 'Home';//index accepts 2 arguments
+//$route['Member'] = 'Member/index';
+//rule to rout request with number values
+//$route['{controller}/{default_method}/(:any)'] = "{controller}/{original_method}/$1";
+ 
