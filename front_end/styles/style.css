@@ -91,6 +91,7 @@ body {
     background: rgba(0,0,0,0.7); 
     text-align:center;
     color: #fff;
+    overflow: scroll;
 }
 .custom-modal .container {
 	

@@ -14,8 +14,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			url: "register/",
 			template: "<registration-dir class='custom-modal'></registration-dir>"
 		})
-		.state('landing.register.tos', {
-			url: "tos",
+		.state('landing.tos', {
+			url: "tos/",
 			template: "<tos-dir class='custom-modal'></tos-dir>"
 		})
 });
