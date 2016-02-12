@@ -1,6 +1,5 @@
 var app = angular.module("HueMeApp", ['ui.router', 'ui.bootstrap', 'jcs-autoValidate']);
 
-
 //router definition
 app.config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise("/");

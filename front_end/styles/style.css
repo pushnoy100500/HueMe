@@ -88,6 +88,18 @@ body {
 	height: 20vh; 
 }
 /* styles for register modal */
+ 
+.form-group{
+	margin-top: 20px;
+}
+
+.hspass{
+	margin-top: 20px;
+}
+
+#hideShow{
+	margin-top: 20px;
+}
 
 .custom-modal {
 	/*  keeps the lightbox window in the current viewport */

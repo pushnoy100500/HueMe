@@ -5,17 +5,17 @@ app.directive("registrationDir", function() {
 		restrict: "E",
 		// this is a relative path to the template from index.html file
 		templateUrl: "templates/registration.html",
-		controller: function() {
+		controller: function($scope) {
 			this.formModel = {}; 
 			this.inputType = "password";
 
 			this.hideShow = function(){
-				if(this.inputType == 'password')
-					this.inputType = 'text';
+				if($scope.inputType == 'password')
+					$scope.inputType = 'text';
 				else
-					this.inputType = 'password';
+					$scope.inputType = 'password';
 			}
-
+ 
 			this.onSubmit = function(){  
 				this.submitting = false; 
 				var data = {
