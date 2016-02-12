@@ -9,11 +9,11 @@ app.directive("loginDir", function() {
 			this.formModel = {}; 
 			this.inputType = "password";
 
-			this.hideShow = function(){
-				if($scope.inputType == 'password')
-					$scope.inputType = 'text';
+			this.HideShow = function(){
+				if(this.inputType == 'password')
+					this.inputType = 'text';
 				else
-					$scope.inputType = 'password';
+					this.inputType = 'password';
 			}
 		},
 		controllerAs: "ctrl"

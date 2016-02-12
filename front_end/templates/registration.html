@@ -9,9 +9,9 @@
 			<div class="col-lg-12 form-group">
 				<label class="col-lg-1 col-md-1 col-sm-1" for="password">Password: </label>
 				<input ng-model="formModel.password" ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/"  ng-minlength="8" ng-pattern-err-type="tooSimplePass" type="{{ctrl.inputType}}" class="form-control" id="password" name="password" required autocomplete="off"/> 
-				<input class="col-lg-1 col-md-1 col-sm-1 hspass" type="checkbox" id="hideShow" ng-model="hspass" ng-click="ctrl.hideShow();">
-				<label class="col-lg-1 col-md-1 col-sm-1 hspass" for="hide" ng-if="hspass">Hide</label>
-				<label class="col-lg-1 col-md-1 col-sm-1 hspass" for="show" ng-if="!hspass">Show</label>
+				<input class="col-lg-1 col-md-1 col-sm-1 hspass" type="checkbox" id="hideShow" ng-model="passToggle" ng-change="ctrl.HideShow();">
+				<label class="col-lg-1 col-md-1 col-sm-1 hspass" for="hide" ng-if="passToggle">Hide</label>
+				<label class="col-lg-1 col-md-1 col-sm-1 hspass" for="show" ng-if="!passToggle">Show</label>
 			</div>
 
 			<div class="col-lg-12 form-group">
