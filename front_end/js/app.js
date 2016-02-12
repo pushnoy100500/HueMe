@@ -18,6 +18,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			url: "tos/",
 			template: "<tos-dir class='custom-modal'></tos-dir>"
 		})
+		.state('landing.login', {
+			url: "login/",
+			template: "<login-dir></login-dir>"
+		})
 });
 
 app.run([
