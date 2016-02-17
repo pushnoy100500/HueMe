@@ -3,12 +3,10 @@
 	margin-right: 0px;
 }
 body {
-	font-family: 'Biryani', sans-serif;
+	font: 16px/1.4 'Biryani', sans-serif;
 }
 
-/* landing page styles */
 .landing-page {
-
 }
 
 .city-view {  
@@ -17,8 +15,8 @@ body {
 	color: #fff; 
 	background-color: #3b6595;
 	background-image: url('styleImgs/city.png');
-	background-size: 80% auto;
-	background-repeat: no-repeat;
+	 background-size: 40% auto;
+	 background-repeat: no-repeat;
 	background-position: bottom center;
 	background-attachment: fixed; 
 } 
@@ -32,36 +30,42 @@ body {
 .city-view h1 strong {
 	transition: 0.7s;
 }
+
 .city-view h1 strong:hover {
 	font-size: 60pt;
 }
+
 .city-view p {
 	font-weight: light;
 	text-align: center;
 }
+
 .reg-log {
-	margin-top: 300px;
+	margin-top: 20vh;
 }
-.actions { 
+
+.actions {
 	text-align: center;
 }
-.actions a {  
-	color: #d7e0e9;
-	background-color: #dc5f42;
-	/*background-color: #dcb042;*/
-	padding: 15px;
-	border-radius: 5px;
+
+.actions a {
+	font-size: 1.2em;
+	display: inline-block;
+	vertical-align: top;
+	color: white;
 	font-weight: lighter;
-	font-size: 16pt;
-	/*border: 2px solid #fff;*/
+	padding: 8px 8px 3px 8px;
 	text-decoration: none;
-	transition: 0.5s;
+	border: 2px solid #fff;
+	border-radius: 3px;
+	transition: all 0.2s ease-in-out;
+	background-color: rgba(0,0,0,0);
 }
+
 .actions a:hover {
-	text-decoration: none; 
-	/*background-color: rgba(256,256,256,0.3);*/
-	/*padding: 15px;*/ 
-	box-shadow: 7px 7px 4px 0px #4e4e4e;
+	transform: translate(-3px, -3px);
+	background-color: rgba(255,255,255, 0.3);
+	box-shadow: 5px 5px rgba(0,0,0, 0.3);
 }
 
 .recent-posts{
@@ -90,44 +94,41 @@ body {
 {
 	height: 20vh; 
 }
+
 /* styles for register modal */
- 
-.form-group{
-	margin-top: 20px;
-}
-
-.hspass{
-	margin-top: 20px;
-}
-
-#hideShow{
-	margin-top: 20px;
+.custom-modal-backdrop {
+	 position: fixed;
+	 top: 0px;
+	 left: 0px;
+	 height:100%;
+	 width:100%;
+	 background: black;
+	 z-index: 0;
+	 opacity: 0.2;
 }
 
 .custom-modal {
 	/*  keeps the lightbox window in the current viewport */
-	position: absolute; 
+	position: absolute;
 	top: 10%;
 	left: 50%;
 	margin-left: -20%;
 	width:40%; 
 	padding-bottom: 2%;
 	border-radius: 15px;
-    text-align:center;
+    text-align: left;
     background-color: #fff;
     color: #000;
-  /*  overflow: scroll;*/
-}
-
-.custom-modal .container { 
-	margin-top: 10%; 
-	width: 70%;
-    height:60%;
+    z-index: 2;
+    /* Add some box-shadow to give the modal dialog some depth */
+  	box-shadow: 5px 5px 8px rgba(0,0,0, 0.3),
+  				5px -5px 8px rgba(0,0,0, 0.3),
+  				-5px 5px 8px rgba(0,0,0, 0.3),
+  				-5px -5px 8px rgba(0,0,0, 0.3);
 }
 
 .cancel-button {
 	margin-left: 20px;
-	padding: 5px 8px 5px 8px;
 	color: #fff;
 	border-radius: 5px;
 	border: 1px solid #097272; 
@@ -140,19 +141,108 @@ body {
 	background-color: #097272;
 }
 
-.tos{
-	margin: 0 auto;
-	margin-top: 10%;
-	width: 100%; 
+.revealPass {
+	cursor: pointer;
+}
+
+.tos {
+	position: relative;
+	top: 0;
+	left: 0;
 	height: 75vh;
-	text-align: left; 
-	padding-bottom: 200px;
-	background-color: #fff;
-	color: black;
-	padding: 5%;
-	overflow: scroll;
+	z-index: 2;
+}
+
+.checkboxes label {
+	position: relative;
+	top: -8px; /* Default Line-Height is 16px, 16px/2 = 8px */
+}
+
+input[type=checkbox]:checked, input[type=checkbox]:not(:checked) {
+	position: absolute;
+	left: -99999px;
+}
+
+input[type=checkbox]:checked + label, input[type=checkbox]:not(:checked) + label {
+	position: relative;
+	padding-left: 25px;
+	cursor: pointer;
+}
+
+input[type=checkbox]:checked + label:before, input[type=checkbox]:not(:checked) + label:before {
+	content: '';
+	position: absolute;
+	width: 15px; 
+	height: 15px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	box-shadow: 	inset 0 1px 3px rgba(0,0,0, 0.3),
+					1px 1px 0 rgba(0,0,0, 0.1);
+}
+
+input[type=checkbox]:checked:focus + label:before, input[type=checkbox]:not(:checked):focus + label:before {
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+}
+
+label:hover:before {
+	border: 1px solid rgba(0,0, 255, 0.7) !important;
+}
+
+input[type=checkbox]:checked + label:after, input[type=checkbox]:not(:checked) + label:after {
+	font-family: FontAwesome;
+	content: '\f00c';
+	position: absolute;
+	top: -1px;
+	font-size: 18px;
+	line-height: 0.8;
+	color: #09ad7e;
+	transition: all .2s;
+}
+
+input[type=checkbox]:not(:checked) + label:after {
+	opacity: 0;
+	transform: scale(0);
+}
+
+input[type=checkbox]:checked + label:after {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.checkboxes span {
+	padding-left: 20px;
 }
 
 .tos-strong{
 	font-size: 3em;
+}
+.input-group {
+	padding: 10px 0;
+}
+
+.modal-title {
+	color: #AAA;
+	text-shadow: 1px 1px 0 rgba(0,0,0, 0.5);
+}
+
+.modal-footer {
+	height: 100px;
+}
+
+.modal-footer + .btn + .btn-primary + .btn-block {
+	padding: 10px 0 20px 0;
+}
+
+.tos .modal-header, .tos .modal-footer {
+	height: 10vh
+}
+
+.tos .modal-body, .tos .nano {
+	margin: 1vh 0;
+	max-height: 51vh !important;
+}
+
+/* form-control-feedback fix */
+.form-control-feedback {
+  top: 18px;
 }

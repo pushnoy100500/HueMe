@@ -1,72 +1,90 @@
+<a ui-sref="landing">
+	<div class="custom-modal-backdrop"></div>
+</a>
 <div class="container custom-modal">
-	<h1 class="formTitle">Registration</h1> 
-		<form ng-submit="ctrl.onSubmit();" novalidate="novalidate">
-			<div class="col-lg-12 form-group">
-				<label class="col-lg-1 col-md-1 col-sm-1" for="username">Username: </label>
-				<input ng-model="ctrl.formModel.username" ng-pattern="/^[A-Za-z0-9_]{1,15}$/" ng-pattern-err-type="unameErr" ng-minlength="5" type="text" class="form-control" id="username" name="username" required autocomplete="off"/> 
+	<div class="modal-header">
+		<a ui-sref="landing">
+			<button type="button" class="close" aria-hidden="true"><i class="fa fa-times"></i></button>
+		</a>
+		<h2 class="modal-title">Registration</h2>
+	</div>
+	<form ng-submit="ctrl.onSubmit();" novalidate="novalidate">
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+				<input ng-model="ctrl.formModel.username" ng-pattern="/^[A-Za-z0-9_]{1,15}$/" ng-pattern-err-type="unameErr" ng-minlength="5" type="text" class="form-control" id="username" name="username" required autocomplete="off" placeholder="Username"/> 
 			</div>
+		</div>
 
-			<div class="col-lg-12 form-group">
-				<label class="col-lg-1 col-md-1 col-sm-1" for="password">Password: </label>
-				<input ng-model="formModel.password" ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/"  ng-minlength="8" ng-pattern-err-type="tooSimplePass" type="{{ctrl.inputType}}" class="form-control" id="password" name="password" required autocomplete="off"/> 
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+				<input ng-model="formModel.password" ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/"  ng-minlength="8" ng-pattern-err-type="tooSimplePass" type="{{ctrl.inputType}}" class="form-control" id="password" name="password" required autocomplete="off" placeholder="Password"/>
+				<span class="input-group-addon revealPass" ng-mousedown="ctrl.showPass();" ng-mouseup="ctrl.hidePass();"><i class="fa fa-eye"></i></span>
+				<!-- 	I like the concept of displaying the user's password in plaintext,
+						would it be possible to use the passToggle on an ngMousedown event
+						when the user clicks on the FontAwesome fa-eye icon?
+
+						Or we could include a second input for the user to re-enter their
+						password.
+						^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 				<input class="col-lg-1 col-md-1 col-sm-1 hspass" type="checkbox" id="hideShow" ng-model="passToggle" ng-change="ctrl.HideShow();">
+				
 				<label class="col-lg-1 col-md-1 col-sm-1 hspass" for="hide" ng-if="passToggle">Hide</label>
 				<label class="col-lg-1 col-md-1 col-sm-1 hspass" for="show" ng-if="!passToggle">Show</label>
+				-->
 			</div>
+		</div>
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+				<input ng-model="ctrl.formModel.email" type="email" class="form-control" id="email" name="email" required autocomplete="off" placeholder="Email address"/> 
+			</div>
+		</div>
+		<!-- Date of Birth & Gender should be changed from user's profile page to streamline user registration
+			 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-			<div class="col-lg-12 form-group">
-				<label class="col-lg-1 col-md-1 col-sm-1" for="email">Email: </label>
-				<input ng-model="ctrl.formModel.email" type="email" class="form-control" id="email" name="email" required autocomplete="off"/> 
-			</div>
+		<div class="col-lg-12 form-group">
+			why don't we change to age since there's no way we can check their actual age...?(we can just add it to TOS that if it's found false... blah blah.. What's the point of using dob?
+			<label for="age">Age: </label>
+			<input ng-model="formModel.age" type="number" class="form-control" id="age" min="17" max="90" required />
+			<label class="col-lg-1 col-md-1 col-sm-1" for="dob">D.O.B: </label>
+			<input ng-model="ctrl.formModel.dob" type="date" class="form-control" id="dob" placeholder="yyyy-MM-dd" name="dob" required autocomplete="off"/> 
+		</div>
 
-			<div class="col-lg-12 form-group">
-				<!--why don't we change to age since there's no way we can check their actual age...?(we can just add it to TOS that if it's found false... blah blah.. What's the point of using dob?-->
-				<!-- <label for="age">Age: </label>
-				<input ng-model="formModel.age" type="number" class="form-control" id="age" min="17" max="90" required /> -->
-				<label class="col-lg-1 col-md-1 col-sm-1" for="dob">D.O.B: </label>
-				<input ng-model="ctrl.formModel.dob" type="date" class="form-control" id="dob" placeholder="yyyy-MM-dd" name="dob" required autocomplete="off"/> 
-			</div>
+		<div class="col-lg-12 form-group">
+			<label class="col-lg-1 col-md-1 col-sm-1" for="gender">Gender: </label>
+			<select ng-model="ctrl.formModel.gender" class="form-control" id="gender" name="gender" required />
+				<option value="" disabled selected></option>
+				<option value="Female">Female</option>
+				<option value="Male">Male</option>
+				<option value="Male">Other</option>
+			</select>  
+		</div>
+		-->
 
-			<div class="col-lg-12 form-group">
-				<label class="col-lg-1 col-md-1 col-sm-1" for="gender">Gender: </label>
-				<select ng-model="ctrl.formModel.gender" class="form-control" id="gender" name="gender" required />
-					<option value="" disabled selected></option>
-					<option value="Female">Female</option>
-					<option value="Male">Male</option>
-					<option value="Male">Other</option>
-				</select>  
-			</div>
-			
-			<div class="col-lg-12 form-group">
-				I agree with the <a  ui-sref="landing.tos" class="tos-button">terms and conditions</a>: 
-				<input ng-model="ctrl.formModel.tos" type="checkbox" id="tos" name="tos" required> 
+		<div class="checkboxes">
+			<div class="form-group tos-group" style="margin: 10px 0 5px 0;">
+				<input ng-model="ctrl.formModel.tos" type="checkbox" id="tos" name="tos" required>
+				<label for="tos"></label>
+				<span>I agree with the <a  ui-sref="landing.tos" class="tos-button">terms of service</a>. </span>
+
 			</div>
 			 
-		  <!-- <div class="modal fade" id="tosFullView" role="dialog">
-		    <div class="modal-dialog">
-		    
-		      Modal content
-		      <div class="modal-content">
-		        <div class="modal-header">
-		          <button type="button" class="close" data-dismiss="modal">&times;</button>
-		          <h4 class="modal-title">This is Hueme's Terms of Service Policy.</h4>
-		        </div>
-		        <div class="modal-body">
-		          <p>**************************************</p>
-		        </div>
-		        <div class="modal-footer">
-		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        </div>
-		      </div>
-		      
-		    </div>
-		  </div> -->
+			<div lass="form-group" style="margin-bottom: 5px">
 
-			<div class="form-group">
-				<button class="btn btn-danger" type="submit" >Register</button>
-				<a ui-sref="landing" class="cancel-button">Cancel</a>
+				<input type="checkbox" id="ageVerify" name="ageVerify" required>
+				<label for="ageVerify"></label>
+				<span>I confirm that I am AT LEAST 14 years of age.</span>
+
 			</div>
-	
-		</form>
+		</div>
 
-	</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary btn-block" type="submit" style="margin: 10px 0 20px 0"><span ng-show="submitting">Registering</span><span class="ladda-spin"></span><span ng-show="!submitting">Register</span></button>
+			<a ui-sref="landing">
+				<button class="btn btn-default btn-block">Cancel</button>
+			</a>
+		</div>
+	</form>
+</div>
