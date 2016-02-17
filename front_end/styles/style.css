@@ -250,4 +250,6 @@ input[type=checkbox]:checked + label:after {
 .preloader {
 	display: block;
 	margin: auto;
+	width: 100px;
+	height: 100px;
 }
