@@ -25,12 +25,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 app.run([
 //registration form validation config
-    'defaultErrorMessageResolver',
-    function (defaultErrorMessageResolver) { 
+    'defaultErrorMessageResolver', 'bootstrap3ElementModifier',
+    function (defaultErrorMessageResolver) {
+    	
         defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages) {
-          errorMessages['tooSimplePass'] = 'Password should be at least 8 characters including upper/lower case, special character and numbers';
-          errorMessages['invalidDOB'] = 'Age requirement for this website is 17 - 90';
-          errorMessages['unameErr'] = "Username must be shorter than 15 characters";
+        	errorMessages['tooSimplePass'] = 'Password should be at least 8 characters including upper/lower case, special character and numbers';
+        	errorMessages['invalidDOB'] = 'Age requirement for this website is 17 - 90';
+        	errorMessages['unameErr'] = "Username must be shorter than 15 characters";
         });
     }
 ]);

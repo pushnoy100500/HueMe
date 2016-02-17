@@ -1,23 +1,29 @@
+<a ui-sref="landing">
+	<div class="custom-modal-backdrop"></div>
+</a>
 <div class="container custom-modal">
-	<h1 class="formTitle">Login</h1> 
+	<div class="modal-header">
+		<a ui-sref="landing">
+			<button type="button" class="close" aria-hidden="true"><i class="fa fa-times"></i></button>
+		</a>
+		<h2 class="modal-title">Login</h2>
+	</div>
 	<form ng-submit="ctrl.onSubmit();" novalidate="novalidate"> 
-			<div class="col-lg-12 form-group">
-				<label class="col-lg-1 col-md-1 col-sm-1" for="email">Email: </label>
-				<input ng-model="ctrl.formModel.email" type="email" class="form-control" id="email" name="email" required autocomplete="off"/> 
-			</div>
+		<div class="input-group">
+			<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+			<input ng-model="ctrl.formModel.email" type="email" class="form-control" id="email" name="email" required autocomplete="off" placeholder="Email address"/> 
+		</div>
 
-			<div class="col-lg-12 form-group">
-				<label class="col-lg-1 col-md-1 col-sm-1" for="password">Password: </label>
-				<input ng-model="formModel.password" ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/"  ng-minlength="8" ng-pattern-err-type="tooSimplePass" type="{{ctrl.inputType}}" class="form-control" id="password" name="password" required autocomplete="off"/> 
-				<input class="col-lg-1 col-md-1 col-sm-1 hspass" type="checkbox" id="hideShow" ng-model="passToggle" ng-change="ctrl.HideShow();">
-				<label class="col-lg-1 col-md-1 col-sm-1 hspass" for="hide" ng-if="passTogglepassToggle">Hide</label>
-				<label class="col-lg-1 col-md-1 col-sm-1 hspass" for="show" ng-if="!passToggle">Show</label>
-			</div>
- 
-			<div class="form-group">
-				<button class="btn btn-danger" type="submit" >Login</button>
-				<a ui-sref="landing" class="cancel-button">Cancel</a>
-			</div>
-	
-		</form>
+		<div class="input-group">
+			<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+			<input ng-model="formModel.password" ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/"  ng-minlength="8" ng-pattern-err-type="tooSimplePass" type="{{ctrl.inputType}}" class="form-control" id="password" name="password" required autocomplete="off" placeholder="Password"/>
+		</div>
+
+		<div class="modal-footer">
+			<button class="btn btn-primary btn-block" type="submit" style="margin: 10px 0 20px 0"><span ng-show="submitting">Registering</span><span class="ladda-spin"></span><span ng-show="!submitting">Login</span></button>
+			<a ui-sref="landing">
+				<button class="btn btn-default btn-block">Cancel</button>
+			</a>
+		</div>
+	</form>
 </div>
