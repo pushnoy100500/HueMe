@@ -5,7 +5,8 @@ app.directive("registrationDir", function() {
 		restrict: "E",
 		// this is a relative path to the template from index.html file
 		templateUrl: "templates/registration.html",
-		controller: function() {
+		controller: function(regService) {
+			this.regService = regService;
 			this.formModel = {}; 
 			this.inputType = "password";
 

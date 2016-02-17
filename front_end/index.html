@@ -35,10 +35,13 @@
 	<script src="js/directives/loginDir.js"></script>
 	<script src="js/directives/tosDir.js"></script>
 	<script src="js/services/recentPosts.js"></script>
-	
+	<script src="js/services/regService.js"></script>
+	<script src="js/services/timeSinceService.js"></script>
 </head>
 <body ng-app="HueMeApp">
 	<!-- this directive will be changed with whatever is defined in router -->
-	<main ui-view></main>
+	<main ui-view>
+		<img src="styles/styleImgs/ajax-loader.gif" class="custom-modal-backdrop preloader" alt="">
+	</main>
 </body>
 </html>

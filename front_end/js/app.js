@@ -13,8 +13,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			},
 			controllerAs: "postsCtrl",
 			resolve: {
-				posts: function($http) {
-					return $http({method: 'GET', url: 'http://24.57.53.41/git/master/HueMe/index.php/Home/'});
+				posts: function($http, $q, timeSinceService) {
+					var deferred = $q.defer();
+					$http({method: 'GET', url: 'http://24.57.53.41/git/master/HueMe/index.php/Home/'})
+						.then(function(data) {
+							var temp = data.data;
+							temp = temp.map(function(post) {
+								var post = post;
+								post.time = timeSinceService.timeSince(new Date(post.time));
+								return post;
+							})
+							console.log(temp);
+							deferred.resolve(temp);
+						});
+						return deferred.promise;
+						
+					
 				}
 			}
 		})

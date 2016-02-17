@@ -8,6 +8,6 @@ app.directive("landingDir", function() {
 		controller: function() {
 
 		},
-		controllerAs: "ctrl"
+		controllerAs: "landingCtrl"
 	}
 });

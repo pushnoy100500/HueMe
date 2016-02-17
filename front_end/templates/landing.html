@@ -14,16 +14,21 @@
 		</div>
 	</section>
 	<section class="recent-posts">
-		<div class="row" ng-repeat="(key, value) in postsCtrl.posts.data">
+		<div class="row" ng-repeat="value in postsCtrl.posts">
 			<div class="col-md-6 col-md-offset-3 media post">
 				<div class="media-left">
 					<div class="voting">
-						
+						<img src="" alt="">
+						{{value.user}}
 					</div>
 				</div>
 				<div class="media-body">
 					<p class="post-text">
 						{{value.post}}
+						
+					</p>
+					<p class="post-text">
+						{{value.time}} ago
 					</p>
 				</div>
 			</div>
