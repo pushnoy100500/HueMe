@@ -6,7 +6,7 @@ app.directive("landingDir", function() {
 		// this is a relative path to the template from index.html file
 		templateUrl: "templates/landing.html",
 		controller: function() {
-		
+
 		},
 		controllerAs: "ctrl"
 	}

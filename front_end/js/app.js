@@ -7,7 +7,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider
 		.state('landing', {
 			url: "/",
-			template: "<landing-dir></landing-dir>"
+			template: "<landing-dir></landing-dir>",
+			controller: function(posts) {
+				this.posts = posts;
+			},
+			controllerAs: "postsCtrl",
+			resolve: {
+				posts: function($http) {
+					return $http({method: 'GET', url: 'http://24.57.53.41/git/master/HueMe/index.php/Home/'});
+				}
+			}
 		})
 		.state('landing.register', {
 			url: "register/",
