@@ -1,6 +1,5 @@
 var app = angular.module("HueMeApp", ['ui.router', 'ui.bootstrap', 'jcs-autoValidate']);
 
-
 //router definition
 app.config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise("/");
@@ -17,6 +16,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		.state('landing.tos', {
 			url: "tos/",
 			template: "<tos-dir class='custom-modal'></tos-dir>"
+		})
+		.state('landing.login', {
+			url: "login/",
+			template: "<login-dir></login-dir>"
 		})
 });
 

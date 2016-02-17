@@ -1,31 +1,34 @@
 <div class="container custom-modal">
-	<h1>Registration</h1> 
+	<h1 class="formTitle">Registration</h1> 
 		<form ng-submit="ctrl.onSubmit();" novalidate="novalidate">
-			<div class="form-group">
-				<label for="username">Username: </label>
+			<div class="col-lg-12 form-group">
+				<label class="col-lg-1 col-md-1 col-sm-1" for="username">Username: </label>
 				<input ng-model="ctrl.formModel.username" ng-pattern="/^[A-Za-z0-9_]{1,15}$/" ng-pattern-err-type="unameErr" ng-minlength="5" type="text" class="form-control" id="username" name="username" required autocomplete="off"/> 
 			</div>
 
-			<div class="form-group">
-				<label for="password">Password: </label>
-				<input ng-model="ctrl.formModel.password" ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/"  ng-minlength="8" ng-pattern-err-type="tooSimplePass" type="password" class="form-control" id="password" name="password" required autocomplete="off"/> 
+			<div class="col-lg-12 form-group">
+				<label class="col-lg-1 col-md-1 col-sm-1" for="password">Password: </label>
+				<input ng-model="formModel.password" ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/"  ng-minlength="8" ng-pattern-err-type="tooSimplePass" type="{{ctrl.inputType}}" class="form-control" id="password" name="password" required autocomplete="off"/> 
+				<input class="col-lg-1 col-md-1 col-sm-1 hspass" type="checkbox" id="hideShow" ng-model="passToggle" ng-change="ctrl.HideShow();">
+				<label class="col-lg-1 col-md-1 col-sm-1 hspass" for="hide" ng-if="passToggle">Hide</label>
+				<label class="col-lg-1 col-md-1 col-sm-1 hspass" for="show" ng-if="!passToggle">Show</label>
 			</div>
 
-			<div class="form-group">
-				<label for="email">Email: </label>
+			<div class="col-lg-12 form-group">
+				<label class="col-lg-1 col-md-1 col-sm-1" for="email">Email: </label>
 				<input ng-model="ctrl.formModel.email" type="email" class="form-control" id="email" name="email" required autocomplete="off"/> 
 			</div>
 
-			<div class="form-group">
+			<div class="col-lg-12 form-group">
 				<!--why don't we change to age since there's no way we can check their actual age...?(we can just add it to TOS that if it's found false... blah blah.. What's the point of using dob?-->
 				<!-- <label for="age">Age: </label>
 				<input ng-model="formModel.age" type="number" class="form-control" id="age" min="17" max="90" required /> -->
-				<label for="dob">D.O.B: </label>
+				<label class="col-lg-1 col-md-1 col-sm-1" for="dob">D.O.B: </label>
 				<input ng-model="ctrl.formModel.dob" type="date" class="form-control" id="dob" placeholder="yyyy-MM-dd" name="dob" required autocomplete="off"/> 
 			</div>
 
-			<div class="form-group">
-				<label for="gender">Gender: </label>
+			<div class="col-lg-12 form-group">
+				<label class="col-lg-1 col-md-1 col-sm-1" for="gender">Gender: </label>
 				<select ng-model="ctrl.formModel.gender" class="form-control" id="gender" name="gender" required />
 					<option value="" disabled selected></option>
 					<option value="Female">Female</option>
@@ -34,7 +37,7 @@
 				</select>  
 			</div>
 			
-			<div class="form-group">
+			<div class="col-lg-12 form-group">
 				I agree with the <a  ui-sref="landing.tos" class="tos-button">terms and conditions</a>: 
 				<input ng-model="ctrl.formModel.tos" type="checkbox" id="tos" name="tos" required> 
 			</div>
@@ -60,8 +63,8 @@
 		  </div> -->
 
 			<div class="form-group">
-				<button class="btn btn-danger" type="submit" ><span ng-show="submitting">Registering</span><span class="ladda-spin"></span><span ng-show="!submitting">Register</span></button>
-				<a ui-sref="landing" class="cancel-button">cancel</a>
+				<button class="btn btn-danger" type="submit" >Register</button>
+				<a ui-sref="landing" class="cancel-button">Cancel</a>
 			</div>
 	
 		</form>

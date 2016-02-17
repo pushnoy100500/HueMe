@@ -9,13 +9,13 @@ app.directive("registrationDir", function() {
 			this.formModel = {}; 
 			this.inputType = "password";
 
-			this.hideShow = function(){
+			this.HideShow = function(){
 				if(this.inputType == 'password')
 					this.inputType = 'text';
 				else
 					this.inputType = 'password';
 			}
-
+ 
 			this.onSubmit = function(){  
 				this.submitting = false; 
 				var data = {
