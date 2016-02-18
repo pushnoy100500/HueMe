@@ -46,6 +46,7 @@ body {
 
 .actions {
 	text-align: center;
+	height: 100px;
 }
 
 .actions a {
@@ -70,7 +71,7 @@ body {
 
 .recent-posts{
 	padding-top: 10%;
-	height: 100vh;
+	height: 90vh;
 }
  
 .post { 
@@ -90,10 +91,6 @@ body {
 	padding-left: 20px;
 }
 
-.col-xs-12
-{
-	height: 20vh; 
-}
 
 /* styles for register modal */
 .custom-modal-backdrop {
@@ -151,6 +148,11 @@ body {
 	left: 0;
 	height: 75vh;
 	z-index: 2;
+}
+
+.AgreeCb
+{
+	font-size: 0.7em;
 }
 
 .checkboxes label {
@@ -230,7 +232,7 @@ input[type=checkbox]:checked + label:after {
 }
 
 .modal-footer + .btn + .btn-primary + .btn-block {
-	padding: 10px 0 20px 0;
+	padding: 10px 0 20px 0; 
 }
 
 .tos .modal-header, .tos .modal-footer {
@@ -248,8 +250,10 @@ input[type=checkbox]:checked + label:after {
 }
 /* preloader */
 .preloader {
-	display: block;
-	margin: auto;
+	position: absolute;
+	top:40%;
+	left: 50%;
+	margin-left: -50px; 
 	width: 100px;
 	height: 100px;
 }

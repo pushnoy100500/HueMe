@@ -27,16 +27,7 @@ app.directive("registrationDir", function() {
 					'dob': this.formModel.dob, 
 					'gender': this.formModel.gender
 				}
-			console.dir(data);
-			//this must be a service
-				// $http.post('registerProcess.php', {formData: data})
-				// 	.success(function(data, status, headers, config){ 
-				// 		console.log(data);
-				// 		this.submitting = false;
-				// 	}).error(function(res){
-				// 		console.log("Error!");
-				// 		this.submitting = false;
-				// 	});
+			console.dir(data); 
 			};
 		},
 		controllerAs: "ctrl"

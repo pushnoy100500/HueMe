@@ -26,9 +26,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 							console.log(temp);
 							deferred.resolve(temp);
 						});
-						return deferred.promise;
-						
-					
+						return deferred.promise; 
 				}
 			}
 		})
