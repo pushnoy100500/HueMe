@@ -5,7 +5,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise("/");
 
 	$stateProvider
-		.state('landing', {
+		.state('landing',{
 			url: "/",
 			template: "<landing-dir></landing-dir>",
 			controller: function(posts) {

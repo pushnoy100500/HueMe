@@ -5,30 +5,23 @@ app.directive("registrationDir", function() {
 		restrict: "E",
 		// this is a relative path to the template from index.html file
 		templateUrl: "templates/registration.html",
-		controller: function(regService) {
-			this.regService = regService;
-			this.formModel = {}; 
+		controller: function(regService){  
+			this.formModel = {};
 			this.inputType = "password";
 
 			this.showPass = function(){
 				this.inputType = 'text';
 			}
 
-			this.hidePass = function() {
+			this.hidePass = function(){
 				this.inputType = 'password';
 			}
- 
-			this.onSubmit = function(){  
-				this.submitting = false; 
-				var data = {
-					'username': this.formModel.username, 
-					'password': this.formModel.password, 
-					'email': this.formModel.email, 
-					'dob': this.formModel.dob, 
-					'gender': this.formModel.gender
-				}
-			console.dir(data); 
-			};
+
+			this.onSubmit = function(){   
+			var data = $.param(this.formModel);
+			console.dir(data);
+			this.newUser = regService.registerUser(data);
+			}; 
 		},
 		controllerAs: "ctrl"
 	}
