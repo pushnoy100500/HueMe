@@ -20,7 +20,19 @@
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
 				<input ng-model="ctrl.formModel.password" ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/"  ng-minlength="8" ng-pattern-err-type="tooSimplePass" type="{{ctrl.inputType}}" class="form-control" id="password" name="password" required autocomplete="off" placeholder="Password"/>
-				<span class="input-group-addon revealPass" ng-mousedown="ctrl.showPass();" ng-mouseup="ctrl.hidePass();" ng-mouseleave="ctrl.hidePass();"><i class="fa fa-eye"></i></span>
+				<span class="input-group-addon revealPass" ng-mousedown="ctrl.showPass();" ng-mouseup="ctrl.hidePass();"><i class="fa fa-eye"></i></span>
+				<!-- 	I like the concept of displaying the user's password in plaintext,
+						would it be possible to use the passToggle on an ngMousedown event
+						when the user clicks on the FontAwesome fa-eye icon?
+
+						Or we could include a second input for the user to re-enter their
+						password.
+						^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+				<input class="col-lg-1 col-md-1 col-sm-1 hspass" type="checkbox" id="hideShow" ng-model="passToggle" ng-change="ctrl.HideShow();">
+				
+				<label class="col-lg-1 col-md-1 col-sm-1 hspass" for="hide" ng-if="passToggle">Hide</label>
+				<label class="col-lg-1 col-md-1 col-sm-1 hspass" for="show" ng-if="!passToggle">Show</label>
+				-->
 			</div>
 		</div>
 		<div class="form-group">
@@ -29,18 +41,42 @@
 				<input ng-model="ctrl.formModel.email" type="email" class="form-control" id="email" name="email" required autocomplete="off" placeholder="Email address"/> 
 			</div>
 		</div>
+		<!-- Date of Birth & Gender should be changed from user's profile page to streamline user registration
+			 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+		<div class="col-lg-12 form-group">
+			why don't we change to age since there's no way we can check their actual age...?(we can just add it to TOS that if it's found false... blah blah.. What's the point of using dob?
+			<label for="age">Age: </label>
+			<input ng-model="formModel.age" type="number" class="form-control" id="age" min="17" max="90" required />
+			<label class="col-lg-1 col-md-1 col-sm-1" for="dob">D.O.B: </label>
+			<input ng-model="ctrl.formModel.dob" type="date" class="form-control" id="dob" placeholder="yyyy-MM-dd" name="dob" required autocomplete="off"/> 
+		</div>
+
+		<div class="col-lg-12 form-group">
+			<label class="col-lg-1 col-md-1 col-sm-1" for="gender">Gender: </label>
+			<select ng-model="ctrl.formModel.gender" class="form-control" id="gender" name="gender" required />
+				<option value="" disabled selected></option>
+				<option value="Female">Female</option>
+				<option value="Male">Male</option>
+				<option value="Male">Other</option>
+			</select>  
+		</div>
+		-->
 
 		<div class="checkboxes">
 			<div class="form-group tos-group" style="margin: 10px 0 5px 0;">
-				<input type="checkbox" id="tos" name="tos" disable-validation-message="" required />
+				<input type="checkbox" id="tos" name="tos" required>
 				<label for="tos"></label>
 				<span>I agree with the <a  ui-sref="landing.tos" class="tos-button">terms of service</a>. </span>
+
 			</div>
 			 
 			<div lass="form-group" style="margin-bottom: 5px">
-				<input type="checkbox" id="ageVerify" name="ageVerify" disable-validation-message="" required />
+
+				<input type="checkbox" id="ageVerify" name="ageVerify" required>
 				<label for="ageVerify"></label>
 				<span>I confirm that I am AT LEAST 14 years of age.</span>
+
 			</div>
 		</div>
 
@@ -51,4 +87,5 @@
 			</a>
 		</div>
 	</form>
+	{{ctrl.formModel}}
 </div>

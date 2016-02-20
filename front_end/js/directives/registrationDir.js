@@ -17,10 +17,11 @@ app.directive("registrationDir", function() {
 				this.inputType = 'password';
 			}
 
-			this.onSubmit = function(){   
-			var data = $.param(this.formModel);
-			console.dir(data);
-			this.newUser = regService.registerUser(data);
+			this.onSubmit = function(){
+			//var data = $.param(this.formModel);
+			//console.dir(data);
+			console.log(this.formModel);
+			this.newUser = regService.registerUser(this.formModel);
 			}; 
 		},
 		controllerAs: "ctrl"
