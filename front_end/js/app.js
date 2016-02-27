@@ -15,7 +15,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			resolve: {
 				posts: function($http, $q, timeSinceService) {
 					var deferred = $q.defer();
-					$http({method: 'GET', url: 'http://24.57.53.41/git/master/HueMe/index.php/Home/'})
+					$http({method: 'GET', url: 'http://localhost:8888/hueme/'})
+					//http://24.57.53.41/git/master/HueMe/index.php/Home/
 						.then(function(data) {
 							var temp = data.data;
 							temp = temp.map(function(post) {
@@ -26,7 +27,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 							console.log(temp);
 							deferred.resolve(temp);
 						});
-						return deferred.promise; 
+						return deferred.promise;
 				}
 			}
 		})
@@ -48,7 +49,7 @@ app.run([
 //registration form validation config
     'defaultErrorMessageResolver', 'bootstrap3ElementModifier',
     function (defaultErrorMessageResolver) {
-    	
+
         defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages) {
         	errorMessages['tooSimplePass'] = 'Password should be at least 8 characters including upper/lower case, special character and numbers';
         	errorMessages['invalidDOB'] = 'Age requirement for this website is 17 - 90';
@@ -56,5 +57,3 @@ app.run([
         });
     }
 ]);
-
-
