@@ -8,11 +8,11 @@
 		</a>
 		<h2 class="modal-title">Registration</h2>
 	</div>
-	<form ng-submit="ctrl.onSubmit();" novalidate="novalidate">
+	<form ng-submit="ctrl.formSubmit();" novalidate="novalidate">
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-				<input ng-model="ctrl.formModel.username" ng-pattern="/^[A-Za-z0-9_]{1,15}$/" ng-pattern-err-type="unameErr" ng-minlength="5" type="text" class="form-control" id="username" name="username" required autocomplete="off" placeholder="Username"/> 
+				<input ng-model="ctrl.formModel.username" ng-pattern="/^[A-Za-z0-9_]{1,15}$/" ng-pattern-err-type="unameErr" ng-minlength="5" type="text" class="form-control" id="username" name="username" required autocomplete="off" placeholder="Username"/>
 			</div>
 		</div>
 
@@ -29,7 +29,7 @@
 						password.
 						^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 				<input class="col-lg-1 col-md-1 col-sm-1 hspass" type="checkbox" id="hideShow" ng-model="passToggle" ng-change="ctrl.HideShow();">
-				
+
 				<label class="col-lg-1 col-md-1 col-sm-1 hspass" for="hide" ng-if="passToggle">Hide</label>
 				<label class="col-lg-1 col-md-1 col-sm-1 hspass" for="show" ng-if="!passToggle">Show</label>
 				-->
@@ -38,7 +38,7 @@
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-				<input ng-model="ctrl.formModel.email" type="email" class="form-control" id="email" name="email" required autocomplete="off" placeholder="Email address"/> 
+				<input ng-model="ctrl.formModel.email" type="email" class="form-control" id="email" name="email" required autocomplete="off" placeholder="Email address"/>
 			</div>
 		</div>
 		<!-- Date of Birth & Gender should be changed from user's profile page to streamline user registration
@@ -49,7 +49,7 @@
 			<label for="age">Age: </label>
 			<input ng-model="formModel.age" type="number" class="form-control" id="age" min="17" max="90" required />
 			<label class="col-lg-1 col-md-1 col-sm-1" for="dob">D.O.B: </label>
-			<input ng-model="ctrl.formModel.dob" type="date" class="form-control" id="dob" placeholder="yyyy-MM-dd" name="dob" required autocomplete="off"/> 
+			<input ng-model="ctrl.formModel.dob" type="date" class="form-control" id="dob" placeholder="yyyy-MM-dd" name="dob" required autocomplete="off"/>
 		</div>
 
 		<div class="col-lg-12 form-group">
@@ -59,7 +59,7 @@
 				<option value="Female">Female</option>
 				<option value="Male">Male</option>
 				<option value="Male">Other</option>
-			</select>  
+			</select>
 		</div>
 		-->
 
@@ -70,7 +70,7 @@
 				<span>I agree with the <a  ui-sref="landing.tos" class="tos-button">terms of service</a>. </span>
 
 			</div>
-			 
+
 			<div lass="form-group" style="margin-bottom: 5px">
 
 				<input type="checkbox" id="ageVerify" name="ageVerify" required>
