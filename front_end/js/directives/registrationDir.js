@@ -18,10 +18,8 @@ app.directive("registrationDir", function(regService) {
 			}
 
 			this.formSubmit = function(){
-			//var data = $.param(this.formModel);
-			//console.dir(data);
-			console.log(this.formModel);
 				//this.newUser = regService.registerUser(this.formModel);
+				console.log(this.formModel);
 				regService.registerUser(this.formModel);
 			};
 		},
