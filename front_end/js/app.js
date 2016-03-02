@@ -1,4 +1,4 @@
-var app = angular.module("HueMeApp", ['ui.router', 'ui.bootstrap', 'jcs-autoValidate']);
+var app = angular.module("HueMeApp", ['ui.router', 'ui.bootstrap', 'jcs-autoValidate', 'ngStorage']);
 
 //router definition
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -41,6 +41,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		.state('landing.login', {
 			url: "login/",
 			template: "<login-dir></login-dir>"
+		})
+		.state('myprofile', {
+			url: "/myprofile",
+			template: "<my-profile-dir></my-profile-dir>"
 		})
 });
 

@@ -1,11 +1,11 @@
 var app = angular.module("HueMeApp");
 
-app.directive("registrationDir", function(regService) {
+app.directive("registrationDir", function(regLogService, $state) {
 	return {
 		restrict: "E",
 		// this is a relative path to the template from index.html file
 		templateUrl: "templates/registration.html",
-		controller: function(regService){
+		controller: function(regLogService, $state){
 			this.formModel = {};
 			this.inputType = "password";
 
@@ -19,8 +19,16 @@ app.directive("registrationDir", function(regService) {
 
 			this.formSubmit = function(){
 				//this.newUser = regService.registerUser(this.formModel);
-				console.log(this.formModel);
-				regService.registerUser(this.formModel);
+				//console.log(this.formModel);
+			regLogService.registerUser(this.formModel, function(isComplete) {
+				if(isComplete) {
+					$state.go('myprofile');
+				} else {
+					console.log('fuuck');
+				}
+			});
+
+
 			};
 		},
 		controllerAs: "ctrl"

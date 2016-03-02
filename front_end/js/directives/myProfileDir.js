@@ -1,11 +1,11 @@
 var app = angular.module("HueMeApp");
 
-app.directive('userProfileDir', function() {
+app.directive('myProfileDir', function($localStorage) {
   return {
     restrict: "E",
-    templateUrl: "userProfile.html",
+    templateUrl: "templates/myProfile.html",
     controller: function() {
-
+      this.user = $localStorage.user;
     },
     controllerAs: "profileCtrl"
 
