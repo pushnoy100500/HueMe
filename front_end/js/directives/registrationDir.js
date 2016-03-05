@@ -18,8 +18,6 @@ app.directive("registrationDir", function(regLogService, $state) {
 			}
 
 			this.formSubmit = function(){
-				//this.newUser = regService.registerUser(this.formModel);
-				//console.log(this.formModel);
 			regLogService.registerUser(this.formModel, function(isComplete) {
 				if(isComplete) {
 					$state.go('myprofile');
