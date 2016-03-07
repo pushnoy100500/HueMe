@@ -1,7 +1,25 @@
+<!--header, etc-->
 <h1>Welcome to your profile</h1>
-<ul>
-  <li>username: {{profileCtrl.user[0].username}}</li>
-  <li>email: {{profileCtrl.user[0].email}}</li>
-  <button type="button" ng-click="profileCtrl.logOut()" class="btn btn-danger">logout</button>
-  <!-- and so on -->
-</ul>
+<!--nav goes here-->
+<!--profile form-->
+<main>   
+	<i class="fa fa-pencil" ng-click="profileCtrl.enableEditor()">Edit</i>
+	<input ng-if="profileCtrl.editorEnabled" ng-click="profileCtrl.disableEditor()" type="button" value="Cancel">
+  <div class="row" ng-repeat="(key, value) in profileCtrl.user[0]">
+      <div class="col-md-12">
+        <p ng-show="!profileCtrl.editorEnabled">
+            {{key}} : {{value}}
+        </p>
+        <label ng-show="profileCtrl.editorEnabled">{{key}}: 
+	        <input ng-if="key != 'dob' && key != 'gender' && key != 'photo_url'" type="text" ng-model="value" />
+	        <input ng-if="key == 'dob'" type="date" ng-model="value" />
+			<select ng-if="key == 'gender'">
+				<option disabled></option>
+				<option ng-repeat="g in profileCtrl.genders" ng-model="g">{{g}}</option></select>
+			<img ng-if="key == 'photo_url'" ng-repeat="avatar in profileCtrl.avatars" ng-src="{{avatar.url}}" class="avatars" ng-model="value"/>
+        </label>
+      </div>
+  </div>
+  <input type="button" ng-if="profileCtrl.editorEnabled" value="Save" ng-click="profileCtrl.save()">
+  {{profileCtrl.user[0]}}
+</main>
