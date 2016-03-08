@@ -25,7 +25,8 @@ app.directive('myProfileDir', function($localStorage, $state, regLogService, upd
       this.temp = {};
       
       this.avatSel = function(index){ 
-        this.temp.photo_url = this.avatars[index];
+        this.temp.photo_url = this.avatars[index].url;
+        alert(this.temp.photo_url);
         this.selected = index;
       }
 
@@ -44,17 +45,14 @@ app.directive('myProfileDir', function($localStorage, $state, regLogService, upd
       }
 
       this.save = function(){
-        for(var p in this.temp)
-        {
-          alert(this.temp[p]);
-        }
-       /* updateProfileService.updateUser(this.temp, function(isComplete) {
+      updateProfileService.updateUser(this.temp, function(isComplete) {
           if(isComplete) {
             console.log('success');
+            $state.go('myProfile');
           } else {
             console.log('fuuck');
           }
-        });*/
+        });
       }
     },
     controllerAs: "profileCtrl"
