@@ -31,6 +31,27 @@ body {
 	-o-transform: scaleX(-1);
 }
 
+.avatars{
+	width: 100px;
+	height: 100px;
+	margin: 20px;
+}
+
+.border{
+	border: 2px solid red;
+	border-radius: 100%;
+}
+
+#profSave{
+	display: none;
+}
+
+i.fa.fa-pencil{
+	border: 2px solid black;
+	padding: 5px;
+	border-radius: 7px;
+}
+
 @keyframes moveR
 {
 	0%{left: 1%;} 
