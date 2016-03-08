@@ -1,3 +1,4 @@
+'use strict'
 var app = angular.module("HueMeApp", ['ui.router', 'ui.bootstrap', 'jcs-autoValidate', 'ngStorage']);
 
 //router definition
@@ -48,15 +49,30 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		})
 });
 
-app.run([
-//registration form validation config
-    'defaultErrorMessageResolver', 'bootstrap3ElementModifier',
-    function (defaultErrorMessageResolver) {
-
+app.run(
+    function (defaultErrorMessageResolver, regLogService, $rootScope, $state, $location) {
+			/* form verification */
         defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages) {
         	errorMessages['tooSimplePass'] = 'Password should be at least 8 characters including upper/lower case, special character and numbers';
         	errorMessages['invalidDOB'] = 'Age requirement for this website is 17 - 90';
         	errorMessages['unameErr'] = "Username must be shorter than 15 characters";
         });
+				/* authentication middleware */
+				$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams, options){
+					var authStates = ['myprofile'];
+					console.log(regLogService.isLoggedIn);
+					if(authStates.indexOf(toState.name) >= 0) {
+						if(!regLogService.isLoggedIn) {
+								alert('you must be authorized to view this page');
+								//$location.path('/');
+								$location.path('/');
+							} else {
+								$location.path(toState.url);
+							}
+					} else {
+							$location.path(toState.url);
+					}
+					/*   */
+				})
     }
-]);
+);

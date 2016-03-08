@@ -26,8 +26,9 @@ app.service("regLogService", function($http, $localStorage) {
 				})
 	}
 	this.logOut = function(callback) {
+		console.log('logout');
 		self.toggleLogin();
-		$localStorage.$reset();
+		$localStorage.user = {};
 		callback();
 	}
 	this.toggleLogin = function() {
