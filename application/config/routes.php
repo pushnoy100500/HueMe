@@ -59,8 +59,11 @@ $route['login'] = 'Member/login';
 $route['post'] = 'Member/post';
 $route['reply'] = 'Member/comment';
 $route['member'] = 'Member/index';
+$route['profileUpdate'] = 'Member/profileUpdate';
 
 //post controller routes
 $route['posts'] = 'posts/index';
 
+
+//test stuff
 $route['test'] = 'test/postTest';
