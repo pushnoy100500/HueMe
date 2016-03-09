@@ -9,7 +9,7 @@
 
 	<div class="form-group">
 		<div class="input-group">
-			<label>Avatar: </label><img ng-if="profileCtrl.user.photo_url" ng-hide="profileCtrl.editorEnabled" ng-src="{{profileCtrl.user.photo_url}}" class="avatars"><img ng-show="profileCtrl.editorEnabled" ng-click="profileCtrl.avatSel($index+1)" ng-repeat="a in profileCtrl.avatars" ng-src="{{a.url}}" ng-class="{border: $index +1 == profileCtrl.selected}" class="avatars" />
+			<label>Avatar: </label><img ng-if="profileCtrl.user.photo_url" ng-hide="profileCtrl.editorEnabled" ng-src="{{profileCtrl.user.photo_url}}" class="avatars"><img ng-show="profileCtrl.editorEnabled" ng-click="profileCtrl.avatSel($index)" ng-repeat="a in profileCtrl.avatars" ng-src="{{a.url}}" ng-class="{border: $index +1 == profileCtrl.selected}" class="avatars" />
 		</div> 
 	</div>
 	<div class="form-group">

@@ -16,7 +16,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 				posts: function($http, $q, timeSinceService) {
 					var deferred = $q.defer();
 					$http({method: 'GET', url: 'http://localhost:8888/hueme/'})
-					//http://24.57.53.41/git/master/HueMe/index.php/Home/
 						.then(function(data) {
 							var temp = JSON.parse(data.data);
 							temp = temp.map(function(post) {
