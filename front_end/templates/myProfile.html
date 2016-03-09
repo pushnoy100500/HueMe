@@ -1,8 +1,28 @@
 <!--header, etc-->
-<h1>Welcome to your profile</h1><button type="button" ng-click="profileCtrl.logOut()" name="button">logout</button>
 <!--nav goes here-->
 <!--profile form-->
-<main>
+<main class="my-profile">
+	<header class="profile-header">
+		<nav class="navbar navbar-default navigation">
+		  <div class="container-fluid">
+				<div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-target" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+	    		  <a class="navbar-brand" ui-sref="myprofile"><img src="styles/styleImgs/logo.png" class="logo" alt=""></a>
+  	  	</div>
+				<div class="collapse navbar-collapse" id="collapse-target">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="" class="btn btn-warning" ng-click="profileCtrl.logOut()">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<h1>Welcome to your profile</h1><button type="button" ng-click="profileCtrl.logOut()" name="button">logout</button>
 <form>
 	<i class="fa fa-pencil" ng-click="profileCtrl.enableEditor()">Edit</i>
 	<input ng-if="profileCtrl.editorEnabled" ng-click="profileCtrl.disableEditor()" type="button" value="Cancel">
@@ -10,7 +30,7 @@
 	<div class="form-group">
 		<div class="input-group">
 			<label>Avatar: </label><img ng-if="profileCtrl.user.photo_url" ng-hide="profileCtrl.editorEnabled" ng-src="{{profileCtrl.user.photo_url}}" class="avatars"><img ng-show="profileCtrl.editorEnabled" ng-click="profileCtrl.avatSel($index)" ng-repeat="a in profileCtrl.avatars" ng-src="{{a.url}}" ng-class="{border: $index +1 == profileCtrl.selected}" class="avatars" />
-		</div> 
+		</div>
 	</div>
 	<div class="form-group">
 		<div class="input-group">
