@@ -404,6 +404,62 @@ input[type=checkbox]:checked + label:after {
 	line-height: 25px;
 }
 
+.avatars{
+	width: 100px;
+	height: 100px;
+	margin: 20px;
+}
+
+.border{
+	border: 2px solid red;
+	border-radius: 100%;
+}
+
+#profSave{
+	display: none;
+}
+
+i.fa.fa-pencil{
+	border: 2px solid black;
+	padding: 5px;
+	border-radius: 7px;
+}
+
+/* styles for my profile page */
+.my-profile {
+
+}
+
+.profile-header {
+	background-image: url('styleImgs/profile-header.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+.navigation {
+	color: #fff;
+	background-color: rgba(255,255,255,0.1);
+	border: none;
+}
+
+.logo {
+	width: 120px;
+	height: auto;
+}
+.welcome {
+	text-align: center;
+}
+
+.avatar {
+	width: 120px;
+	height: auto;
+	position: relative;
+	left: 40%;
+	bottom: 60px;
+}
+
 @media screen and (max-width: 860px)
 {
 	#car{
