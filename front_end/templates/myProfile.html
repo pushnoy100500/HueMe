@@ -48,7 +48,11 @@
 	</div>
 	<div class="form-group">
 		<div class="input-group">
-			<label>Country: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.country}}</span></label><input ng-show="profileCtrl.editorEnabled" type="text" ng-model="profileCtrl.temp.country">
+			<label>Country: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.country}}</span></label>
+			<select ng-model="profileCtrl.temp.country" ng-show="profileCtrl.editorEnabled">
+				<option disabled></option>
+				<option ng-repeat="c in profileCtrl.countries" ng-model="c">{{c.name}}</option>
+			</select>
 		</div>
 	</div>
 	<div class="form-group">

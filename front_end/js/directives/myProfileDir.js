@@ -1,6 +1,6 @@
 var app = angular.module("HueMeApp");
 
-app.directive('myProfileDir', function($localStorage, $state, regLogService, updateProfileService) {
+app.directive('myProfileDir', function($localStorage, $state, regLogService, updateProfileService, avatarService, countryService) {
   return {
     restrict: "E",
     templateUrl: "templates/myProfile.html",
@@ -16,15 +16,9 @@ app.directive('myProfileDir', function($localStorage, $state, regLogService, upd
       this.save = function(){
          alert('save');
        }
-       this.avatars = [
-        {'url' : '/styles/styleImgs/avatarD1.png'},
-        {'url' : '/styles/styleImgs/avatarF1.png'},
-        {'url' : '/styles/styleImgs/avatarF2.png'},
-        {'url' : '/styles/styleImgs/avatarF3.png'},
-        {'url' : '/styles/styleImgs/avatarM1.png'},
-        {'url' : '/styles/styleImgs/avatarM2.png'},
-        {'url' : '/styles/styleImgs/avatarM3.png'},
-      ];
+       this.avatars = avatarService.avatars;
+
+      this.countries = countryService.countries;
 
       this.temp = {};
 
