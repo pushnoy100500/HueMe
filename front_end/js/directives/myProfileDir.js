@@ -24,7 +24,7 @@ app.directive('myProfileDir', function($localStorage, $state, regLogService, upd
 
       this.avatSel = function(index){
         this.temp.photo_url = this.avatars[index].url;
-        this.selected = index;
+        this.selected = index + 1;
       }
 
       this.genders = ['Female', 'Male', 'Other'];

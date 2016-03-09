@@ -13,7 +13,7 @@ app.service("regLogService", function($http, $localStorage) {
 		});
 	};
 	this.logUserIn = function(userData, callback) {
-		$http.post('http://localhost:8888/hueme/login', {'user': userData})
+		$http.post('http://localhos:8888/hueme/login', {'user': userData})
 			.then(function(response) {
 					var user = JSON.parse(response.data);
 					if(user) {
