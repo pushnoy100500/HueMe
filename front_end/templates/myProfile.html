@@ -1,28 +1,11 @@
 <!--header, etc-->
-<h1>Welcome to your profile</h1>
+<h1>Welcome to your profile</h1><button type="button" ng-click="profileCtrl.logOut()" name="button">logout</button>
 <!--nav goes here-->
 <!--profile form-->
 <main>
 <form>
 	<i class="fa fa-pencil" ng-click="profileCtrl.enableEditor()">Edit</i>
 	<input ng-if="profileCtrl.editorEnabled" ng-click="profileCtrl.disableEditor()" type="button" value="Cancel">
-		<!-- <div class="form-group" ng-repeat="(key, value) in profileCtrl.user[0]">
-		    <div class="input-group">
-		        <p ng-show="!profileCtrl.editorEnabled">
-		            {{key}} : {{value}}
-		        </p>
-		        <label ng-show="profileCtrl.editorEnabled">{{key}}:
-			        <input ng-if="key != 'dob' && key != 'gender' && key != 'photo_url' && key != 'username' && key != 'email'" type="text" ng-model="profileCtrl.user[0].value" />
-			        <input ng-if="key == 'username' || key == 'email'" type="text" required>
-			        <input ng-if="key == 'dob'" type="date" ng-model="profileCtrl.user[0].dob" />
-					<select ng-if="key == 'gender'" ng-model="profileCtrl.user[0].gender">
-						<option disabled></option>
-						<option ng-repeat="g in profileCtrl.genders" ng-model="g">{{g}}</option>
-					</select>
-					<img ng-if="key == 'photo_url'" ng-repeat="avatar in profileCtrl.avatars" ng-src="{{avatar.url}}" class="avatars" ng-model="value"/>
-		        </label>
-		    </div>
-		</div> -->
 
 	<div class="form-group">
 		<div class="input-group">

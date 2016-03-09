@@ -50,7 +50,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 });
 
 app.run(
-    function (defaultErrorMessageResolver, regLogService, $rootScope, $state, $location) {
+    function (defaultErrorMessageResolver, regLogService, $rootScope, $state, $location, $localStorage) {
 			/* form verification */
         defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages) {
         	errorMessages['tooSimplePass'] = 'Password should be at least 8 characters including upper/lower case, special character and numbers';
@@ -60,11 +60,10 @@ app.run(
 				/* authentication middleware */
 				$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams, options){
 					var authStates = ['myprofile'];
-					console.log(regLogService.isLoggedIn);
+					console.log($localStorage.isLoggedIn);
 					if(authStates.indexOf(toState.name) >= 0) {
-						if(!regLogService.isLoggedIn) {
+						if(!$localStorage.isLoggedIn) {
 								alert('you must be authorized to view this page');
-								//$location.path('/');
 								$location.path('/');
 							} else {
 								$location.path(toState.url);
