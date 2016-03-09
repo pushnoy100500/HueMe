@@ -407,3 +407,6 @@ input[type=checkbox]:checked + label:after {
 	width: 120px;
 	height: auto;
 }
+.welcome {
+	text-align: center;
+}

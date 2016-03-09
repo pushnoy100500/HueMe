@@ -22,77 +22,84 @@
 			</div>
 		</nav>
 	</header>
-	<h1>Welcome to your profile</h1><button type="button" ng-click="profileCtrl.logOut()" name="button">logout</button>
-<form>
-	<i class="fa fa-pencil" ng-click="profileCtrl.enableEditor()">Edit</i>
-	<input ng-if="profileCtrl.editorEnabled" ng-click="profileCtrl.disableEditor()" type="button" value="Cancel">
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="welcome">Welcome to your profile 	<i class="btn btn-default fa fa-pencil" ng-click="profileCtrl.enableEditor()">Edit</i></h3>
+		</div>
+	</div>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<form>
+			<input ng-if="profileCtrl.editorEnabled" class="btn btn-danger" ng-click="profileCtrl.disableEditor()" type="button" value="Cancel">
+			<div class="form-group">
+				<div class="input-group">
+					<label>Avatar: </label><img ng-if="profileCtrl.user.photo_url" ng-hide="profileCtrl.editorEnabled" ng-src="{{profileCtrl.user.photo_url}}" class="avatars"><img ng-show="profileCtrl.editorEnabled" ng-click="profileCtrl.avatSel($index)" ng-repeat="a in profileCtrl.avatars" ng-src="{{a.url}}" ng-class="{border: $index +1 == profileCtrl.selected}" class="avatars" />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<label>Username: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.username}}</span></label><input ng-show="profileCtrl.editorEnabled" type="text" ng-model="profileCtrl.temp.username" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<label>Email: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.email}}</span></label><input ng-show="profileCtrl.editorEnabled" type="text" ng-model="profileCtrl.temp.email"  required>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<label>D.O.B: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.dob}}</span></label><input ng-show="profileCtrl.editorEnabled" type="date" ng-model="profileCtrl.temp.dob" placeholder="yyyy-MM-dd" name="dob" required autocomplete="off"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<label>Description: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.description}}</span></label><textarea ng-show="profileCtrl.editorEnabled" ng-model="profileCtrl.temp.description"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<label>Gender: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.genders}}</span></label>
+					<select ng-model="profileCtrl.temp.gender" ng-show="profileCtrl.editorEnabled">
+						<option disabled></option>
+						<option ng-repeat="g in profileCtrl.genders" ng-model="g">{{g}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<label>Status: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.status}}</span></label><input ng-show="profileCtrl.editorEnabled" type="text" ng-maxlength="25" ng-model="profileCtrl.temp.status">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<label>Country: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.country}}</span></label>
+					<select ng-model="profileCtrl.temp.country" ng-show="profileCtrl.editorEnabled">
+						<option disabled></option>
+						<option ng-repeat="c in profileCtrl.countries" ng-model="c">{{c.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<label>Region: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.region}}</span></label><input ng-show="profileCtrl.editorEnabled" type="text" ng-model="profileCtrl.temp.region">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<label>City: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.city}}</span></label><input ng-show="profileCtrl.editorEnabled" type="text" ng-model="profileCtrl.temp.city">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<label>Zip_Code: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.zip_code}}</span></label><input ng-show="profileCtrl.editorEnabled" type="text" ng-model="profileCtrl.temp.zip_code">
+				</div>
+			</div>
+		  <input type="button" ng-if="profileCtrl.editorEnabled" class="btn btn-success" value="Save" ng-click="profileCtrl.save()">
+		  {{profileCtrl.user}}
+		  {{profileCtrl.temp}}
+		</form>
+	</div>
+</div>
 
-	<div class="form-group">
-		<div class="input-group">
-			<label>Avatar: </label><img ng-if="profileCtrl.user.photo_url" ng-hide="profileCtrl.editorEnabled" ng-src="{{profileCtrl.user.photo_url}}" class="avatars"><img ng-show="profileCtrl.editorEnabled" ng-click="profileCtrl.avatSel($index)" ng-repeat="a in profileCtrl.avatars" ng-src="{{a.url}}" ng-class="{border: $index +1 == profileCtrl.selected}" class="avatars" />
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="input-group">
-			<label>Username: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.username}}</span></label><input ng-show="profileCtrl.editorEnabled" type="text" ng-model="profileCtrl.temp.username" required>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="input-group">
-			<label>Email: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.email}}</span></label><input ng-show="profileCtrl.editorEnabled" type="text" ng-model="profileCtrl.temp.email"  required>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="input-group">
-			<label>D.O.B: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.dob}}</span></label><input ng-show="profileCtrl.editorEnabled" type="date" ng-model="profileCtrl.temp.dob" placeholder="yyyy-MM-dd" name="dob" required autocomplete="off"/>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="input-group">
-			<label>Description: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.description}}</span></label><textarea ng-show="profileCtrl.editorEnabled" ng-model="profileCtrl.temp.description"></textarea>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="input-group">
-			<label>Gender: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.genders}}</span></label>
-			<select ng-model="profileCtrl.temp.gender" ng-show="profileCtrl.editorEnabled">
-				<option disabled></option>
-				<option ng-repeat="g in profileCtrl.genders" ng-model="g">{{g}}</option>
-			</select>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="input-group">
-			<label>Status: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.status}}</span></label><input ng-show="profileCtrl.editorEnabled" type="text" ng-maxlength="25" ng-model="profileCtrl.temp.status">
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="input-group">
-			<label>Country: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.country}}</span></label>
-			<select ng-model="profileCtrl.temp.country" ng-show="profileCtrl.editorEnabled">
-				<option disabled></option>
-				<option ng-repeat="c in profileCtrl.countries" ng-model="c">{{c.name}}</option>
-			</select>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="input-group">
-			<label>Region: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.region}}</span></label><input ng-show="profileCtrl.editorEnabled" type="text" ng-model="profileCtrl.temp.region">
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="input-group">
-			<label>City: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.city}}</span></label><input ng-show="profileCtrl.editorEnabled" type="text" ng-model="profileCtrl.temp.city">
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="input-group">
-			<label>Zip_Code: <span ng-hide="profileCtrl.editorEnabled">{{profileCtrl.user.zip_code}}</span></label><input ng-show="profileCtrl.editorEnabled" type="text" ng-model="profileCtrl.temp.zip_code">
-		</div>
-	</div>
-  <input type="button" ng-if="profileCtrl.editorEnabled" value="Save" ng-click="profileCtrl.save()">
-  {{profileCtrl.user}}
-  {{profileCtrl.temp}}
-</form>
 
 </main>
