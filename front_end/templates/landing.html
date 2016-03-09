@@ -17,7 +17,28 @@
 			</div>
 		</div>
 	</section>
-	<section class="recent-posts">
+	<section id="postBox">
+		<div class="postWrap"  ng-repeat="value in postsCtrl.posts">
+			<div class="post">
+				<div class="post-header" style="border-radius: 8px 8px 0 0">
+					<div class="post-profile-photo"><!-- This is simply a placeholder for the user's avatar image (65px diameter)--></div>
+					<div class="post-author">{{value.user}}</div>
+				</div>
+
+				<div class="post-content">
+				{{value.post}}
+				</div>
+
+				<div class="post-footer">
+
+				<!-- Timestamp goes here-->
+				{{value.time}} ago
+				<div class="float-right">
+						<i class="fa fa-comment"></i>
+				</div>
+			</div>
+		</div>
+		<!--
 		<div class="row" ng-repeat="value in postsCtrl.posts">
 			<div class="col-md-6 col-md-offset-3 media post">
 				<div class="media-left">
@@ -29,7 +50,7 @@
 				<div class="media-body">
 					<p class="post-text">
 						{{value.post}}
-						
+
 					</p>
 					<p class="post-text">
 						{{value.time}} ago
@@ -37,6 +58,7 @@
 				</div>
 			</div>
 		</div>
+	-->
 	</section>
 	<section ui-view></section>
 </div>
