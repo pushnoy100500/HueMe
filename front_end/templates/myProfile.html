@@ -23,6 +23,9 @@
 		</nav>
 	</header>
 	<div class="row">
+		<div class="col-md-2 col-md-offset-5">
+			<img ng-src="{{profileCtrl.user.photo_url ? (profileCtrl.user.photo_url) : '/styles/styleImgs/avatarD1.png' }}" alt="avatar" class="avatar">
+		</div>
 		<div class="col-md-12">
 			<h3 class="welcome">Welcome to your profile 	<i class="btn btn-default fa fa-pencil" ng-click="profileCtrl.enableEditor()">Edit</i></h3>
 		</div>
@@ -33,7 +36,7 @@
 			<input ng-if="profileCtrl.editorEnabled" class="btn btn-danger" ng-click="profileCtrl.disableEditor()" type="button" value="Cancel">
 			<div class="form-group">
 				<div class="input-group">
-					<label>Avatar: </label><img ng-if="profileCtrl.user.photo_url" ng-hide="profileCtrl.editorEnabled" ng-src="{{profileCtrl.user.photo_url}}" class="avatars"><img ng-show="profileCtrl.editorEnabled" ng-click="profileCtrl.avatSel($index)" ng-repeat="a in profileCtrl.avatars" ng-src="{{a.url}}" ng-class="{border: $index +1 == profileCtrl.selected}" class="avatars" />
+					</label><img ng-if="profileCtrl.user.photo_url" ng-hide="profileCtrl.editorEnabled" ng-src="{{profileCtrl.user.photo_url}}" class="avatars"><img ng-show="profileCtrl.editorEnabled" ng-click="profileCtrl.avatSel($index)" ng-repeat="a in profileCtrl.avatars" ng-src="{{a.url}}" ng-class="{border: $index +1 == profileCtrl.selected}" class="avatars" />
 				</div>
 			</div>
 			<div class="form-group">

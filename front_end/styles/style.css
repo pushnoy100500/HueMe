@@ -410,3 +410,10 @@ input[type=checkbox]:checked + label:after {
 .welcome {
 	text-align: center;
 }
+.avatar {
+	width: 120px;
+	height: auto;
+	position: relative;
+	left: 40%;
+	bottom: 60px;
+}
