@@ -31,27 +31,6 @@ body {
 	-o-transform: scaleX(-1);
 }
 
-.avatars{
-	width: 100px;
-	height: 100px;
-	margin: 20px;
-}
-
-.border{
-	border: 2px solid red;
-	border-radius: 100%;
-}
-
-#profSave{
-	display: none;
-}
-
-i.fa.fa-pencil{
-	border: 2px solid black;
-	padding: 5px;
-	border-radius: 7px;
-}
-
 @keyframes moveR
 {
 	0%{left: 1%;}
@@ -80,6 +59,7 @@ i.fa.fa-pencil{
 	 background-repeat: no-repeat;
 	background-position: bottom center;
 	background-attachment: fixed;
+	margin-bottom: 0;
 }
 .city-view h1 {
 	margin-top: 100px;
@@ -137,12 +117,6 @@ i.fa.fa-pencil{
 	height: 90vh;
 }
 
-.post {
-	background-color: #d84226;
-	border: 2px solid #8c483c;
-	color: #fff;
-	padding: 30px;
-}
 /* this is just a dummy square for now */
 .voting {
 	width: 60px;
@@ -320,7 +294,6 @@ input[type=checkbox]:checked + label:after {
 	width: 100px;
 	height: 100px;
 }
-
 
 #postBox{
 	position: relative;
@@ -571,34 +544,4 @@ i.fa.fa-pencil{
 	.actions{
 		height: 100px;
 	}
-}
-/* styles for my profile page */
-.my-profile {
-
-}
-.profile-header {
-	background-image: url('styleImgs/profile-header.jpg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	height: 250px;
-}
-.navigation {
-	color: #fff;
-	background-color: rgba(255,255,255,0.1);
-	border: none;
-}
-.logo {
-	width: 120px;
-	height: auto;
-}
-.welcome {
-	text-align: center;
-}
-.avatar {
-	width: 120px;
-	height: auto;
-	position: relative;
-	left: 40%;
-	bottom: 60px;
 }
