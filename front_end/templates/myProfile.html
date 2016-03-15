@@ -3,24 +3,56 @@
 <!--profile form-->
 <main class="my-profile">
 	<header class="profile-header">
-		<nav class="navbar navbar-default navigation">
-		  <div class="container-fluid">
-				<div class="navbar-header">
-			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-target" aria-expanded="false">
-			        <span class="sr-only">Toggle navigation</span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			      </button>
-	    		  <a class="navbar-brand" ui-sref="myprofile"><img src="styles/styleImgs/logo.png" class="logo" alt=""></a>
-  	  	</div>
-				<div class="collapse navbar-collapse" id="collapse-target">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="" class="btn btn-warning" ng-click="profileCtrl.logOut()">Logout</a></li>
-					</ul>
-				</div>
+		<nav class="navbar navbar-inverse">
+	  	<div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-hueme-navbar-collapse" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><img alt="Hueme" src="styles/styleImgs/logo.png" style="width: 75px;"></a>
 			</div>
+			<div class="collapse navbar-collapse" id="bs-hueme-navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					 <li><a href="#"><i class="fa fa-home fa-2x"></i><span class="sr-only">Home</span></a></li>
+					 <li><a href="#"><i class="fa fa-users fa-2x"></i><span class="sr-only">Search Profiles</span></a></li>
+					 <li class="dropdown">
+						 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-2x"></i></a>
+						 <div class="dropdown-menu" style="padding: 15px; min-width: 350px;">
+							 <div class="form-group">
+								 <div class="input-group">
+									 <span class="input-group-addon"><i class="fa fa-hashtag fa-fw"></i></span>
+									 <input class="form-control" id="search-tags" name="search-tags" placeholder="Tags"/>
+								 </div>
+							 </div>
+							 <div class="form-group">
+								 <div class="input-group">
+									 <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+									 <input class="form-control" id="search-users" name="search-users" placeholder="Users"/>
+								 </div>
+							 </div>
+
+							 <button class="btn btn-primary btn-block">Search</button>
+						 </div>
+					 </li>
+					 <li><a href="#"><i class="fa fa-cogs fa-2x"></i><span class="sr-only">Edit Profile</span></a></li>
+					 <li><a href="#"><i class="fa fa-sign-out fa-2x"></i><span class="sr-only">Sign-out</span></a></li>
+				 </ul>
+			 </div>
+		 </div>
 		</nav>
+		<script>
+			$(function() {
+			  $('.dropdown-toggle').dropdown();
+
+			  $('.dropdown input, .dropdown label').click(function(e) {
+			    e.stopPropagation();
+			  });
+			});
+	</script>
 	</header>
 	<div class="row">
 		<div class="col-md-2 col-md-offset-5">
