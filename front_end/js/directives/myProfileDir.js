@@ -19,8 +19,20 @@ app.directive('myProfileDir', function($localStorage, $state, regLogService, upd
     controller: function() {
 
       this.user = $localStorage.user[0];
-      this.user.dob = {month: "", day: "", year: ""};
-
+      console.log(this.user);
+      if(!this.user.dob) {
+        this.user.dob = {month: "", day: "", year: ""};
+       } else {
+        this.user.dob = {
+          year: this.user.dob.substring(0, 4),
+          month: this.user.dob.substring(5, 7),
+          day: this.user.dob.substring(8, 9)
+        }
+      }
+  
+      // if(this.user.dob.match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")) {
+      //   alert('bleat');
+      // }
       this.logOut = function() {
         regLogService.logOut(function() {
           $state.go('landing');
@@ -29,7 +41,23 @@ app.directive('myProfileDir', function($localStorage, $state, regLogService, upd
       $localStorage.userTemp = $localStorage.user[0];
 
       this.save = function(){
-         alert('save');
+         //create a user object to save
+         var updatedUser = {};
+         Object.assign(updatedUser, this.temp);
+         //formatting dob
+         var dob = updatedUser.dob;
+
+         updatedUser.dob = dob.year + "-" + ((this.months.indexOf(dob.month) + 1) < 10 ? '0' + (this.months.indexOf(dob.month) + 1) :  this.months.indexOf(dob.month) + 1) + "-" + (dob.day < 10 ? ('0' + dob.day) :  dob.day);
+         //saving
+         $localStorage.user[0] = this.temp;
+         updateProfileService.updateUser(updatedUser, function(ok) {
+           if(ok) {
+             console.log('saved');
+           }
+         })
+         //quit editing mode
+         this.editorEnabled = false;
+         console.dir(updatedUser);
        };
        this.avatars = avatarService.avatars;
 
