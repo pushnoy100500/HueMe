@@ -5,13 +5,13 @@ class Posts extends CI_Controller{
 
 	public function __construct(){
 
-		header('Access-Control-Allow-Origin: *');
+		/*header('Access-Control-Allow-Origin: *');
         header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
         $method = $_SERVER['REQUEST_METHOD'];
         if($method == "OPTIONS") {
           die();
-      }
+      }*/
       parent::__construct();
       $this->load->model('PostsModel'); //Loads the model
 	}
@@ -33,8 +33,24 @@ class Posts extends CI_Controller{
 
 	public function getAllPostsByUser(){
 		//qury all users posts
-		
+		 $user = json_decode(file_get_contents('php://input'), true)['user'];
+     $data['data'] = $this->PostsModel->getPostsByUserId($user['id']);
+     $this->load->view('PostsView', $data);
 		
 	}
+  public function getAllPostsByColour(){
+    //qury all users posts
+     $post = json_decode(file_get_contents('php://input'), true)['post'];
+     $data['data'] = $this->PostsModel->getPostsByUserId($post['colourId']);
+     $this->load->view('PostsView', $data);
+    
+  }
+
+
+  public function getPostsByTen(){
+      $post = json_decode(file_get_contents('php://input'), true)['post'];
+     $data['data'] = $this->PostsModel->getPostsByTen($post['startIndex']);
+     $this->load->view('PostsView', $data);
+  }
 
 }

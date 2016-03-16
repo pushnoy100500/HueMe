@@ -28,7 +28,6 @@ class MemberModel extends CI_Model {
 
     }
 
-
     function loginUser($user) {
         $json_user = $user; //json_decode($user);
         $query = "SELECT id FROM users WHERE username = '" . $json_user['username'] . "' AND password = '" . $json_user['password'] . "'";
@@ -49,13 +48,19 @@ class MemberModel extends CI_Model {
 
     public function updateProfile($user) {
 
-        $query = "UPDATE users SET photo_url= '" . $user['photo_url'] . "', dob = '" . $user['dob'] .
-        "' ,description= '" . $user['description'] . "' ,gender='" . $user['gender'] .
-        "', status= '" . $user['description'] . "',country='" . $user['country'] . "',region='" .
-        $user['region'] . "',city='" . $user['city'] . "',zip_code='" . $user['zipcode'] .
-        "', mood_colours_id=" . $user['colour'] . " WHERE email = '" . $user['email'] . "'";
-        $rs = $this->db->query($query); //gets the data from the table
-        return json_encode($rs->result_array());
+        $query = "UPDATE users SET photo_url='" . $user['photo_url'] . "', dob='" . 
+        $user['dob'] ."' ,description='" . $user['description'] . "',gender='" . $user['gender'] .
+        "',status='" . $user['description'] . "',country='" . $user['country'] . "',region='" .
+        $user['region'] . "',city='" . $user['city'] . "',zip_code='" . $user['zip_code'] .
+        "' WHERE username = '" . $user['username'] . "'";
+        //,mood_colours_id=" . $user['colour'] . "
+        $rs = $this->db->query($query); 
+        if($rs){
+            return true;
+        }else{
+            return false;
+        }
+        
     }
 
     private function getProfile($id) {
@@ -65,6 +70,7 @@ class MemberModel extends CI_Model {
 
         return json_encode($user);
     }
+    
 
     public function usernameExists($username){
         $qry = "SELECT id FROM users WHERE username = '" . $username . "'";

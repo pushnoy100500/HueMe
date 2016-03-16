@@ -62,7 +62,7 @@ $route['login'] = 'Member/login';
 $route['post'] = 'Posts/post';
 $route['reply'] = 'Posts/comment';
 $route['member'] = 'Member/index';
-$route['profileUpdate'] = 'Member/profileUpdate';
+$route['updateProfile'] = 'Member/updateProfile';
 $route['checkUsername'] = 'Member/checkUsername';
 $route['checkEmail'] = 'Member/checkEmail';
 
@@ -71,7 +71,9 @@ $route['checkEmail'] = 'Member/checkEmail';
 //$route['posts'] = 'Posts/index';
 $route['post'] = 'Posts/post';
 $route['reply'] = 'Posts/comment';
-
+$route['postsByUser'] = 'Posts/getAllPostsByUser';
+$route['postsByColour'] = 'Posts/getAllPostsByColour';
+$route['postsByTen'] = 'Posts/getPostsByTen';
 
 
 //test stuff
