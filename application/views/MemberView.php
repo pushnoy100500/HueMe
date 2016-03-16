@@ -3,5 +3,5 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
-echo  stripslashes($data);
+echo stripcslashes($data);
     

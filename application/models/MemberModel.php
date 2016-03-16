@@ -2,9 +2,10 @@
 
 class MemberModel extends CI_Model {
 
+
     function registerUser($register) {
         $json_reg = $register; // json_decode($register);
-        if(!$userExists($json_reg['email'], $json_reg['username'])){
+        if(!$this->userExists($json_reg['username'],$json_reg['email'])){
 
             $qr = 'INSERT INTO users (username, password, email) VALUES ("' . $json_reg['username'] . '", "' . $json_reg['password'] . '", "' . $json_reg['email'] . '")';
 
@@ -20,12 +21,13 @@ class MemberModel extends CI_Model {
             }
         }else{
             return json_encode("{
-                'username' : 'true',
-                'email' : 'true'
+                'username' : '". $this->usernameExists($json_reg['username']) . "',
+                'email' : '" . $this->userEmailExists($json_reg['email']) . "'
             }");
         }
 
     }
+
 
     function loginUser($user) {
         $json_user = $user; //json_decode($user);
@@ -34,6 +36,8 @@ class MemberModel extends CI_Model {
         $id = $rs->row();
         if ($id) {
             return $this->getProfile($id->id);
+        }else{
+            return false;
         }
     }
 
@@ -55,24 +59,43 @@ class MemberModel extends CI_Model {
     }
 
     private function getProfile($id) {
-        $qry = 'SELECT email, dob, description, gender, status, country, region, city,zip_code, photo_url FROM users WHERE id = ' . $id;
+        $qry = 'SELECT id, username, dob, description, gender, status, country, region, city,zip_code, photo_url FROM users WHERE id = ' . $id;
         $userInfo = $this->db->query($qry);
         $user = $userInfo->result_array();
+
         return json_encode($user);
     }
 
     public function usernameExists($username){
         $qry = "SELECT id FROM users WHERE username = '" . $username . "'";
         $id = $this->db->query($qry);
-       $row = $id->result_array();
-        return json_encode($row); //) ? "true" : "false"); 
+        $row = $id->result_array();
+        if(count($row) > 0){
+            return true;    
+        }else {
+            return false;
+        }
+        //return json_encode($row); //) ? "true" : "false"); 
     }
 
-    public function useremailExists($email){
+    public function userEmailExists($email){
         $qry = "SELECT id FROM users WHERE email = '" . $email . "'";
         $id = $this->db->query($qry);
         $row = $id->result_array();
-        return json_encode($row); //) ? "true" : "false");        
+        if(count($row) > 0){
+            return true;    
+        }else {
+            return false;
+        }
+        
+    }
+
+    public function userExists($username, $email){
+        if($this->usernameExists($username) && $this->userEmailExists($email)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }
