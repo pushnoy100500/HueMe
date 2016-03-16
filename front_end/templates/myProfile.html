@@ -37,7 +37,7 @@
 						 </div>
 					 </li>
 					 <li><a href="#" alt="Edit Profile" title="Edit Profile"><i class="fa fa-cogs fa-2x"></i><span class="sr-only">Edit Profile</span></a></li>
-					 <li><a href="#"><i class="fa fa-sign-out fa-2x" alt="Sign-Out" title="Sign-Out"></i><span class="sr-only">Sign-out</span></a></li>
+					 <li><a href="" ng-click="profileCtrl.logOut()"><i class="fa fa-sign-out fa-2x" alt="Sign-Out" title="Sign-Out"></i><span class="sr-only">Sign-out</span></a></li>
 				 </ul>
 			 </div>
 		 </div>
@@ -45,7 +45,6 @@
 		<script>
 			$(function() {
 			  $('.dropdown-toggle').dropdown();
-
 			  $('.dropdown input, .dropdown label').click(function(e) {
 			    e.stopPropagation();
 			  });
@@ -55,7 +54,7 @@
 	</header>
 <!--profile form-->
 <div class="avatar-username-wrap">
-	<img ng-src="{{profileCtrl.user.photo_url ? (profileCtrl.user.photo_url) : '/styles/styleImgs/avatarD1.png' }}" alt="avatar" class="avatar">
+	<img ng-src="{{profileCtrl.user.photo_url ? profileCtrl.user.photo_url : '/styles/styleImgs/avatarD1.png' }}" alt="avatar" class="avatar">
 	<span class="profile-username">{{profileCtrl.user.username}}</span>
 </div>
 <form>

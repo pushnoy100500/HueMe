@@ -12,14 +12,27 @@ app.filter('range', function() {
   };
 });
 
-app.directive('myProfileDir', function($localStorage, $state, regLogService, updateProfileService, avatarService, countryService) {
+app.directive('myProfileDir', function($localStorage, $location, $state, regLogService, updateProfileService, avatarService, countryService) {
   return {
     restrict: "E",
     templateUrl: "templates/myProfile.html",
     controller: function() {
 
       this.user = $localStorage.user[0];
-      this.user.dob = {month: "", day: "", year: ""};
+      console.log(this.user);
+      console.log(typeof this.user.dob);
+      if(!this.user.dob) {
+        this.user.dob = {month: "", day: "", year: ""};
+      } else if (typeof this.user.dob === 'object') {
+        //do nothing
+      }
+      else {
+        this.user.dob = {
+          year: this.user.dob.substring(0, 4),
+          month: this.user.dob.substring(5, 7),
+          day: this.user.dob.substring(8, 10)
+        }
+      }
 
       this.logOut = function() {
         regLogService.logOut(function() {
@@ -29,12 +42,26 @@ app.directive('myProfileDir', function($localStorage, $state, regLogService, upd
       $localStorage.userTemp = $localStorage.user[0];
 
       this.save = function(){
-         alert('save');
-         this.user = this.temp;
+         //create a user object to save
+         var updatedUser = {};
+         Object.assign(updatedUser, this.temp);
+         //formatting dob
+         var dob = updatedUser.dob;
+
+         updatedUser.dob = dob.year + "-" + ((this.months.indexOf(dob.month) + 1) < 10 ? '0' + (this.months.indexOf(dob.month) + 1) :  this.months.indexOf(dob.month) + 1) + "-" + (dob.day < 10 ? ('0' + dob.day) :  dob.day);
+         //saving
          $localStorage.user[0] = this.temp;
+         updateProfileService.updateUser(updatedUser, function(ok) {
+           if(ok) {
+             this.user = this.temp;
+             console.log('saved');
+             $location.path('/myprofile');
+           }
+         })
+         //quit editing mode
          this.editorEnabled = false;
-         this.temp = {};
-       }
+         console.dir(updatedUser);
+       };
        this.avatars = avatarService.avatars;
 
       this.countries = countryService.countries;
