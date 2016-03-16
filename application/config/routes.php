@@ -50,14 +50,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+$route['default_controller'] = 'Member';
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
 
 
-$route['default_controller'] = 'Home';
-$route['Member'] = 'Member/index';
-$route['Home'] = 'Home/index';
 
-//$route['Home'] = 'Home';//index accepts 2 arguments
-//$route['Member'] = 'Member/index';
-//rule to rout request with number values
-//$route['{controller}/{default_method}/(:any)'] = "{controller}/{original_method}/$1";
- 
+//member controller routs
+$route['register'] = 'Member/register';
+$route['login'] = 'Member/login';
+$route['post'] = 'Posts/post';
+$route['reply'] = 'Posts/comment';
+$route['member'] = 'Member/index';
+$route['profileUpdate'] = 'Member/profileUpdate';
+$route['checkUsername'] = 'Member/checkUsername';
+$route['checkEmail'] = 'Member/checkEmail';
+
+
+//post controller routes
+//$route['posts'] = 'Posts/index';
+$route['post'] = 'Posts/post';
+$route['reply'] = 'Posts/comment';
+
+
+
+//test stuff
+$route['test'] = 'test/postTest';
