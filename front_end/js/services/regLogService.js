@@ -1,9 +1,8 @@
 var app = angular.module("HueMeApp");
 app.service("regLogService", function($http, $localStorage) {
 	var self = this;
-	this.registerUser = function(userData, callback){ 
-		$http.post('http://localhost/hueme/register',{'user': userData }) 
-		$http.post('http://localhost/hueme/index.php/register',{'user': userData }) 
+	this.registerUser = function(userData, callback){
+		$http.post('http://localhost:8888/hueme/register',{'user': userData })
 		.then(function(response) {
 			var user = response.data;
 			$localStorage.user = user;
@@ -13,9 +12,8 @@ app.service("regLogService", function($http, $localStorage) {
 			callback(false);
 		});
 	};
-	this.logUserIn = function(userData, callback) { 
-		$http.post('http://localhost/hueme/login', {'user': userData}) 
-		$http.post('http://localhost/hueme/index.php/login', {'user': userData}) 
+	this.logUserIn = function(userData, callback) {
+		$http.post('http://localhost:8888/hueme/login', {'user': userData}) 
 			.then(function(response) {
 					var user = response.data;
 					if(user) {
