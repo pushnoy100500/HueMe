@@ -14,6 +14,8 @@
 	<script src="js/jquery.nanoscroller.min.js"></script>
 	<!--jQuery Nanoscroller Stylesheet-->
 	<link rel="stylesheet" href="styles/nanoscroller.css">
+	<!--UI-Select Stylesheet-->
+	<link rel="stylesheet" href="styles/select.css">
 	<!--FontAwesome-->
 	<link rel="stylesheet" href="styles/font-awesome.min.css">
 	<!-- custom styles -->
@@ -22,8 +24,12 @@
 	<script src="ng/angular.js"></script>
 	<!-- angular router -->
 	<script src="ng/ui-router.js"></script>
+	<!--UI-Select Script-->
+	<script src="ng/select.js"></script>
 	<!-- bootstrap animations adopted to play with angular -->
 	<script src="ng/ng-ui-bootstrap.js"></script>
+	<!-- angular sanitize module -->
+	<script src="ng/angular-sanitize.min.js"></script>
 	<!-- angular validation module -->
 	<script src="ng/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
 	<!-- angular validation module bootstrap modifier -->
@@ -46,6 +52,15 @@
 	<script src="js/services/updateProfileService.js"></script>
 	<script src="js/services/avatarsService.js"></script>
 	<script src="js/services/countryService.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
+    <script>
+      document.createElement('ui-select');
+      document.createElement('ui-select-match');
+      document.createElement('ui-select-choices');
+    </script>
+  <![endif]-->
 
 </head>
 <body ng-app="HueMeApp">
