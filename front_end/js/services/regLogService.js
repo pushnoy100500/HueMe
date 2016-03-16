@@ -4,7 +4,7 @@ app.service("regLogService", function($http, $localStorage) {
 	this.registerUser = function(userData, callback){
 		$http.post('http://localhost:8888/hueme/register',{'user': userData })
 		.then(function(response) {
-			var user = JSON.parse(response.data);
+			var user = response.data;
 			$localStorage.user = user;
 			$localStorage.isLoggedIn = true;
 			callback(true);
@@ -15,7 +15,7 @@ app.service("regLogService", function($http, $localStorage) {
 	this.logUserIn = function(userData, callback) {
 		$http.post('http://localhost:8888/hueme/login', {'user': userData})
 			.then(function(response) {
-					var user = JSON.parse(response.data);
+					var user = response.data;
 					if(user) {
 						$localStorage.user = user;
 						$localStorage.isLoggedIn = true;
