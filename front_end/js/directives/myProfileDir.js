@@ -30,11 +30,7 @@ app.directive('myProfileDir', function($localStorage, $state, regLogService, upd
 
       this.save = function(){
          alert('save');
-         this.user = this.temp;
-         $localStorage.user[0] = this.temp;
-         this.editorEnabled = false;
-         this.temp = {};
-       }
+       };
        this.avatars = avatarService.avatars;
 
       this.countries = countryService.countries;

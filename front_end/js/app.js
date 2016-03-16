@@ -1,5 +1,5 @@
 'use strict'
-var app = angular.module("HueMeApp", ['ui.router', 'ui.bootstrap', 'jcs-autoValidate', 'ngStorage']);
+var app = angular.module("HueMeApp", ['ui.router', 'ui.bootstrap', 'jcs-autoValidate', 'ngStorage', 'ui.select', 'ngSanitize']);
 
 //router definition
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -16,14 +16,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			resolve: {
 				posts: function($http, $q, timeSinceService) {
 					var deferred = $q.defer();
-					$http({method: 'GET', url: 'http://localhost:8888/hueme/'})
+					$http({method: 'GET', url: 'http://localhost/hueme/'})
 						.then(function(data) {
 							var temp = data.data;
 							temp = temp.map(function(post) {
-								var post = post;
+								//var post = post;
 								post.time = timeSinceService.timeSince(new Date(post.time));
 								return post;
-							})
+							});
 							deferred.resolve(temp);
 						});
 						return deferred.promise;
@@ -45,7 +45,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		.state('myprofile', {
 			url: "/myprofile",
 			template: "<my-profile-dir></my-profile-dir>"
-		})
+		});
 });
 
 app.run(
@@ -71,6 +71,6 @@ app.run(
 							$location.path(toState.url);
 					}
 					/*   */
-				})
+				});
     }
 );
