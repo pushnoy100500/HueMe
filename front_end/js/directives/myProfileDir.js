@@ -12,7 +12,7 @@ app.filter('range', function() {
   };
 });
 
-app.directive('myProfileDir', function($localStorage, $state, regLogService, updateProfileService, avatarService, countryService) {
+app.directive('myProfileDir', function($localStorage, $location, $state, regLogService, updateProfileService, avatarService, countryService) {
   return {
     restrict: "E",
     templateUrl: "templates/myProfile.html",
@@ -20,19 +20,20 @@ app.directive('myProfileDir', function($localStorage, $state, regLogService, upd
 
       this.user = $localStorage.user[0];
       console.log(this.user);
+      console.log(typeof this.user.dob);
       if(!this.user.dob) {
         this.user.dob = {month: "", day: "", year: ""};
-       } else {
+      } else if (typeof this.user.dob === 'object') {
+        //do nothing
+      }
+      else {
         this.user.dob = {
           year: this.user.dob.substring(0, 4),
           month: this.user.dob.substring(5, 7),
-          day: this.user.dob.substring(8, 9)
+          day: this.user.dob.substring(8, 10)
         }
       }
-  
-      // if(this.user.dob.match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")) {
-      //   alert('bleat');
-      // }
+
       this.logOut = function() {
         regLogService.logOut(function() {
           $state.go('landing');
@@ -52,7 +53,9 @@ app.directive('myProfileDir', function($localStorage, $state, regLogService, upd
          $localStorage.user[0] = this.temp;
          updateProfileService.updateUser(updatedUser, function(ok) {
            if(ok) {
+             this.user = this.temp;
              console.log('saved');
+             $location.path('/myprofile');
            }
          })
          //quit editing mode
