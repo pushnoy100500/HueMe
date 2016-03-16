@@ -2,9 +2,9 @@ var app = angular.module("HueMeApp");
 app.service("regLogService", function($http, $localStorage) {
 	var self = this;
 	this.registerUser = function(userData, callback){
-		$http.post('http://localhost:8888/hueme/register',{'user': userData })
+		$http.post('http://localhost:8888/hueme/index.php/register',{'user': userData })
 		.then(function(response) {
-			var user = JSON.parse(response.data);
+			var user = response.data;
 			$localStorage.user = user;
 			$localStorage.isLoggedIn = true;
 			callback(true);
@@ -13,9 +13,9 @@ app.service("regLogService", function($http, $localStorage) {
 		});
 	};
 	this.logUserIn = function(userData, callback) {
-		$http.post('http://localhost:8888/hueme/login', {'user': userData})
+		$http.post('http://localhost:8888/hueme/index.php/login', {'user': userData})
 			.then(function(response) {
-					var user = JSON.parse(response.data);
+					var user = response.data;
 					if(user) {
 						$localStorage.user = user;
 						$localStorage.isLoggedIn = true;
@@ -28,13 +28,12 @@ app.service("regLogService", function($http, $localStorage) {
 				function(error) {
 					console.log('here');
 					callback(false);
-				})
-	}
+				});
+	};
 	this.logOut = function(callback) {
 		console.log('logout');
 		$localStorage.isLoggedIn = false;
 		$localStorage.user = {};
 		callback();
-	}
-
-})
+	};
+});
