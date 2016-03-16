@@ -56,9 +56,9 @@ class MemberModel extends CI_Model {
         //,mood_colours_id=" . $user['colour'] . "
         $rs = $this->db->query($query); 
         if($rs){
-            return true;
+            return json_encode('{"result" : "1"}');
         }else{
-            return false;
+            return json_encode('{"result" : "0"}');
         }
         
     }
