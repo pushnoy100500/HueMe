@@ -39,15 +39,15 @@ class Posts extends CI_Controller{
 		
 	}
   public function getAllPostsByColour(){
-    //qury all users posts
      $post = json_decode(file_get_contents('php://input'), true)['post'];
-     $data['data'] = $this->PostsModel->getPostsByUserId($post['colourId']);
+     $data['data'] = $this->PostsModel->getPostsByColour($post['colourId']);
      $this->load->view('PostsView', $data);
     
   }
 
 
   public function getPostsByTen(){
+    //get 10 posts at a time startoing from the index recieved
       $post = json_decode(file_get_contents('php://input'), true)['post'];
      $data['data'] = $this->PostsModel->getPostsByTen($post['startIndex']);
      $this->load->view('PostsView', $data);
