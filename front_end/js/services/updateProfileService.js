@@ -6,6 +6,7 @@ app.service("updateProfileService", function($http, $localStorage) {
 			console.log(response);
 			callback(response.result);
 		}, function(error) {
+			console.log(error);
 			callback(false);
 		});
 	}

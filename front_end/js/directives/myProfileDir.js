@@ -19,8 +19,6 @@ app.directive('myProfileDir', function($localStorage, $location, $state, regLogS
     controller: function() {
 
       this.user = $localStorage.user[0];
-      console.log(this.user);
-      console.log(typeof this.user.dob);
       if(!this.user.dob) {
         this.user.dob = {month: "", day: "", year: ""};
       } else if (typeof this.user.dob === 'object') {
@@ -100,7 +98,6 @@ app.directive('myProfileDir', function($localStorage, $location, $state, regLogS
                   'October': 31,
                   'November': 30,
                   'December': 31 };
-      console.log(this.days['April']);
     },
     controllerAs: "profileCtrl"
   };

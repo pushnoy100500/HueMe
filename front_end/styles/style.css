@@ -659,3 +659,21 @@ section {
 		height: 100px;
 	}
 }
+
+/*  styles specific for leaving a post directive  */
+.leave-post {
+	border: 1px solid #9d9d9d;
+	padding: 10px;
+}
+.black {
+	background: #9d9d9d;
+}
+
+
+
+
+
+
+
+
+
