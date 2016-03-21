@@ -52,12 +52,18 @@
 	</script>
 	<header class="profile-header">
 	</header>
-<!--profile form-->
+
+<!-- username and avatart -->
 <div class="avatar-username-wrap">
 	<img ng-src="{{profileCtrl.user.photo_url ? profileCtrl.user.photo_url : '/styles/styleImgs/avatarD1.png' }}" alt="avatar" class="avatar">
 	<span class="profile-username">{{profileCtrl.user.username}}</span>
 </div>
-<form>
+
+<div class="">
+	<div class="row">
+		<div class="col-md-4">
+			<!--profile form-->
+<form class="profile-form">
 	<div class="row" style="margin-top: -60px;">
 		<div class="col-xs-12 col-md-3">
 			<div class="panel panel-primary" style="width: 370px">
@@ -177,10 +183,17 @@
 		  {{profileCtrl.temp}}
 		-->
 			  
-</form>
-
-<div class="leave-post">
-		<profile-posting-dir></profile-posting-dir>
+	</form>
+		</div>
+		<div class="col-md-6">
+			<div class="leave-post">
+				<profile-posting-dir></profile-posting-dir>
+			</div>
+		</div>
 	</div>
+</div>
+
+
+
 
 </main>
