@@ -175,6 +175,22 @@
 				</div>
 			</div>
 		</div>
+		<div class="col-xs-12 col-md-9">
+			<section id="profilePost">
+				<div class="postWrap">
+					<div class="post">
+						<div class="post-new-header" style="border-radius: 8px 8px 0 0">
+							<div class="post-new-title">Create New Post</div>
+						</div>
+
+						<div class="post-new-content"><a ui-sref="myprofile.profileposting" alt="Create New Post" title="Create New Post" class="post-new-button"><i class="fa fa-plus-circle"></i><span class="sr-only">Create New Post</span></a></div>
+
+					</div>
+				</div>
+			</section>
+		</div>
+
+		</div>
 	</div>
 
 
@@ -182,18 +198,9 @@
 		  {{profileCtrl.user}} <br>
 		  {{profileCtrl.temp}}
 		-->
-			  
-	</form>
-		</div>
-		<div class="col-md-6">
-			<div class="leave-post">
-				<profile-posting-dir></profile-posting-dir>
-			</div>
-		</div>
-	</div>
-</div>
 
-
-
+</form>
+<!--   WE SEPARATE STUFF WITH JOSH   -->
+<section ui-view></section>
 
 </main>
