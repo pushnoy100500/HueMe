@@ -1,24 +1,28 @@
-<div>
-	<form action="">
+<div class="">
+	<form action="" ng-submit="profilePostingCtrl.makePost($event)">
 		<div class="form-group">
-			
-			<select class="form-control" ng-model="profilePostingCtrl.postingData.mood_colours_id">
-				<option class="black" value="1">Black</option>
-				<option value="2">Blue</option>
-				<option value="3">Orange</option>
-				<option value="4">Red</option>
-				<option value="5">Pink</option>
-				<option value="6">Green</option>
+			<label>What colour is your mood today?</label>
+			<select class="form-control color{{profilePostingCtrl.postingData.mood_colours_id}}" ng-model="profilePostingCtrl.postingData.mood_colours_id">
+				<option ng-repeat="(key, val) in profilePostingCtrl.moodColours" value="{{key}}">{{val}}</option>
 			</select>
 		</div>
 		<div class="form-group">
-			<input type="text" class="form-control" ng-model="profilePostingCtrl.postingData.tags" placeholder="tags">
+			<label>Hash tag it: 
+				<span ng-repeat="tag in profilePostingCtrl.hashTags track by $index" class="hash-tag color{{profilePostingCtrl.postingData.mood_colours_id}}">
+					#{{tag}} 
+					<span ng-click="profilePostingCtrl.removeHashTag($index)" class="remove-hash-tag">
+						 x
+					</span>
+				</span>
+			</label>
+			<input type="text" class="form-control hash-tag-input" ng-model="profilePostingCtrl.hashTag" ng-keyup="profilePostingCtrl.addHashTag($event, profilePostingCtrl.hashTag)" ng-keypress="$event.which == 13 ? $event.preventDefault() : ''	" placeholder="tags">
 		</div>
 		<div class="form-group">
-			<textarea placeholder="content" ng-model="profilePostingCtrl.postingData.content" class="form-control" cols="30" rows="10"></textarea>
+			<label>Your important message:</label>
+			<textarea required placeholder="content" ng-model="profilePostingCtrl.postingData.content" class="form-control" cols="30" rows="10"></textarea>
 		</div>
 		<div class="form-group">
-			<button class="btn btn-success" ng-click="profilePostingCtrl.makePost()" type="button">Post</button>
+			<button class="btn btn-success" type="submit">Post</button>
 		</div>
 	</form>
 </div>

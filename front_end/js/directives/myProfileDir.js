@@ -15,6 +15,10 @@ app.filter('range', function() {
 app.directive('myProfileDir', function($localStorage, $location, $state, regLogService, updateProfileService, avatarService, countryService) {
   return {
     restrict: "E",
+    scope: true,
+    link: function(scope) {
+      scope.profileId = $localStorage.user[0].id;
+    },
     templateUrl: "templates/myProfile.html",
     controller: function() {
 

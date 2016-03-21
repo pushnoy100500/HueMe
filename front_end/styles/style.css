@@ -668,9 +668,52 @@ section {
 .black {
 	background: #9d9d9d;
 }
+/*   mood colors   */
+.color1 {
+	background-color: #000;
+	color: #fff;
+}
+.color2 {
+	background-color: #242CCC;
+	color: #FBC757;
+}
+.color3 {
+	background-color: #FA683D;
+	color: #7BFBB4;
+}
+.color4 {
+	background-color: #D10509;
+	color: #D9D51B;
+}
+.color5 {
+	background-color: #CB4AD1;
+	color: #D9BD62;
+}
+.color6 {
+	background-color: #2ED16E;
+	color: #9E6913;
+}	
+.hash-tag {
+	display: inline-block;
+	padding: 7px;
+	margin: 5px;
+	border-radius: 20px;
+	font-weight: lighter;
+	font-style: italic;
+	font-size: 0.7em;
+	border: 1px solid #9d9d9d;
 
-
-
+}
+.hash-tag-input {
+	margin-top: 10px;
+}
+.remove-hash-tag {
+	cursor: pointer;
+	margin-left: 5px;
+	margin-right: 0px;
+	padding-left: 5px;
+	border-left: 1px solid #9d9d9d;
+}
 
 
 
