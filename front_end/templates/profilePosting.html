@@ -1,28 +1,40 @@
-<div class="">
-	<form action="" ng-submit="profilePostingCtrl.makePost($event)">
-		<div class="form-group">
-			<label>What colour is your mood today?</label>
-			<select class="form-control color{{profilePostingCtrl.postingData.mood_colours_id}}" ng-model="profilePostingCtrl.postingData.mood_colours_id">
-				<option ng-repeat="(key, val) in profilePostingCtrl.moodColours" value="{{key}}">{{val}}</option>
-			</select>
-		</div>
-		<div class="form-group">
-			<label>Hash tag it: 
-				<span ng-repeat="tag in profilePostingCtrl.hashTags track by $index" class="hash-tag color{{profilePostingCtrl.postingData.mood_colours_id}}">
-					#{{tag}} 
-					<span ng-click="profilePostingCtrl.removeHashTag($index)" class="remove-hash-tag">
-						 x
+<a ui-sref="myprofile">
+	<div class="custom-modal-backdrop"></div>
+</a>
+<div class="container custom-modal">
+	<div class="modal-header">
+		<a ui-sref="myprofile">
+			<button type="button" class="close" aria-hidden="true"><i class="fa fa-times"></i></button>
+		</a>
+		<h2 class="modal-title">Create New Post</h2>
+	</div>
+
+	<div class="">
+		<form action="" ng-submit="profilePostingCtrl.makePost($event)">
+			<div class="form-group">
+				<label>What colour is your mood today?</label>
+				<select class="form-control color{{profilePostingCtrl.postingData.mood_colours_id}}" ng-model="profilePostingCtrl.postingData.mood_colours_id">
+					<option ng-repeat="(key, val) in profilePostingCtrl.moodColours" value="{{key}}">{{val}}</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Hash tag it:
+					<span ng-repeat="tag in profilePostingCtrl.hashTags track by $index" class="hash-tag color{{profilePostingCtrl.postingData.mood_colours_id}}">
+						#{{tag}}
+						<span ng-click="profilePostingCtrl.removeHashTag($index)" class="remove-hash-tag">
+							 x
+						</span>
 					</span>
-				</span>
-			</label>
-			<input type="text" class="form-control hash-tag-input" ng-model="profilePostingCtrl.hashTag" ng-keyup="profilePostingCtrl.addHashTag($event, profilePostingCtrl.hashTag)" ng-keypress="$event.which == 13 ? $event.preventDefault() : ''	" placeholder="tags">
-		</div>
-		<div class="form-group">
-			<label>Your important message:</label>
-			<textarea required placeholder="content" ng-model="profilePostingCtrl.postingData.content" class="form-control" cols="30" rows="10"></textarea>
-		</div>
-		<div class="form-group">
-			<button class="btn btn-success" type="submit">Post</button>
-		</div>
-	</form>
+				</label>
+				<input type="text" class="form-control hash-tag-input" ng-model="profilePostingCtrl.hashTag" ng-keyup="profilePostingCtrl.addHashTag($event, profilePostingCtrl.hashTag)" ng-keypress="$event.which == 13 ? $event.preventDefault() : ''	" placeholder="tags">
+			</div>
+			<div class="form-group">
+				<label>Your important message:</label>
+				<textarea required placeholder="content" ng-model="profilePostingCtrl.postingData.content" class="form-control" cols="30" rows="10"></textarea>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-success" type="submit">Post</button>
+			</div>
+		</form>
+	</div>
 </div>
