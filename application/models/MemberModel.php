@@ -38,7 +38,7 @@ class MemberModel extends CI_Model {
         }else{
             return false;
         }
-    }
+    } 
 
     public function getData($returnNum) {
         $query = 'SELECT p.id "id", p.content "post", p.create_time "time", u.username "user", mc.colour "colour" FROM posts p, users u, mood_colours mc WHERE p.users_id = u.id AND p.mood_colours_id = mc.id ORDER BY p.create_time DESC LIMIT ' . $returnNum;
@@ -49,14 +49,13 @@ class MemberModel extends CI_Model {
     public function updateProfile($user) {
 
         $query = "UPDATE users SET photo_url='" . $user['photo_url'] . "', dob='" . 
-        $user['dob'] ."' ,description='" . $user['description'] . "',gender='" . $user['gender'] .
-        "',status='" . $user['description'] . "',country='" . $user['country'] . "',region='" .
-        $user['region'] . "',city='" . $user['city'] . "',zip_code='" . $user['zip_code'] .
-        "' WHERE username = '" . $user['username'] . "'";
+        $user['dob'] ."' ,description='" . addslashes($user['description']) . "',gender='" . $user['gender'] .
+        "',status='" . addslashes($user['description']) . "',country='" . $user['country'] . "',region='" .
+        $user['region'] . "',city='" . $user['city'] . "' WHERE username = '" . $user['username'] . "'";
         //,mood_colours_id=" . $user['colour'] . "
-        $rs = $this->db->query($query); 
-        if($rs){
-            return json_encode('{"result" : "1"}');
+        
+        if($this->usernameExists($user['username'])){
+            return json_encode('{"result" : " ' . $rs = $this->db->query($query) . '"}');
         }else{
             return json_encode('{"result" : "0"}');
         }
