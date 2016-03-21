@@ -1,7 +1,7 @@
 var app = angular.module("HueMeApp");
-app.service('postingService', function($http) {
+app.service('postingService', function($http, urlService) {
 	this.sendPost = function(postData) {
-		$http.post("http://localhost:8888/hueme/post", {"post": postData})
+		$http.post(urlService.leavePostUrl, {"post": postData})
 			.then(function(success) {
 				console.log(success);
 			}, function(error) {

@@ -14,9 +14,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			},
 			controllerAs: "postsCtrl",
 			resolve: {
-				posts: function($http, $q, timeSinceService) {
+				posts: function($http, $q, timeSinceService, urlService) {
 					var deferred = $q.defer();
-					$http({method: 'GET', url: 'http://localhost:8888/hueme/'})
+					$http({method: 'GET', url: urlService.recentPostsUrl})
 						.then(function(data) {
 							var temp = data.data;
 							temp = temp.map(function(post) {
