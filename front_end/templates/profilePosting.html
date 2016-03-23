@@ -3,7 +3,7 @@
 </a>
 <div class="container custom-modal">
 	<div class="modal-header">
-		<a ui-sref="myprofile">
+		<a ng-click="navigationCtrl.postingMode = !navigationCtrl.postingMode">
 			<button type="button" class="close" aria-hidden="true"><i class="fa fa-times"></i></button>
 		</a>
 		<h2 class="modal-title">Create New Post</h2>
@@ -38,4 +38,3 @@
 		</form>
 	</div>
 </div>
-
