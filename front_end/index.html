@@ -8,10 +8,14 @@
 	<link href='https://fonts.googleapis.com/css?family=Biryani:400,200,300,600' rel='stylesheet' type='text/css'>
 	<!--jQuery-->
 	<script src="js/jquery-2.2.0.min.js"></script>
+	<!--Bootstrap Script-->
+	<script src="js/bootstrap.min.js"></script>
 	<!--jQuery Nanoscroller-->
 	<script src="js/jquery.nanoscroller.min.js"></script>
 	<!--jQuery Nanoscroller Stylesheet-->
 	<link rel="stylesheet" href="styles/nanoscroller.css">
+	<!--UI-Select Stylesheet-->
+	<link rel="stylesheet" href="styles/select.css">
 	<!--FontAwesome-->
 	<link rel="stylesheet" href="styles/font-awesome.min.css">
 	<!-- custom styles -->
@@ -20,8 +24,12 @@
 	<script src="ng/angular.js"></script>
 	<!-- angular router -->
 	<script src="ng/ui-router.js"></script>
+	<!--UI-Select Script-->
+	<script src="ng/select.js"></script>
 	<!-- bootstrap animations adopted to play with angular -->
 	<script src="ng/ng-ui-bootstrap.js"></script>
+	<!-- angular sanitize module -->
+	<script src="ng/angular-sanitize.min.js"></script>
 	<!-- angular validation module -->
 	<script src="ng/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
 	<!-- angular validation module bootstrap modifier -->
@@ -37,13 +45,26 @@
 	<script src="js/directives/loginDir.js"></script>
 	<script src="js/directives/tosDir.js"></script>
 	<script src="js/directives/myProfileDir.js"></script>
+	<script src="js/directives/profilePostingDir.js"></script>
+	<script src="js/directives/navigationDir.js"></script>
 
 	<script src="js/services/recentPosts.js"></script>
 	<script src="js/services/regLogService.js"></script>
 	<script src="js/services/timeSinceService.js"></script>
 	<script src="js/services/updateProfileService.js"></script>
+	<script src="js/services/avatarsService.js"></script>
+	<script src="js/services/countryService.js"></script>
+	<script src="js/services/postingService.js"></script>
+	<script src="js/services/urlService.js"></script>
+  <!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
+    <script>
+      document.createElement('ui-select');
+      document.createElement('ui-select-match');
+      document.createElement('ui-select-choices');
+    </script>
+  <![endif]-->
 
-	</script>
 </head>
 <body ng-app="HueMeApp">
 	<!-- this directive will be changed with whatever is defined in router -->

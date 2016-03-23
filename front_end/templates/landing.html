@@ -5,7 +5,7 @@
 		<img src="styles/styleImgs/car.png" id="car2" class="cars" alt="">
 
 		<div class="container">
-			<h1><span>T</span><span>e</span><span>l</span><span>l</span> <span>u</span><span>s</span> <span>a</span><span>b</span><span>o</span><span>u</span><span>t</span>  <strong>y</strong><strong>o</strong><strong>u</strong><strong>r</strong> <strong>d</strong><strong>a</strong><strong>y</strong></h1>
+			<h1>Tell us about <span><div id="underline"><strong>y</strong><strong>o</strong><strong>u</strong><strong>r</strong> <strong>d</strong><strong>a</strong><strong>y</strong></div></span></h1>
 			<p>Share your experiences</p>
 			<div class="row reg-log">
 				<div class="col-xs-12 col-sm-6 col-md-6 actions">
@@ -17,23 +17,19 @@
 			</div>
 		</div>
 	</section>
-	<section class="recent-posts">
-		<div class="row" ng-repeat="value in postsCtrl.posts">
-			<div class="col-md-6 col-md-offset-3 media post">
-				<div class="media-left">
-					<div class="voting">
-						<img src="" alt="">
-						{{value.user}}
-					</div>
+	<section id="postBox">
+		<div class="postWrap"  ng-repeat="value in postsCtrl.posts">
+			<div class="post">
+				<div class="post-header" style="border-radius: 8px 8px 0 0">
+					<div class="post-profile-photo"><!-- This is simply a placeholder for the user's avatar image (65px diameter)--></div>
+					<div class="post-author">{{value.user}}</div>
 				</div>
-				<div class="media-body">
-					<p class="post-text">
-						{{value.post}}
-						
-					</p>
-					<p class="post-text">
-						{{value.time}} ago
-					</p>
+
+				<div class="post-content">{{value.post}}</div>
+
+				<div class="post-footer">{{value.time}} ago
+				<div class="float-right">
+						<i class="fa fa-comment"></i>
 				</div>
 			</div>
 		</div>

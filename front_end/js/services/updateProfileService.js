@@ -1,12 +1,12 @@
 var app = angular.module("HueMeApp");
-app.service("updateProfileService", function($http, $localStorage) { 
-	this.updateUser = function(userData, callback){ 
-		$http.post('http://localhost/hueme/updateProfile',{'user': userData })
+app.service("updateProfileService", function($http, $localStorage, urlService) {
+	this.updateUser = function(userData, callback){
+		$http.post(urlService.updateProfUrl, {'user': userData })
 		.then(function(response) {
-			var user = JSON.parse(response.data);
-			$localStorage.user = user; 
-			callback(true);
+			console.log(response);
+			callback(response.result);
 		}, function(error) {
+			console.log(error);
 			callback(false);
 		});
 	}

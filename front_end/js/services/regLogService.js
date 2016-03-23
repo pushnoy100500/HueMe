@@ -1,36 +1,39 @@
 var app = angular.module("HueMeApp");
-app.service("regLogService", function($http, $localStorage) {
+app.service("regLogService", function($http, $localStorage, urlService) {
 	var self = this;
-	this.isLoggedIn = false;
 	this.registerUser = function(userData, callback){
-		$http.post('http://localhost/hueme/register',{'user': userData })
+		$http.post(urlService.registerUrl,{'user': userData })
 		.then(function(response) {
-			var user = JSON.parse(response.data);
+			var user = response.data;
 			$localStorage.user = user;
-			self.toggleLogin();
+			$localStorage.isLoggedIn = true;
 			callback(true);
 		}, function(error) {
 			callback(false);
 		});
 	};
 	this.logUserIn = function(userData, callback) {
-		$http.post('http://localhost/hueme/login', {'user': userData})
+		$http.post(urlService.loginUrl, {'user': userData}) 
 			.then(function(response) {
-					var user = JSON.parse(response.data);
-					$localStorage.user = user;
-					self.toggleLogin();
-					callback(true);
+					var user = response.data;
+					if(user) {
+						$localStorage.user = user;
+						$localStorage.isLoggedIn = true;
+						callback(true);
+					} else {
+						$localStorage.isLoggedIn = false;
+						callback(false);
+					}
 				},
 				function(error) {
+					console.log('here');
 					callback(false);
-				})
-	}
+				});
+	};
 	this.logOut = function(callback) {
-		self.toggleLogin();
-		$localStorage.$reset();
+		console.log('logout');
+		$localStorage.isLoggedIn = false;
+		$localStorage.user = {};
 		callback();
-	}
-	this.toggleLogin = function() {
-			self.isLoggedIn = !self.isLoggedIn;
-	}
-})
+	};
+});
