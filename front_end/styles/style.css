@@ -761,7 +761,15 @@ section {
 	background-color: #000;
 	color: #fff;
 }
+.black {
+	background-color: #000;
+	color: #fff;
+}
 .color2 {
+	background-color: #242CCC;
+	color: #FBC757;
+}
+.blue {
 	background-color: #242CCC;
 	color: #FBC757;
 }
@@ -769,7 +777,15 @@ section {
 	background-color: #FA683D;
 	color: #7BFBB4;
 }
+.orange {
+	background-color: #FA683D;
+	color: #7BFBB4;
+}
 .color4 {
+	background-color: #D10509;
+	color: #D9D51B;
+}
+.red {
 	background-color: #D10509;
 	color: #D9D51B;
 }
@@ -777,7 +793,15 @@ section {
 	background-color: #CB4AD1;
 	color: #D9BD62;
 }
+.pink {
+	background-color: #CB4AD1;
+	color: #D9BD62;
+}
 .color6 {
+	background-color: #2ED16E;
+	color: #9E6913;
+}
+.green {
 	background-color: #2ED16E;
 	color: #9E6913;
 }
