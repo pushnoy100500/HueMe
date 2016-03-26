@@ -34,10 +34,12 @@
 						 </div>
 					 </li>
 					 <li class="dropdown">
-					 	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" alt="Search Posts" title="Search Posts"><i class="fa fa-plus fa-2x"></i></a>
-						 <div class="dropdown-menu" style="background-color: rgba(0,0,0,0); border: none; box-shadow: none;">
+					 	 <a href="" ng-click="navigationCtrl.postingMode = !navigationCtrl.postingMode" class="dropdown-toggle" alt="Search Posts" title="Search Posts">
+					 	 	<i class="fa fa-plus fa-2x"></i>
+					 	 </a>
+						 <div ng-show="navigationCtrl.postingMode">
 							<profile-posting-dir></profile-posting-dir>
-						 </div>
+						 </div> 
 					 </li>
 					 <li><a href="" ng-click="profileCtrl.logOut()"><i class="fa fa-sign-out fa-2x" alt="Sign-Out" title="Sign-Out"></i><span class="sr-only">Sign-out</span></a></li>
 				 </ul>
