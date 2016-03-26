@@ -645,6 +645,37 @@ section {
 	*/
 }
 
+/* for the gradient background */
+.about-background {
+	background: -webkit-linear-gradient(-90deg, rgb(144,104,47) 0%, rgb(74,36,73) 100%);
+	background: -moz-linear-gradient(-90deg, rgb(144,104,47) 0%, rgb(74,36,73) 100%);
+	background: -o-linear-gradient(-90deg, rgb(144,104,47) 0%, rgb(74,36,73) 100%);
+	background: linear-gradient(-90deg, rgb(144,104,47) 0%, rgb(74,36,73) 100%);
+}
+
+.about-team-title, .about-team-name, .about-team-quote {
+	display: block;
+}
+
+.about-team-quote {
+	color: #b08860;
+}
+
+/* for the cityscape before the about HueMe title and paragraph */
+.about-blurb::before{
+    width: 100%;
+    content: " ";
+    background-image: url('styleImgs/cityscape.png');
+    position: absolute;
+    left: 0;
+    top: -200px;  /* tweak top-left position */
+    height: 200px;
+}
+
+.about-blurb {
+	background: rgb(0,0,0,66%);
+}
+
 @media screen and (max-width: 860px)
 {
 
