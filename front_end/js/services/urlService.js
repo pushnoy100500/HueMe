@@ -6,4 +6,5 @@ app.service('urlService', function() {
 	this.updateProfUrl = "http://localhost:8888/hueme/updateProfile";
 	this.leavePostUrl = "http://localhost:8888/hueme/post";
 	this.postsByUserUrl = "http://localhost:8888/hueme/postsByUser"
+	this.aboutUrl = "http://localhost:8888/hueme/about"
 })
