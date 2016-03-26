@@ -7,7 +7,6 @@ app.directive('navigationDir', function() {
 		controller: function() {
 			this.postingMode = false;
 		},
-		
 		controllerAs: "navigationCtrl"
 	}
 })

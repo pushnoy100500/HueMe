@@ -1,0 +1,17 @@
+<h3 ng-show="postListingCtrl.waiting">
+	
+	<!-- alternatively this should be a preloader -->
+	<img src="styles/styleImgs/posts-loader.gif" alt="">
+</h3>
+<div ng-show="!postListingCtrl.waiting">
+	<h2>
+		posts loaded
+	</h2>
+	<ul>
+		<li ng-repeat="post in postListingCtrl.posts" class="{{post.colour}}" style="margin: 10px; padding: 10px;">
+			post text: {{post.post}} <br>
+			posted {{post.time}} ago <br>
+			by {{post.user}}
+ 		</li>
+	</ul>
+</div>
