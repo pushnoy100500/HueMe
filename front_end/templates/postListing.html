@@ -9,10 +9,8 @@
 	<section id="postBox">
 		<div class="postWrap" ng-repeat="post in postListingCtrl.posts" >
 			<div class="post">
-				<div class="post-header" style="border-radius: 8px 8px 0 0">
-					<div class="post-profile-photo">
-						<!-- placeholder for the user's avatar image (65px diameter)-->
-					</div>
+				<div class="post-header" style="border-radius: 8px 8px 0 0"> 
+					<img class="post-profile-photo" ng-src="{{post.photo}}" /> 
 					<div class="post-author">
 						{{post.user}}
 					</div>
