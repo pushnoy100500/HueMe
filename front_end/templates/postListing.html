@@ -3,15 +3,30 @@
 	<!-- alternatively this should be a preloader -->
 	<img src="styles/styleImgs/posts-loader.gif" alt="">
 </h3>
+
 <div ng-show="!postListingCtrl.waiting">
-	<h2>
-		posts loaded
-	</h2>
-	<ul>
-		<li ng-repeat="post in postListingCtrl.posts" class="{{post.colour}}" style="margin: 10px; padding: 10px;">
-			post text: {{post.post}} <br>
-			posted {{post.time}} ago <br>
-			by {{post.user}}
- 		</li>
-	</ul>
+	<h2>posts loaded</h2>
+	<section id="postBox">
+		<div class="postWrap" ng-repeat="post in postListingCtrl.posts" >
+			<div class="post">
+				<div class="post-header" style="border-radius: 8px 8px 0 0">
+					<div class="post-profile-photo">
+						<!-- placeholder for the user's avatar image (65px diameter)-->
+					</div>
+					<div class="post-author">
+						{{post.user}}
+					</div>
+					<div class="post-content">
+						{{post.post}}
+					</div>
+					<div class="post-footer">
+						{{post.time}} ago
+					</div>
+					<div class="float-right">
+						<i class="fa fa-comment"></i>
+					</div>
+				</div>
+			</div>
+		</div> 
+ 	</section>
 </div>

@@ -14,7 +14,7 @@ app.directive("profilePostingDir", function(postingService) {
 				event.preventDefault();
 				// put hastags together, add user id
 				this.postingData.tags = this.hashTags.join();
-				this.postingData.id = $scope.$parent.profileId;
+				this.postingData.userId = $scope.$parent.profileId;
 				//post a message
 				console.log(this.postingData);
 				postingService.sendPost(this.postingData);

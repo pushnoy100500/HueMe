@@ -59,6 +59,9 @@ app.directive('myProfileDir', function($localStorage, $location, $state, regLogS
              console.log('saved');
              $location.path('/myprofile');
            }
+           else{
+            console.log('error');
+           }
          })
          //quit editing mode
          this.editorEnabled = false;

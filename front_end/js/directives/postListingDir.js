@@ -19,9 +19,10 @@ app.directive('postListingDir', function(postingService) {
 		controller: function($scope, postingService, timeSinceService) {
 			var self = this;
 			this.filter = $scope.filter;
+			console.dir(this.filter);
 
 			this.waiting = true;
-			this.posts = [];
+			this.posts = []; 
 
 			// based on what is a search criteria providedin filter attribute to directive
 			// do different post search and rendering logic
@@ -47,8 +48,6 @@ app.directive('postListingDir', function(postingService) {
 					// other search criteria logic
 					break;
 			}
-			
-
 
 		},
 		controllerAs: "postListingCtrl"

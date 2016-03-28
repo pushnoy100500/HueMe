@@ -9,6 +9,7 @@ app.service('postingService', function($http, urlService) {
 			});
 	};
 	this.getPostsByUser = function(userId, callback) {
+		console.log(userId);
 		$http.get(urlService.postsByUserUrl + "?id=" + userId)
 			.then(function(success) {
 				callback(success.data);
