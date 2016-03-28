@@ -50,6 +50,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			url: "/profileposting/",
 			template: "<profile-posting-dir></profile-posting-dir>"
 		});
+		.state('about', {
+			url: "/about",
+			template: "<about-dir></about-dir>"
+		});
 });
 
 app.run(
