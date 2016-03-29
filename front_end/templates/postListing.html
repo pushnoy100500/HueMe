@@ -6,7 +6,7 @@
 <div ng-show="!postListingCtrl.waiting">
 	<h2>posts loaded</h2>
 	<section id="postBox"> 
-			<div class="postWrap" ng-repeat="post in postListingCtrl.posts" ng-click="postListingCtrl.enableComment($index)" > 
+			<div class="postWrap" ng-repeat="post in postListingCtrl.posts"  > 
 				<div class="post" ng-class="{commentBox : $index == postListingCtrl.selectedIndex && postListingCtrl.commentingMode, ClosecommentBox : $index == postListingCtrl.selectedIndex && !postListingCtrl.commentingMode}"> 
 					<div class="post-header" style="border-radius: 8px 8px 0 0" >
 						<img class="post-profile-photo" ng-src="{{post.photo}}" />
@@ -20,14 +20,15 @@
 						<!-- <div class="post-footer">
 							{{post.time}} ago
 						</div> -->
-						<div class="float-right">  
+						<div class="float-right" ng-click="postListingCtrl.enableComment($index)">  
 							<span class="adcomment">ADD COMMENT</span><i class="fa fa-comment"></i>  
 						</div>
-						<!-- <form ng-show="postListingCtrl.commentingMode" class="float-right">
-								<div class="from-group">
-									<input type="text" placeholder="leave a comment" name="comment">
-								</div>
-						</form> -->
+						<form class="comment-form" ng-show="$index == postListingCtrl.selectedIndex && postListingCtrl.commentingMode">
+							<div class="from-group">
+								<input id="comment-inputbox" type="text" placeholder="leave a comment" name="comment" ng-trim="false" maxlength="150px" ng-model="postListingCtrl.commentData.content" />
+								{{150 - postListingCtrl.commentData.content.length}} / 150
+							</div>
+						</form>
 					</div> 
 				</div> 
 			</div>  

@@ -26,11 +26,11 @@ app.directive('postListingDir', function(postingService) {
 			switch (this.filter.criteria) {
 				case "userId":
 					postingService.getPostsByUser(this.filter.value, 
-					function(result) { 
+					function(result) {
 						self.waiting = false;
 						self.posts = result;
 						self.posts = self.posts.map(function(post) {
-								//var post = post; 
+								//var post = post;
 								post.time = timeSinceService.timeSince(new Date(post.time));
 								return post;
 						});
@@ -51,6 +51,8 @@ app.directive('postListingDir', function(postingService) {
   		 		this.commentingMode = !this.commentingMode;  
   		 		this.selectedIndex = $index; 
   		 	}
+
+  		 	this.commentData = {};
 		},
 		controllerAs: "postListingCtrl"
 	}
