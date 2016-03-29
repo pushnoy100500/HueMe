@@ -367,7 +367,7 @@ input[type=checkbox]:checked + label:after {
 	padding: 10px;
 	background: #EEE;
 	padding-left: 0;
-	padding-right: 0;
+	padding-right: 0; 
 }
 
 #profilePost {
@@ -389,7 +389,7 @@ section {
 	padding: 0;
 }
 
-.postWrap {
+.postWrap { 
 	display: inline-block;
 }
 
@@ -402,7 +402,20 @@ section {
 	background-color: #f9f9f9;
 	margin: 10px;
 	box-shadow: 	3px 3px 5px rgba(0,0,0, 0.1),
-					-3px -3px 5px rgba(0,0,0, 0.1);
+					-3px -3px 5px rgba(0,0,0, 0.1); 
+} 
+
+.commentBox{
+	width: 554px;
+	transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535);  
+}  
+
+.ClosecommentBox{
+	transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535);  
+}
+
+.post:hover{
+	cursor: pointer;
 }
 
 .multi-post {
@@ -424,7 +437,7 @@ section {
 	background-color: #fff;
 	box-shadow: 3px 3px 5px rgba(0,0,0, 0.1);
 }
-
+ 
 .post-footer {
 	position: relative;
 	height: 49px;
@@ -435,7 +448,7 @@ section {
 	text-align: center;
 	border-top: 1px solid rgba(0,0,0, 0.3);
 	border-radius: 0 0 8px 8px;
-	background-color: #ededed;
+	background-color: #ededed; 
 }
 
 .post-header {
@@ -460,8 +473,13 @@ section {
 	font-size: 20px;
 	line-height: 95px;
 	font-weight: 900;
-}
+} 
 
+.post-time{
+	font-size: 0.7em;
+	color: #737373;
+	padding-left: 1em;
+} 
 
 .post-new-content {
 	position: relative;
@@ -520,6 +538,40 @@ section {
 	color: rgba(26,163,163, 0.4);
 	font-size: 25px;
 	line-height: 49px;
+}
+
+.float-right:hover{
+	animation-name: commentPulse 0.7s infinite;
+	-webkit-animation: commentPulse 0.7s infinite;  
+  	-moz-animation:    commentPulse 0.7s infinite; 
+  	-o-animation:      commentPulse 0.7s infinite; 
+}
+
+@keyframes commentPulse{
+	0% {transform: scale(1);}  
+	60% {transform: scale(1.1);} 
+	100% {transform: scale(1);}
+} 
+
+/*.float-right:hover{
+	animation-name: commentS 1.2s ;
+	-webkit-animation: commentS 1.2s ; 
+  	-moz-animation:    commentS 1.2s ;  
+  	-o-animation:      commentS 1.2s ;  
+}
+
+@keyframes commentS{
+	0% {transform: scale(1);}
+	30% {transform: scaleX(1.25) scaleY(0.55);}
+	40% {transform: scaleX(0.75) scaleY(1.05);}
+	60% {transform: scaleX(1.15) scaleY(0.65);}
+	100% {transform: scale(1);}
+} */
+
+.adcomment{
+	font-weight: bold;
+	padding-right: 0.5em;
+	font-size: 0.6em;
 }
 
 .float-right > i.fa.fa-comment {

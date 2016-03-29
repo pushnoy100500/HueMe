@@ -1,30 +1,35 @@
-<h3 ng-show="postListingCtrl.waiting">
-	
+<h3 ng-show="postListingCtrl.waiting"> 
 	<!-- alternatively this should be a preloader -->
 	<img src="styles/styleImgs/posts-loader.gif" alt="">
 </h3>
 
 <div ng-show="!postListingCtrl.waiting">
 	<h2>posts loaded</h2>
-	<section id="postBox">
-		<div class="postWrap" ng-repeat="post in postListingCtrl.posts" >
-			<div class="post">
-				<div class="post-header" style="border-radius: 8px 8px 0 0"> 
-					<img class="post-profile-photo" ng-src="{{post.photo}}" /> 
-					<div class="post-author">
-						{{post.user}}
-					</div>
-					<div class="post-content">
-						{{post.post}}
-					</div>
-					<div class="post-footer">
-						{{post.time}} ago
-					</div>
-					<div class="float-right">
-						<i class="fa fa-comment"></i>
-					</div>
-				</div>
-			</div>
-		</div> 
- 	</section>
+	<section id="postBox"> 
+			<div class="postWrap" ng-repeat="post in postListingCtrl.posts" ng-click="postListingCtrl.enableComment($index)" > 
+				<div class="post" ng-class="{commentBox : $index == postListingCtrl.selectedIndex && postListingCtrl.commentingMode, ClosecommentBox : $index == postListingCtrl.selectedIndex && !postListingCtrl.commentingMode}"> 
+					<div class="post-header" style="border-radius: 8px 8px 0 0" >
+						<img class="post-profile-photo" ng-src="{{post.photo}}" />
+						<div class="post-author">
+							{{post.user}}
+							<span class="post-time"> <i class="fa fa-clock-o"></i> {{post.time}}</span>
+						</div> 
+						<div class="post-content">
+							{{post.post}}
+						</div>
+						<!-- <div class="post-footer">
+							{{post.time}} ago
+						</div> -->
+						<div class="float-right">  
+							<span class="adcomment">ADD COMMENT</span><i class="fa fa-comment"></i>  
+						</div>
+						<!-- <form ng-show="postListingCtrl.commentingMode" class="float-right">
+								<div class="from-group">
+									<input type="text" placeholder="leave a comment" name="comment">
+								</div>
+						</form> -->
+					</div> 
+				</div> 
+			</div>  
+ 	</section> 
 </div>

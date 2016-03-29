@@ -18,23 +18,19 @@ app.directive('postListingDir', function(postingService) {
 		},
 		controller: function($scope, postingService, timeSinceService) {
 			var self = this;
-			this.filter = $scope.filter;
-			console.dir(this.filter);
-
+			this.filter = $scope.filter;  
 			this.waiting = true;
-			this.posts = []; 
-
+			this.posts = [];  
 			// based on what is a search criteria providedin filter attribute to directive
 			// do different post search and rendering logic
 			switch (this.filter.criteria) {
 				case "userId":
 					postingService.getPostsByUser(this.filter.value, 
-					function(result) {
-						console.log(result);
+					function(result) { 
 						self.waiting = false;
 						self.posts = result;
 						self.posts = self.posts.map(function(post) {
-								//var post = post;
+								//var post = post; 
 								post.time = timeSinceService.timeSince(new Date(post.time));
 								return post;
 						});
@@ -48,7 +44,13 @@ app.directive('postListingDir', function(postingService) {
 					// other search criteria logic
 					break;
 			}
-
+  		 	 
+  		 	this.commentingMode = false;  
+  		 	this.selectedIndex;
+  		 	this.enableComment = function ($index){ 
+  		 		this.commentingMode = !this.commentingMode;  
+  		 		this.selectedIndex = $index; 
+  		 	}
 		},
 		controllerAs: "postListingCtrl"
 	}

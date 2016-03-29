@@ -49,6 +49,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		.state('myprofile.profileposting', {
 			url: "/profileposting/",
 			template: "<profile-posting-dir></profile-posting-dir>"
+		})
+		.state('myprofile.profilecommenting', {
+			url: "/profilecommenting/",
+			template: "<profile-commenting-dir></profile-commenting-dir>"
 		});
 });
 

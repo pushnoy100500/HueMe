@@ -72,7 +72,7 @@ app.directive('myProfileDir', function($localStorage, $location, $state, regLogS
       this.countries = countryService.countries;
       this.regions = countryService.regions;
       this.temp = {};
-
+      
       this.avatSel = function(index){
         this.temp.photo_url = this.avatars[index].url;
         this.selected = index + 1;
