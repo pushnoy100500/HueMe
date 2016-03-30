@@ -31,25 +31,29 @@ class Posts extends CI_Controller{
        $this->load->view('PostsView', $data);
      }
 
-     public function getAllPostsByUser(){
+     public function getAllPosts(){
+      $data['data'] = $this->PostsModel->getAllPosts();
+       $this->load->view('PostsView', $data);
+     }
+     public function getAllPostsByUser($id){
 		//qury all users posts
-       $user = json_decode(file_get_contents('php://input'), true)['user'];
-       $data['data'] = $this->PostsModel->getPostsByUserId($user['id']);
+       //$user = $this->input->get('id');
+       $data['data'] = $this->PostsModel->getPostsByUserId($id);
        $this->load->view('PostsView', $data);
 
      }
-     public function getAllPostsByColour(){
-       $post = json_decode(file_get_contents('php://input'), true)['post'];
-       $data['data'] = $this->PostsModel->getPostsByColour($post['colourId']);
+     public function getAllPostsByColour($colourId){
+       //$post = json_decode(file_get_contents('php://input'), true)['post'];
+       $data['data'] = $this->PostsModel->getPostsByColour($colourId);
        $this->load->view('PostsView', $data);
 
      }
 
 
-     public function getPostsByTen(){
+     public function getPostsByTen($startIndex){
     //get 10 posts at a time startoing from the index recieved
-      $post = json_decode(file_get_contents('php://input'), true)['post'];
-      $data['data'] = $this->PostsModel->getPostsByTen($post['startIndex']);
+      //$post = json_decode(file_get_contents('php://input'), true)['post'];
+      $data['data'] = $this->PostsModel->getPostsByTen($startIndex);
       $this->load->view('PostsView', $data);
     }
 

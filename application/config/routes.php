@@ -59,8 +59,6 @@ $route['translate_uri_dashes'] = FALSE;
 //member controller routs
 $route['register'] = 'Member/register';
 $route['login'] = 'Member/login';
-$route['post'] = 'Posts/post';
-$route['reply'] = 'Posts/comment';
 $route['member'] = 'Member/index';
 $route['updateProfile'] = 'Member/updateProfile';
 $route['checkUsername'] = 'Member/checkUsername';
@@ -71,10 +69,10 @@ $route['checkEmail'] = 'Member/checkEmail';
 //$route['posts'] = 'Posts/index';
 $route['post'] = 'Posts/post';
 $route['reply'] = 'Posts/comment';
-$route['postsByUser'] = 'Posts/getAllPostsByUser';
-$route['postsByColour'] = 'Posts/getAllPostsByColour';
-$route['postsByTen'] = 'Posts/getPostsByTen';
-
+$route['allPosts'] = 'Posts/getAllPosts';
+$route['postsByUser/(:num)'] = 'Posts/getAllPostsByUser/$1';
+$route['postsByColour/(:num)'] = 'Posts/getAllPostsByColour/$1';
+$route['postsByTen/(:num)'] = 'Posts/getPostsByTen/$1';
 
 //test stuff
 $route['test'] = 'test/postTest';
