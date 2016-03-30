@@ -52,8 +52,19 @@ app.directive('postListingDir', function(postingService) {
 							return post;
 						});
 					self.waiting = false;
-					//filtering
-
+					//filtering on users
+					if(self.filter.value.users) {
+						self.posts = self.posts.filter(function(post) {
+							return post.username.indexOf(self.filter.value.users) >= 0;
+						})
+					}
+					//filtering on tags
+					if(self.filter.value.tags) {
+						self.posts = self.posts.filter(function(post) {
+							return post.tags.indexOf(self.filter.value.tags) >= 0;
+							
+						})
+					}
 				break;
 				default:
 					// other search criteria logic
