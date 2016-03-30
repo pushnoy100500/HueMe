@@ -16,6 +16,9 @@ app.service('postingService', function($http, urlService) {
 				callback(error);
 			})
 	}
+	this.getAllPosts = function() {
+		return $http.get(urlService.allPostsUrl);			
+	}
 
 	this.moodColours = {
 		'1': 'black, I\'m suffering',
