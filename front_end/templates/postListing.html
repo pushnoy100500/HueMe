@@ -23,12 +23,9 @@
 						<div class="float-right" ng-click="postListingCtrl.enableComment($index)">  
 							<span class="adcomment">ADD COMMENT</span><i class="fa fa-comment"></i>  
 						</div>
-						<form class="comment-form" ng-show="$index == postListingCtrl.selectedIndex && postListingCtrl.commentingMode">
-							<div class="from-group">
-								<input id="comment-inputbox" type="text" placeholder="leave a comment" name="comment" ng-trim="false" maxlength="150px" ng-model="postListingCtrl.commentData.content" />
-								{{150 - postListingCtrl.commentData.content.length}} / 150
-							</div>
-						</form>
+						<div ng-show="$index == postListingCtrl.selectedIndex && postListingCtrl.commentingMode"> 
+							<profile-commenting-dir dataArg="{'userId' : postListingCtrl.userId}"></profile-commenting-dir>
+						</div> 
 					</div> 
 				</div> 
 			</div>  

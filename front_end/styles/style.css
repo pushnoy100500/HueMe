@@ -560,13 +560,13 @@ section {
 	color: rgba(26,163,163, 0.4); 
 }
 
-#comment-inputbox{ 
-	overflow: hidden;
+#comment-inputbox{  
 	width: 500px;
 	height: 50px;
 	border:none;
 	background-color: transparent;
 	color: #404040;
+	padding-left: 15px;
 }
 
 /*.float-right:hover{

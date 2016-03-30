@@ -1,0 +1,6 @@
+<form class="comment-form" >
+	<div class="form-group"> 
+			<input id="comment-inputbox" type="text" placeholder="leave a comment" name="comment" ng-trim="false" maxlength="150" ng-model="postCommentingCtrl.commentData.content" />
+			{{150 - postCommentingCtrl.commentData.content.length}} / 150
+		</div> 
+</form>  
