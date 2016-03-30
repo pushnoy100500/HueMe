@@ -14,7 +14,8 @@ app.directive('postListingDir', function(postingService) {
 		restrict: "E",
 		templateUrl: "templates/postListing.html",
 		scope: {
-			filter: "="
+			filter: "=",
+			poststemp: "="
 		},
 		controller: function($scope, postingService, timeSinceService) {
 			var self = this;
@@ -35,6 +36,7 @@ app.directive('postListingDir', function(postingService) {
 						self.posts = self.posts.map(function(post) {
 								//var post = post;
 								post.time = timeSinceService.timeSince(new Date(post.time));
+								post.tags = post.tags.split(',');
 								return post;
 						});
 					}, 
@@ -42,7 +44,17 @@ app.directive('postListingDir', function(postingService) {
 						console.log(error);
 					})
 					break;
+				case "general":
+					self.posts = $scope.poststemp;//searchStateCtrl.posts;
+					self.posts = self.posts.map(function(post) {
+							post.time = timeSinceService.timeSince(new Date(post.time));
+							post.tags = post.tags.split(',');
+							return post;
+						});
+					self.waiting = false;
+					//filtering
 
+				break;
 				default:
 					// other search criteria logic
 					break;

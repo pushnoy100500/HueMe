@@ -7,9 +7,11 @@
 	<h2 style="text-align: center;">
 		posts loaded
 	</h2>
+
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
-		<div class="postWrap"  ng-repeat="value in postListingCtrl.posts">
+		<div class="postWrap"  ng-repeat="value in postListingCtrl.posts | filter:$parent.narrowDown">
+
 			<div class="post">
 				<div class="post-header" style="border-radius: 8px 8px 0 0">
 					<div class="post-profile-photo">
@@ -19,7 +21,9 @@
 				</div>
 
 				<div class="post-content">{{value.post}} <br>
-					{{value.tags}}
+					<ul>
+						<li ng-repeat="tag in value.tags track by $index" class="hash-tag">#{{tag}}</li>
+					</ul>
 				</div>
 
 				<div class="post-footer">{{value.time}}

@@ -4,32 +4,10 @@
 	<h3>This is how their day is going:</h3>
 		<form>
 			<div class="form-group">
-				<input type="text" class="form-control" ng-model="searchStateCtrl.filter.tags" placeholder="# Tags">
-			</div>
-			<div class="form-group">
-				<input type="text" class="form-control" ng-model="searchStateCtrl.filter.users" placeholder="# Users">
+				<input type="text" class="form-control" ng-model="narrowDown" placeholder="Narrow down your search #">
 			</div>
 		</form>
 	</div>
-	<div class="col-md-10 col-md-offset-1">
-		<div class="postWrap"  ng-repeat="value in searchStateCtrl.posts">
-			<div class="post">
-				<div class="post-header" style="border-radius: 8px 8px 0 0">
-					<div class="post-profile-photo">
-						<img src="{{value.photo}}" width="65" height="65" alt="">
-					</div>
-					<div class="post-author">{{value.username}}</div>
-				</div>
-
-				<div class="post-content">{{value.post}} <br>
-					{{value.tags}}
-				</div>
-
-				<div class="post-footer">{{value.time}}
-				<div class="float-right">
-						<i class="fa fa-comment"></i>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div class="col-md-11 col-md-offset-1">
+		<post-listing-dir poststemp="searchStateCtrl.posts" filter="{'criteria': 'general', 'value': {'tags': searchStateCtrl.filter.tags, 'users': searchStateCtrl.filter.users, 'narrowDown': narrowDown}}"></post-listing-dir>
 </div>
