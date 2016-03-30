@@ -72,6 +72,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			template: function () {					
 				return '<search-dir></search-dir>';
 			}
+		})
+		.state('about', {
+			url: "/about",
+			template: "<about-dir></about-dir>"
 		});
 });
 

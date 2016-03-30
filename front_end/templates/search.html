@@ -12,10 +12,24 @@
 		</form>
 	</div>
 	<div class="col-md-10 col-md-offset-1">
-		<ul>
-			<li ng-repeat="post in searchStateCtrl.posts">
-				{{post.post}}
-			</li>
-		</ul>
+		<div class="postWrap"  ng-repeat="value in searchStateCtrl.posts">
+			<div class="post">
+				<div class="post-header" style="border-radius: 8px 8px 0 0">
+					<div class="post-profile-photo">
+						<img src="{{value.photo}}" width="65" height="65" alt="">
+					</div>
+					<div class="post-author">{{value.username}}</div>
+				</div>
+
+				<div class="post-content">{{value.post}} <br>
+					{{value.tags}}
+				</div>
+
+				<div class="post-footer">{{value.time}} ago
+				<div class="float-right">
+						<i class="fa fa-comment"></i>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
