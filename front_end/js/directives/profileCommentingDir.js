@@ -4,11 +4,11 @@ app.directive('profileCommentingDir', function(postingService) {
 		restrict: "E", 
 		templateUrl: "templates/profileCommenting.html",
 		scope: {
-			dataArg: "="
+			dataarg: "="
 		},
 		controller: function($scope, postingService) {
 			var self = this;
-			//console.log($scope.dataArg.userId);	 
+			console.log($scope.dataarg.userId);	 
 		   
 		   	this.submitted = false;
   		 	this.commentData = {};

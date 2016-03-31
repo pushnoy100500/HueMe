@@ -385,6 +385,52 @@ input[type=checkbox]:checked + label:after {
 	padding-right: 0;
 }
 
+@media screen and (max-width: 430px) {
+	.float-right:hover{
+		cursor: pointer;
+ 		-webkit-animation: none !important; 
+		-moz-animation: none !important; 
+		-o-animation: none !important; 
+		-ms-animation: none !important; 
+		animation: none !important;
+	}
+
+	.commentBox{
+		width: 380px !important; 
+		height: 480px;    
+	} 
+
+	#comment-inputbox{   
+		width: 345px !important; 
+		height: 80px !important;   
+	}
+}
+
+@media screen and (max-width: 380px) {  
+	.commentBox{
+		transition: all 1s ease !important;  
+		width: 350px !important; 
+		height: 520px !important;   
+	}   
+
+	#comment-inputbox{   
+		width: 300px !important; 
+		height: 150px !important;   
+	}
+}
+
+@media screen and (max-width: 330px) {  
+	.commentBox{ 
+		width: 300px !important; 
+		height: 520px !important;   
+	}   
+
+	#comment-inputbox{   
+		width: 250px !important; 
+		height: 150px !important;   
+	}
+}
+
 section {
 	padding: 0;
 }
@@ -408,10 +454,14 @@ section {
 .commentBox{
 	width: 554px;
 	transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535);  
+	-webkit-transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535); 
+	-moz-transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535);  
 }  
 
 .ClosecommentBox{
 	transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535);  
+	-webkit-transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535); 
+	-moz-transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535); 
 }
  
 
@@ -504,18 +554,7 @@ section {
 	font-family: 'FontAwesome';
 	font-size: 6px;
 	top: -6px;
-}
-
-.post-content::before {
-		content: "\f10d";
-		padding-right: 2px;
-}
-
-.post-content::after {
-	content: "\f10e";
-	display: inline;
-	padding-left: 2px;
-}
+} 
 
 .post-profile-photo {
 	float: left;
@@ -561,6 +600,7 @@ section {
 }
 
 #comment-inputbox{  
+	margin-right: 15px;
 	width: 500px;
 	height: 50px;
 	border:none;
