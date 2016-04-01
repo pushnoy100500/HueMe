@@ -1,6 +1,7 @@
 <form class="comment-form" >
 	<div class="form-group"> 
-			<textarea id="comment-inputbox" placeholder="leave a comment" name="comment" ng-trim="false" maxlength="150" ng-model="postCommentingCtrl.commentData.content" ></textarea>
-			{{150 - postCommentingCtrl.commentData.content.length}} / 150
-		</div> 
+			<textarea id="comment-inputbox" placeholder="leave a comment" name="comment" ng-trim="false" maxlength="150" ng-model="postCommentingCtrl.commentData.content" required class="form-control"></textarea> 
+			{{150 - postCommentingCtrl.commentData.content.length}} / 150  
+			<button class="btn btn-primary commentBtns" ng-click="postCommentingCtrl.submitComment()"><i class="fa fa-rocket fa-3x" ></i></button>
+	</div>  
 </form>  

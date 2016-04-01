@@ -6,4 +6,6 @@ app.service('urlService', function() {
 	this.updateProfUrl = "http://localhost/hueme/index.php/updateProfile";
 	this.leavePostUrl = "http://localhost/hueme/index.php/post";
 	this.postsByUserUrl = "http://localhost/hueme/index.php/postsByUser"
+	this.sendComment = "http://localhost/hueme/index.php/reply";
+	this.commentsByPostUrl = "http://localhost/hueme/index.php/getComments"
 })

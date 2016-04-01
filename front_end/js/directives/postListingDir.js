@@ -21,6 +21,8 @@ app.directive('postListingDir', function(postingService) {
 			this.filter = $scope.filter;
 			this.waiting = true;
 			this.posts = [];
+			this.commentingMode = false;
+			this.viewCommentMode = false;
 			// based on what is a search criteria providedin filter attribute to directive
 			// do different post search and rendering logic
 			switch (this.filter.criteria) {
@@ -44,13 +46,16 @@ app.directive('postListingDir', function(postingService) {
 					// other search criteria logic
 					break;
 			}
-  		 	  
-  		 	this.userId = this.filter.value;
-  		 	this.commentingMode = false;  
-  		 	this.selectedIndex;
-  		 	this.enableComment = function ($index){ 
-  		 		this.commentingMode = !this.commentingMode;  
+
+  		 	this.userId = this.filter.value; 
+  		 	this.enableComment = function ($index){
+  		 		this.selectedIndex = $index;
+  		 		this.commentingMode = !this.commentingMode;   
+  		 	}
+
+  		 	this.viewComment = function ($index){   
   		 		this.selectedIndex = $index; 
+  		 		this.viewCommentMode = !this.viewCommentMode;   
   		 	}
 		},
 		controllerAs: "postListingCtrl"

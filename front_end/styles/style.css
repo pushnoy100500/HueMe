@@ -397,13 +397,13 @@ input[type=checkbox]:checked + label:after {
 
 	.commentBox{
 		width: 380px !important; 
-		height: 480px;    
+		height: 530px;    
 	} 
 
 	#comment-inputbox{   
-		width: 345px !important; 
+		width: 340px !important; 
 		height: 80px !important;   
-	}
+	} 
 }
 
 @media screen and (max-width: 380px) {  
@@ -415,19 +415,19 @@ input[type=checkbox]:checked + label:after {
 
 	#comment-inputbox{   
 		width: 300px !important; 
-		height: 150px !important;   
+		height: 80px !important;   
 	}
 }
 
 @media screen and (max-width: 330px) {  
 	.commentBox{ 
 		width: 300px !important; 
-		height: 520px !important;   
+		height: 570px !important;   
 	}   
 
 	#comment-inputbox{   
 		width: 250px !important; 
-		height: 150px !important;   
+		height: 100px !important;   
 	}
 }
 
@@ -571,10 +571,17 @@ section {
 	float: right;
 	top: -20px;
 	height: 49px;
-	left: -15px;
-	color: rgba(26,163,163, 0.4);
+	left: -15px; 
 	font-size: 25px;
 	line-height: 49px;
+}
+
+#comment{
+	color: rgba(26,163,163, 0.4);
+}
+
+#view{
+	color: 	#ff80b3;
 }
 
 .float-right:hover{
@@ -606,25 +613,17 @@ section {
 	border:none;
 	background-color: transparent;
 	color: #404040;
-	padding-left: 15px;
-}
+	padding-left: 15px; 
+} 
 
-/*.float-right:hover{
-	animation-name: commentS 1.2s ;
-	-webkit-animation: commentS 1.2s ; 
-  	-moz-animation:    commentS 1.2s ;  
-  	-o-animation:      commentS 1.2s ;  
+.commentBtns{   
+	display: inline-block;
+	margin-left: 20px;  
+	margin-top: 15px;
 }
-
-@keyframes commentS{
-	0% {transform: scale(1);}
-	30% {transform: scaleX(1.25) scaleY(0.55);}
-	40% {transform: scaleX(0.75) scaleY(1.05);}
-	60% {transform: scaleX(1.15) scaleY(0.65);}
-	100% {transform: scale(1);}
-} */
 
 .adcomment{
+	margin-left: 25px;
 	font-weight: bold;
 	padding-right: 0.5em;
 	font-size: 0.6em;

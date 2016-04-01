@@ -53,6 +53,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		.state('myprofile.profilecommenting', {
 			url: "/profilecommenting/",
 			template: "<profile-commenting-dir></profile-commenting-dir>"
+		})
+		.state('myprofile.commentlist', {
+			url: "/commentlist/",
+			template: "<comment-listing-dir></comment-listing-dir>"
 		});
 });
 

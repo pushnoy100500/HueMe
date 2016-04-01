@@ -3,7 +3,7 @@
 	<img src="styles/styleImgs/posts-loader.gif" alt="">
 </h3>
 
-<div ng-show="!postListingCtrl.waiting">
+<div ng-show="!postListingCtrl.waiting"  >
 	<h2>posts loaded</h2>
 	<section id="postBox"> 
 			<div class="postWrap" ng-repeat="post in postListingCtrl.posts"  > 
@@ -11,7 +11,7 @@
 					<div class="post-header" style="border-radius: 8px 8px 0 0" >
 						<img class="post-profile-photo" ng-src="{{post.photo}}" />
 						<div class="post-author">
-							{{post.user}}
+							{{post.user}} 
 							<span class="post-time"> <i class="fa fa-clock-o"></i> {{post.time}}</span>
 						</div> 
 						<div class="post-content">
@@ -20,14 +20,20 @@
 						<!-- <div class="post-footer">
 							{{post.time}} ago
 						</div> -->
-						<div class="float-right" ng-click="postListingCtrl.enableComment($index)">  
-							<span class="adcomment">ADD COMMENT</span><i class="fa fa-comment"></i>  
+						<div class="float-right" id="comment" ng-click="postListingCtrl.enableComment($index)">
+							<span class="adcomment"><i class="fa fa-comment fa-2x"></i></span>  
+						</div>  
+						<div class="float-right" id="view" ng-click="postListingCtrl.viewComment($index)" ng-hide="postListingCtrl.commentingMode && $index == postListingCtrl.selectedIndex">
+							<span class="adcomment"><i class="fa fa-eye fa-2x"></i></span>
 						</div>
-						<div ng-show="$index == postListingCtrl.selectedIndex && postListingCtrl.commentingMode"> 
-							<profile-commenting-dir dataarg="{'userId' : postListingCtrl.userId}"></profile-commenting-dir>
+						<div ng-if="$index == postListingCtrl.selectedIndex && postListingCtrl.commentingMode">
+							<profile-commenting-dir dataarg="{'commenterId': postListingCtrl.userId , 'posts' : postListingCtrl.posts, 'index' : postListingCtrl.selectedIndex}"></profile-commenting-dir>
+						</div>  
+						<div ng-if="$index == postListingCtrl.selectedIndex && !postListingCtrl.commentingMode && postListingCtrl.viewCommentMode">
+							<comment-listing-dir dataarg="{'posts' : postListingCtrl.posts, 'index' : postListingCtrl.selectedIndex}"></comment-listing-dir>
 						</div> 
-					</div> 
-				</div> 
-			</div>  
+					</div>   
+				</div>  
+			</div> 
  	</section> 
 </div>
