@@ -645,36 +645,119 @@ section {
 	*/
 }
 
-/* for the gradient background */
+/* ------------------- for the about page ------------------------ */
 .about-background {
-	background: -webkit-linear-gradient(-90deg, rgb(144,104,47) 0%, rgb(74,36,73) 100%);
-	background: -moz-linear-gradient(-90deg, rgb(144,104,47) 0%, rgb(74,36,73) 100%);
-	background: -o-linear-gradient(-90deg, rgb(144,104,47) 0%, rgb(74,36,73) 100%);
-	background: linear-gradient(-90deg, rgb(144,104,47) 0%, rgb(74,36,73) 100%);
+	background: -webkit-linear-gradient(180deg, rgb(144,104,47) 0%, rgb(74,36,73) 100%);
+	background: -moz-linear-gradient(180deg, rgb(144,104,47) 0%, rgb(74,36,73) 100%);
+	background: -o-linear-gradient(180deg, rgb(144,104,47) 0%, rgb(74,36,73) 100%);
+	background: linear-gradient(180deg, rgb(144,104,47) 0%, rgb(74,36,73) 100%);
+	padding: 0;
 }
-
-.about-team-title, .about-team-name, .about-team-quote {
+.about-title, .about-subtitle {
+	margin: 0;
+	font-weight: lighter;
+	text-align: center;
+	font-size: 42pt;
+	text-shadow: 2px 2px 0 rgba(0,0,0, 0.3);
+	color: #f6f5e6;
+}
+.about-title {
+	margin: 1em;
+}
+.about-subtitle {
+	font-size: 32pt;
+}
+.about-view-left, .about-view-right {
+	margin: 1em 0;
+	font: light 18px/1.4 'Biryani', sans-serif;
+	border: 1px solid rgba(212,170,131,0.50);
+	border-radius: 0.5em;
+	background-color: rgba(0,0,0,0.10);
+	padding: 0.5em;
+}
+.about-view-left::before {
+	/* make a triangle */
+	position: absolute;
+	display: inline-block;
+	border-top: 0px solid transparent;
+	border-right: 20px solid rgba(212,170,131,0.50);
+	border-bottom: 20px solid transparent;
+	border-right-color: rgba(212,170,131,0.30);
+	left: -21px;
+	top: 5em;
+	content: '';
+}
+.about-view-right::after {
+	/* make a triangle */
+	position: absolute;
+	display: inline-block;
+	border-top: 0px solid transparent;
+	border-left: 20px solid rgba(212,170,131,0.50);
+	border-bottom: 20px solid transparent;
+	border-right-color: rgba(212,170,131,0.30);
+	right: -21px;
+	top: 5em;
+	content: '';
+}
+.about-align-right {
+	text-align: right;
+}
+.about-float-right, .about-float-left {
+	display: block;
+	position: relative;
+	z-index: 100000;
+}
+.about-float-right {
+	float: right;
+}
+.about-float-left {
+	float: left;
+}
+.about-team-title, .about-team-name, .about-team-quote, .about-team-link {
+	display: block;
+	color: #e4decc;
+}
+.about-team-name {
+	font-weight: lighter;
+	font-size: 24px;
+}
+.about-team-quote {
+	font-weight: lighter;
+	font-size: 18px;
+	color: rgb(212, 170, 131);
+	color: rgba(212, 170, 131, 0.40);
+}
+.about-team-link  {
+	clear: both;
 	display: block;
 }
-
-.about-team-quote {
-	color: #b08860;
+.about-team-link a {
+	color: rgb(212, 170, 131);
+	color: rgba(212, 170, 131, 0.30);
+}	
+.about-city {
+	width: 100%;
 }
-
-/* for the cityscape before the about HueMe title and paragraph */
-.about-blurb::before{
-    width: 100%;
-    content: " ";
-    background-image: url('styleImgs/cityscape.png');
-    position: absolute;
-    left: 0;
-    top: -200px;  /* tweak top-left position */
-    height: 200px;
-}
-
 .about-blurb {
-	background: rgb(0,0,0,66%);
+	background-color: rgba(0,0,0,0.53);
 }
+.about-blurb p {
+	margin: 0 auto;
+	padding: 1em 0;
+	width: 70%;
+	font: lighter 18px/1.4 'Biryani', sans-serif;
+	color: #e4decc;
+}
+/* ------------------- footer testing ------------------------ */
+.footer {
+	height: 6em;
+	background: rgba(0,0,0,0.56) url('styleImgs/footer-background.png') repeat-x;
+	text-align: right;
+}
+.footer img {
+	margin: 3em 4em 0 0;
+}
+
 
 @media screen and (max-width: 860px)
 {
