@@ -35,6 +35,8 @@ class Posts extends CI_Controller{
       $data['data'] = $this->PostsModel->getAllPosts();
        $this->load->view('PostsView', $data);
      }
+
+     
      public function getAllPostsByUser($id){
 		//qury all users posts
        //$user = $this->input->get('id');
