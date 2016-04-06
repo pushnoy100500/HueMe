@@ -1,6 +1,6 @@
 var app = angular.module('HueMeApp');
 
-app.directive('navigationDir', function($state) {
+app.directive('navigationDir', function($state, regLogService) {
 	return {
 		restrict: "E",
 		templateUrl: "templates/navigation.html",
@@ -16,6 +16,12 @@ app.directive('navigationDir', function($state) {
 					});
 
 			}
+			this.logOut = function() {
+				console.log('yo')
+		        regLogService.logOut(function() {
+		          $state.go('landing');
+		        });
+	     	};
 		},
 		controllerAs: "navigationCtrl"
 	}

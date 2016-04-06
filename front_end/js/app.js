@@ -61,7 +61,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 				},
 				posts: function($q, postingService) {
 					return postingService.getAllPosts();
-
 				}
 			},
 			controller: function(filter, posts) {

@@ -36,11 +36,6 @@ app.directive('myProfileDir', function($localStorage, $location, $state, regLogS
         }
       }
 
-      this.logOut = function() {
-        regLogService.logOut(function() {
-          $state.go('landing');
-        });
-      };
       $localStorage.userTemp = $localStorage.user[0];
 
       this.save = function(){
