@@ -10,5 +10,4 @@ app.service('urlService', function() {
 	// using get posts by ten now
 	this.allPostsUrl = "http://localhost:8888/hueme/postsByTen?start=1";
 	this.aboutUrl = "http://localhost:8888/hueme/about"
-
 })
