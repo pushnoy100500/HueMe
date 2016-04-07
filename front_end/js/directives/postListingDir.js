@@ -14,11 +14,13 @@ app.directive('postListingDir', function(postingService) {
 		restrict: "E",
 		templateUrl: "templates/postListing.html",
 		scope: {
-			filter: "="
+			filter: "=",
+			poststemp: "="
 		},
 		controller: function($scope, postingService, timeSinceService) {
 			var self = this;
 			this.filter = $scope.filter;
+
 			this.waiting = true;
 			this.posts = [];
 			this.commentingMode = false;
@@ -29,25 +31,51 @@ app.directive('postListingDir', function(postingService) {
 				case "userId":
 					postingService.getPostsByUser(this.filter.value, 
 					function(result) {
+						console.log(result);
 						self.waiting = false;
 						self.posts = result;
 						self.posts = self.posts.map(function(post) {
 								//var post = post;
 								post.time = timeSinceService.timeSince(new Date(post.time));
-								return post; 
+								if(post.tags){
+									post.tags = post.tags.split(',');
+								}
+								return post;
 						});
 					}, 
 					function(error) {
 						console.log(error);
 					})
 					break;
-
+				case "general":
+					self.posts = $scope.poststemp;//searchStateCtrl.posts;
+					self.posts = self.posts.map(function(post) {
+							post.time = timeSinceService.timeSince(new Date(post.time));
+							if(post.tags){
+								post.tags = post.tags.split(',');
+							}
+							return post;
+						});
+					self.waiting = false;
+					//filtering on users
+					if(self.filter.value.users) {
+						self.posts = self.posts.filter(function(post) {
+							return post.username.indexOf(self.filter.value.users) >= 0;
+						})
+					}
+					//filtering on tags
+					if(self.filter.value.tags) {
+						self.posts = self.posts.filter(function(post) {
+							return post.tags.indexOf(self.filter.value.tags) >= 0;
+							
+						})
+					}
+				break;
 				default:
 					// other search criteria logic
 					break;
 			}
-
-  		 	this.userId = this.filter.value; 
+			this.userId = this.filter.value; 
   		 	this.enableComment = function ($index){
   		 		this.selectedIndex = $index;
   		 		this.commentingMode = !this.commentingMode;   
@@ -57,6 +85,8 @@ app.directive('postListingDir', function(postingService) {
   		 		this.selectedIndex = $index; 
   		 		this.viewCommentMode = !this.viewCommentMode;   
   		 	}
+
+
 		},
 		controllerAs: "postListingCtrl"
 	}

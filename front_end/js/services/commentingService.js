@@ -1,6 +1,7 @@
 var app = angular.module("HueMeApp");
 app.service('commentingService', function($http, urlService) {
 	this.sendComment = function(commentData) {
+		console.log(commentData);
 		$http.post(urlService.sendComment, {"comment": commentData})
 			.then(function(success) {
 				console.log(success);

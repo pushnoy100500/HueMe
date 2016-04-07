@@ -27,11 +27,12 @@ app.directive("profilePostingDir", function(postingService) {
 				if(event.which === 32 || event.which === 13) {
 					this.hashTags.push(hashTag);
 					this.hashTag = '';
-				} 
+				}
+				
 			}
 			this.removeHashTag = function(index) {
 				this.hashTags.splice(index, 1);
-			} 
+			}
 		},
 		controllerAs: "profilePostingCtrl"
 	}

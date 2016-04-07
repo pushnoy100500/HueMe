@@ -36,11 +36,6 @@ app.directive('myProfileDir', function($localStorage, $location, $state, regLogS
         }
       }
 
-      this.logOut = function() {
-        regLogService.logOut(function() {
-          $state.go('landing');
-        });
-      };
       $localStorage.userTemp = $localStorage.user[0];
 
       this.save = function(){
@@ -59,9 +54,6 @@ app.directive('myProfileDir', function($localStorage, $location, $state, regLogS
              console.log('saved');
              $location.path('/myprofile');
            }
-           else{
-            console.log('error');
-           }
          })
          //quit editing mode
          this.editorEnabled = false;
@@ -72,7 +64,7 @@ app.directive('myProfileDir', function($localStorage, $location, $state, regLogS
       this.countries = countryService.countries;
       this.regions = countryService.regions;
       this.temp = {};
-      
+
       this.avatSel = function(index){
         this.temp.photo_url = this.avatars[index].url;
         this.selected = index + 1;

@@ -8,13 +8,16 @@ app.service('postingService', function($http, urlService) {
 				console.log(error);
 			});
 	};
-	this.getPostsByUser = function(userId, callback) { 
+	this.getPostsByUser = function(userId, callback) {
 		$http.get(urlService.postsByUserUrl + "?id=" + userId)
 			.then(function(success) {
 				callback(success.data);
 			}, function(error) {
 				callback(error);
 			})
+	}
+	this.getAllPosts = function() {
+		return $http.get(urlService.allPostsUrl);			
 	}
 
 	this.moodColours = {

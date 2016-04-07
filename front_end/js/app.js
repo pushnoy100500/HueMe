@@ -50,13 +50,31 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			url: "/profileposting/",
 			template: "<profile-posting-dir></profile-posting-dir>"
 		})
-		.state('myprofile.profilecommenting', {
-			url: "/profilecommenting/",
-			template: "<profile-commenting-dir></profile-commenting-dir>"
+		.state('search', {
+			url: '/search',
+			params: {
+				data: null
+			},
+			resolve: {
+				filter: function($stateParams, $rootScope) {
+					return $stateParams.data;
+				},
+				posts: function($q, postingService) {
+					return postingService.getAllPosts();
+				}
+			},
+			controller: function(filter, posts) {
+				this.filter = filter;
+				this.posts = posts.data;
+			},
+			controllerAs: "searchStateCtrl",
+			template: function () {					
+				return '<search-dir></search-dir>';
+			}
 		})
-		.state('myprofile.commentlist', {
-			url: "/commentlist/",
-			template: "<comment-listing-dir></comment-listing-dir>"
+		.state('about', {
+			url: "/about",
+			template: "<about-dir></about-dir>"
 		});
 });
 
@@ -70,7 +88,7 @@ app.run(
         });
 				/* authentication middleware */
 				$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams, options){
-					var authStates = ['myprofile'];
+					var authStates = ['myprofile', 'search'];
 					console.log($localStorage.isLoggedIn);
 					if(authStates.indexOf(toState.name) >= 0) {
 						if(!$localStorage.isLoggedIn) {

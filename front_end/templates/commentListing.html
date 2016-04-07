@@ -2,7 +2,10 @@
 	<!-- alternatively this should be a preloader -->
 	<img src="styles/styleImgs/posts-loader.gif" alt="">
 </h6>
+<h1 ng-show="!commentListingCtrl.waiting" ng-if="commentListingCtrl.comments.length == 0" id="noPost">
+	- No Comments Yet -
+</h1>
 
-<ul ng-repeat="comment in commentListingCtrl.comments"> 
+<ul ng-show="!commentListingCtrl.waiting" ng-repeat="comment in commentListingCtrl.comments" ng-if="commentListingCtrl.comments.length > 0"> 
 	<li>{{comment.content}} - {{comment.create_time}} ago</li>
 </ul>
