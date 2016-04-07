@@ -9,7 +9,7 @@ var app = angular.module('HueMeApp');
 	}
 */
 
-app.directive('postListingDir', function(postingService) {
+app.directive('postListingDir', function(postingService, $localStorage) {
 	return {
 		restrict: "E",
 		templateUrl: "templates/postListing.html",
@@ -30,16 +30,15 @@ app.directive('postListingDir', function(postingService) {
 			switch (this.filter.criteria) {
 				case "userId":
 					postingService.getPostsByUser(this.filter.value, 
-					function(result) {
-						console.log(result);
+					function(result) { 
 						self.waiting = false;
 						self.posts = result;
-						self.posts = self.posts.map(function(post) {
+						self.posts = self.posts.map(function(post) { 
 								//var post = post;
 								post.time = timeSinceService.timeSince(new Date(post.time));
 								if(post.tags){
 									post.tags = post.tags.split(',');
-								}
+								}  
 								return post;
 						});
 					}, 
@@ -49,7 +48,7 @@ app.directive('postListingDir', function(postingService) {
 					break;
 				case "general":
 					self.posts = $scope.poststemp;//searchStateCtrl.posts;
-					self.posts = self.posts.map(function(post) {
+					self.posts = self.posts.map(function(post) { 
 							post.time = timeSinceService.timeSince(new Date(post.time));
 							if(post.tags){
 								post.tags = post.tags.split(',');
@@ -74,8 +73,10 @@ app.directive('postListingDir', function(postingService) {
 				default:
 					// other search criteria logic
 					break;
-			}
-			this.userId = this.filter.value; 
+			} 
+
+			this.userId = $localStorage.user[0].id;
+
   		 	this.enableComment = function ($index){
   		 		this.selectedIndex = $index;
   		 		this.commentingMode = !this.commentingMode;   

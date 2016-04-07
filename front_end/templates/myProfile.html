@@ -127,15 +127,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-
-			<!--
-		  {{profileCtrl.user}} <br>
-		  {{profileCtrl.temp}}
-		-->
+	</div> 
 </form>
 
-<post-listing-dir filter="{'criteria': 'userId', 'value': profileCtrl.user.id}"></post-listing-dir>
-
+<post-listing-dir filter="{'criteria': 'userId', 'value': profileCtrl.user.id, 'profileId' : profileCtrl.user.id}"></post-listing-dir>
 </main>
