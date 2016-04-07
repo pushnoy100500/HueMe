@@ -60,7 +60,7 @@ app.directive('postListingDir', function(postingService) {
 					//filtering on users
 					if(self.filter.value.users) {
 						self.posts = self.posts.filter(function(post) {
-							return post.username.indexOf(self.filter.value.users) >= 0;
+							return post.user.indexOf(self.filter.value.users) >= 0;
 						})
 					}
 					//filtering on tags

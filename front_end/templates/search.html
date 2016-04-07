@@ -1,13 +1,16 @@
-<navigation-dir></navigation-dir>
-<div class="row">
-	<div class="col-md-10 col-md-offset-1">
-	<h3>This is how their day is going:</h3>
-		<form>
-			<div class="form-group">
-				<input type="text" class="form-control" ng-model="narrowDown" placeholder="Narrow down your search #">
-			</div>
-		</form>
+<main class="my-profile"> 
+	<navigation-dir></navigation-dir>
+	
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<h3>This is how their day is going:</h3>
+			<form>
+				<div class="form-group">
+					<input type="text" class="form-control" ng-model="narrowDown" placeholder="Narrow down your search #">
+				</div>
+			</form>
+		</div>
 	</div>
-	<div class="col-md-11 col-md-offset-1">
-		<post-listing-dir poststemp="searchStateCtrl.posts" filter="{'criteria': 'general', 'value': {'tags': searchStateCtrl.filter.tags, 'users': searchStateCtrl.filter.users, 'narrowDown': narrowDown}}"></post-listing-dir>
-</div>
+
+	<post-listing-dir poststemp="searchStateCtrl.posts" filter="{'criteria': 'general', 'value': {'tags': searchStateCtrl.filter.tags, 'users': searchStateCtrl.filter.users, 'narrowDown': narrowDown}}"></post-listing-dir> 
+</main>
