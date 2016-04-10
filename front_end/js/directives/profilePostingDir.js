@@ -21,19 +21,19 @@ app.directive("profilePostingDir", function(postingService) {
 				//clear up the scope
 				 this.postingData = {};
 				 this.hashTags = [];
-			}
+			};
 			this.moodColours = postingService.moodColours;
 			this.addHashTag = function(event, hashTag) {
 				if(event.which === 32 || event.which === 13) {
 					this.hashTags.push(hashTag);
 					this.hashTag = '';
 				}
-				
-			}
+
+			};
 			this.removeHashTag = function(index) {
 				this.hashTags.splice(index, 1);
-			}
+			};
 		},
 		controllerAs: "profilePostingCtrl"
-	}
-})
+	};
+});

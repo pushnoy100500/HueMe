@@ -1,7 +1,7 @@
 var app = angular.module('HueMeApp');
 app.directive('profileCommentingDir', function(postingService, commentingService) {
 	return {
-		restrict: "E", 
+		restrict: "E",
 		templateUrl: "templates/profileCommenting.html",
 		scope: {
 			dataarg: "="
@@ -15,19 +15,19 @@ app.directive('profileCommentingDir', function(postingService, commentingService
 			this.userId = $scope.dataarg.commenterId;
 			this.postIndex = $scope.dataarg.index;
 			this.postId = $scope.dataarg.posts[this.postIndex].id;
-		   	  
+
   		 	this.submitComment = function(){
   		 		this.submitted = true;
   		 		this.commentData.userId = this.userId;
-  		 		this.commentData.postId = this.postId; 
- 				
- 				if(this.commentData.content != ''){
- 					console.log(this.commentData);
- 					commentingService.sendComment(this.commentData);
- 					this.commentsent = true; 
- 				}   
-  		 	}
+  		 		this.commentData.postId = this.postId;
+
+	 				if(this.commentData.content !== ''){
+	 					console.log(this.commentData);
+	 					commentingService.sendComment(this.commentData);
+	 					this.commentsent = true;
+	 				}
+  		 	};
 		},
 		controllerAs: "postCommentingCtrl"
-	}
+	};
 });

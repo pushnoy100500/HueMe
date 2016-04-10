@@ -1,7 +1,7 @@
 var app = angular.module('HueMeApp');
 /*
-	this directive requires a filter attribute that will contain an object 
-	of the following format: 
+	this directive requires a filter attribute that will contain an object
+	of the following format:
 	{
 		'criteria': 'search criteria', // this defines what method in posting service we are triggering,
 										// ex. userId will trigger getPostsByUser method
@@ -28,28 +28,28 @@ app.directive('postListingDir', function(postingService, $localStorage) {
 			// based on what is a search criteria providedin filter attribute to directive
 			// do different post search and rendering logic
 			switch (this.filter.criteria) {
-				case "userId":
-					postingService.getPostsByUser(this.filter.value, 
-					function(result) { 
+				case "id":
+					postingService.getPostsByUser(this.filter.value,
+					function(result) {
 						self.waiting = false;
 						self.posts = result;
-						self.posts = self.posts.map(function(post) { 
+						self.posts = self.posts.map(function(post) {
 								//var post = post;
 								post.time = timeSinceService.timeSince(new Date(post.time));
 								if(post.tags){
 									post.tags = post.tags.split(',');
-								}  
+								}
 								return post;
 						});
-					}, 
+					},
 					function(error) {
 						console.log(error);
-					})
+					});
 					break;
 				case "general":
 					self.posts = $scope.poststemp;//searchStateCtrl.posts;
-					self.posts = self.posts.map(function(post) { 
-							post.time = timeSinceService.timeSince(new Date(post.time));
+					self.posts = self.posts.map(function(post) {
+							post.time = timeSinceService.timeSince(post.time);
 							if(post.tags){
 								post.tags = post.tags.split(',');
 							}
@@ -60,35 +60,36 @@ app.directive('postListingDir', function(postingService, $localStorage) {
 					if(self.filter.value.users) {
 						self.posts = self.posts.filter(function(post) {
 							return post.user.indexOf(self.filter.value.users) >= 0;
-						})
+						});
 					}
 					//filtering on tags
 					if(self.filter.value.tags) {
 						self.posts = self.posts.filter(function(post) {
 							return post.tags.indexOf(self.filter.value.tags) >= 0;
-							
-						})
+
+						});
 					}
 				break;
 				default:
 					// other search criteria logic
 					break;
-			} 
+			}
 
 			this.userId = $localStorage.user[0].id;
 
   		 	this.enableComment = function ($index){
   		 		this.selectedIndex = $index;
-  		 		this.commentingMode = !this.commentingMode;   
-  		 	}
+  		 		this.commentingMode = !this.commentingMode;
+					this.viewCommentMode = !this.viewCommentMode;
+  		 	};
 
-  		 	this.viewComment = function ($index){   
-  		 		this.selectedIndex = $index; 
-  		 		this.viewCommentMode = !this.viewCommentMode;   
-  		 	}
+  		 	this.viewComment = function ($index){
+  		 		this.selectedIndex = $index;
+
+  		 	};
 
 
 		},
 		controllerAs: "postListingCtrl"
-	}
+	};
 });

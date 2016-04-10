@@ -9,5 +9,5 @@ app.directive("landingDir", function() {
 
 		},
 		controllerAs: "landingCtrl"
-	}
+	};
 });

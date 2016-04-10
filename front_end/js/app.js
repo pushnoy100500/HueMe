@@ -21,7 +21,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 							var temp = data.data;
 							temp = temp.map(function(post) {
 								//var post = post;
-								post.time = timeSinceService.timeSince(new Date(post.time));
+								post.time = timeSinceService.timeSince(post.time);
 								return post;
 							});
 							deferred.resolve(temp);
@@ -65,10 +65,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			},
 			controller: function(filter, posts) {
 				this.filter = filter;
-				this.posts = posts.data; 
+				this.posts = posts.data;
 			},
 			controllerAs: "searchStateCtrl",
-			template: function () {					
+			template: function () {
 				return '<search-dir></search-dir>';
 			}
 		})

@@ -18,14 +18,14 @@ app.directive("loginDir", function(regLogService, $state) {
 			this.login = function() {
 				regLogService.logUserIn(self.formModel, function(isIn) {
 					if(isIn) {
-						$state.go('myprofile')
+						$state.go('myprofile');
 					} else {
 						console.log('wrong credentials');
 					}
-				})
-			}
+				});
+			};
 
 		},
 		controllerAs: "loginCtrl"
-	}
+	};
 });

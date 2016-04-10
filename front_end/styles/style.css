@@ -367,7 +367,7 @@ input[type=checkbox]:checked + label:after {
 	padding: 10px;
 	background: #EEE;
 	padding-left: 0;
-	padding-right: 0; 
+	padding-right: 0;
 }
 
 #profilePost {
@@ -385,49 +385,83 @@ input[type=checkbox]:checked + label:after {
 	padding-right: 0;
 }
 
+.postCommentsWrap {
+	border: 1px solid rgba(0,0,0, 0.1);
+	margin: 20px auto 0 auto;
+	padding: 10px;
+	background: #f5f5f5;
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 250px;
+	box-shadow: inset -2px 1px 5px #ececec,
+	 						inset -2px -1px 5px #ececec;
+}
+
+.postComment {
+	border: 1px solid rgba(0,0,0, 0.3);
+	margin: 10px 0 10px 0;
+}
+
+.postCommentBody {
+	padding: 10px;
+	word-break: break-all;
+}
+
+.postComment:nth-child(2n+1) {
+	background: rgba(0,0,0, 0.1);
+}
+
+.postCommentFooter {
+	border-top: 1px solid rgba(0,0,0, 0.3);
+	text-align: center;
+	padding: 1px 0 1px 0;
+	line-height: 26px;
+	background-color: #ededed;
+}
+
 @media screen and (max-width: 430px) {
 	.float-right:hover{
 		cursor: pointer;
- 		-webkit-animation: none !important; 
-		-moz-animation: none !important; 
-		-o-animation: none !important; 
-		-ms-animation: none !important; 
+ 		-webkit-animation: none !important;
+		-moz-animation: none !important;
+		-o-animation: none !important;
+		-ms-animation: none !important;
 		animation: none !important;
 	}
 
 	.commentBox{
-		width: 380px !important; 
-		height: 530px;    
-	} 
+		width: 380px !important;
+		height: 530px;
+	}
 
-	#comment-inputbox{   
-		width: 340px !important; 
-		height: 80px !important;   
-	} 
-}
-
-@media screen and (max-width: 380px) {  
-	.commentBox{
-		transition: all 1s ease !important;  
-		width: 350px !important; 
-		height: 520px !important;   
-	}   
-
-	#comment-inputbox{   
-		width: 300px !important; 
-		height: 80px !important;   
+	#comment-inputbox{
+		width: 340px !important;
+		height: 80px !important;
 	}
 }
 
-@media screen and (max-width: 330px) {  
-	.commentBox{ 
-		width: 300px !important; 
-		height: 570px !important;   
-	}   
+@media screen and (max-width: 380px) {
+	.commentBox{
+		transition: all 1s ease !important;
+		width: 350px !important;
+		height: 520px !important;
+	}
 
-	#comment-inputbox{   
-		width: 250px !important; 
-		height: 100px !important;   
+	#comment-inputbox{
+		width: 300px !important;
+		height: 80px !important;
+	}
+}
+
+@media screen and (max-width: 330px) {
+	.commentBox{
+		width: 300px !important;
+		height: 570px !important;
+	}
+
+	#comment-inputbox{
+		width: 250px !important;
+		height: 100px !important;
 	}
 }
 
@@ -453,15 +487,15 @@ section {
 
 .commentBox{
 	width: 554px;
-	transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535);  
-	-webkit-transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535); 
-	-moz-transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535);  
-}  
+	transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535);
+	-webkit-transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535);
+	-moz-transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535);
+}
 
 .ClosecommentBox{
-	transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535);  
-	-webkit-transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535); 
-	-moz-transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535); 
+	transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535);
+	-webkit-transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535);
+	-moz-transition: all 1s cubic-bezier(0.805, -0.590, 0.065, 1.535);
 }
 
 
@@ -486,29 +520,33 @@ section {
 }
 
 .post-footer {
-	position: relative;
-	height: 49px;
-	width: 275px;
+	float: right;
+	max-height: 50px;
+	height: 50px;
+	width: 100%;
 	bottom: 0;
-	color: #555;
+	color: white;
 	line-height: 50px;
 	text-align: center;
+	text-shadow: 1px 1px 0 black;
 	border-top: 1px solid rgba(0,0,0, 0.3);
-	border-radius: 0 0 8px 8px;
+	border-radius: 0 0 7px 7px;
 	background-color: #ededed;
 }
 
-.post-time{
-	font-size: 0.7em;
-	color: #737373;
-	padding-left: 1em;
-} 
+.post-time {
+	font-size: 0.9em;
+	padding-left: 1.8em;
+}
 
 .post-header {
 	position: relative;
+	border-radius: 7px 7px 0 0;
 	height: 95px;
+	border-bottom: 1px solid rgba(0,0,0, 0.3);
 }
 
+/*
 .post-new-header {
 	position: relative;
 	height: 49px;
@@ -521,14 +559,16 @@ section {
 	line-height: 49px;
 }
 
+*/
 .post-author {
-	color: rgba(0,0,0, 0.8);
+	color: inherit;
+	text-shadow: 2px 2px 0px rgba(0,0,0, 0.7);
 	font-size: 20px;
 	line-height: 95px;
 	font-weight: 900;
 }
 
-
+/*
 .post-new-content {
 	position: relative;
 	color: black;
@@ -542,21 +582,23 @@ section {
 	margin-top: 95px;
 	font-size: 72px;
 }
-
+*/
 .post-content {
 	position: relative;
 	color: black;
 	min-height: 200px;
 	padding: 0 15px 15px 15px;
+	word-break :break-all;
 }
 
+/*
 .post-content::before, .post-content::after {
 	position: relative;
 	font-family: 'FontAwesome';
 	font-size: 6px;
 	top: -6px;
 }
-
+*/
 
 
 .post-profile-photo {
@@ -565,80 +607,82 @@ section {
 	width: 65px;
 	height: 65px;
 	border-radius: 50%;
+	box-shadow: 1px 1px 0 rgba(0,0,0, 0.3);
 	background-color: rgba(0,0,0, 0.3);
 }
 
-.float-right {
+.float-right, .float-left {
 	display: block;
 	position: relative;
-	float: right;
-	top: -20px;
 	height: 49px;
-	left: -15px; 
 	font-size: 25px;
 	line-height: 49px;
 }
 
+.float-right {
+	float: right;
+	padding-right: 8px;
+}
+
+.float-left {
+	float: left;
+	padding-left: 8px;
+}
+
+/*
 #comment{
 	color: rgba(26,163,163, 0.4);
 }
+*/
 
 #view{
 	color: 	#ff80b3;
 }
 
-.float-right:hover{
+.float-right:hover, .float-left:hover{
 	cursor: pointer;
 	animation-name: commentPulse 0.7s infinite;
-	-webkit-animation: commentPulse 0.7s infinite;  
-  	-moz-animation:    commentPulse 0.7s infinite; 
-  	-o-animation:      commentPulse 0.7s infinite; 
+	-webkit-animation: commentPulse 0.7s infinite;
+  	-moz-animation:    commentPulse 0.7s infinite;
+  	-o-animation:      commentPulse 0.7s infinite;
 }
 
 @keyframes commentPulse{
-	0% {transform: scale(1);}  
-	60% {transform: scale(1.1);} 
+	0% {transform: scale(1);}
+	60% {transform: scale(1.1);}
 	100% {transform: scale(1);}
-} 
-
-.comment-form{
-	display: block;  
-	float: left;
-	margin-left: 1.5em;
-	left: -15px;
-	color: rgba(26,163,163, 0.4); 
 }
 
-#comment-inputbox{  
-	margin-right: 15px;
-	width: 500px;
-	height: 50px;
-	border:none;
-	background-color: transparent;
-	color: #404040;
-	padding-left: 15px; 
-} 
-
-.commentBtns{   
-	display: inline-block;
-	margin-left: 20px;  
-	margin-top: 15px;
+.comment-form {
+	display: block;
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 20px;
 }
 
-.adcomment{
-	margin-left: 25px;
-	font-weight: bold;
-	padding-right: 0.5em;
-	font-size: 0.6em;
+.comment-form-text-limit {
+	opacity: 0.5;
 }
 
-#commentSuccess{
-	color: #668cff !important;
-	margin-left: 20px;  
-	margin-top: 15px;
+.comment-textarea {
+	background: #f5f5f5 !important;
 }
 
-.float-right > i.fa.fa-comment {
+
+#noPost {
+	color: #668cff;
+	opacity: 0.8;
+	text-align: center;
+}
+
+#commentSuccess {
+	position: absolute;
+	color: #668cff;
+	float: right;
+	opacity: 0.8;
+}
+
+.float-right > i.fa.fa-comment, .float-left > i.fa.fa-eye {
 	line-height: 49px;
 }
 
@@ -850,7 +894,7 @@ section {
 .about-team-link a {
 	color: rgb(212, 170, 131);
 	color: rgba(212, 170, 131, 0.30);
-}	
+}
 .about-city {
 	width: 100%;
 }
@@ -983,57 +1027,54 @@ section {
 	border: 1px solid #9d9d9d;
 	padding: 10px;
 }
-.black {
-	background: #9d9d9d;
-}
 /*   mood colors   */
 .color1 {
-	background-color: #000;
-	color: #fff;
+	background-color: #3A3538;
+	color: #EEE;
 }
 .black {
-	background-color: #000;
-	color: #fff;
+	background-color: #3A3538;
+	color: #EEE;
 }
 .color2 {
-	background-color: #242CCC;
-	color: #FBC757;
+	background-color: #5BADC9;
+	color: #eee;
 }
 .blue {
-	background-color: #242CCC;
-	color: #FBC757;
+	background-color: #5BADC9;
+	color: #eee;
 }
 .color3 {
-	background-color: #FA683D;
-	color: #7BFBB4;
+	background-color: #FFC266;
+	color: #eee;
 }
 .orange {
-	background-color: #FA683D;
-	color: #7BFBB4;
+	background-color: #FFC266;
+	color: #eee;
 }
 .color4 {
-	background-color: #D10509;
-	color: #D9D51B;
+	background-color: #AF3852;
+	color: #eee;
 }
 .red {
-	background-color: #D10509;
-	color: #D9D51B;
+	background-color: #AF3852;
+	color: #eee;
 }
 .color5 {
-	background-color: #CB4AD1;
-	color: #D9BD62;
+	background-color: #FF5B60;
+	color: #eee;
 }
 .pink {
-	background-color: #CB4AD1;
-	color: #D9BD62;
+	background-color: #FF5B60;
+	color: #eee;
 }
 .color6 {
-	background-color: #2ED16E;
-	color: #9E6913;
+	background-color: #4BB850;
+	color: #eee;
 }
 .green {
-	background-color: #2ED16E;
-	color: #9E6913;
+	background-color: #4BB850;
+	color: #eee;
 }
 .hash-tag {
 	display: inline-block;

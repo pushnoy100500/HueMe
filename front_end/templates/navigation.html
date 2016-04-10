@@ -36,12 +36,13 @@
 						 </div>
 					 </li>
 					 <li class="dropdown">
-					 	 <a href="" ng-click="navigationCtrl.postingMode = !navigationCtrl.postingMode" class="dropdown-toggle" alt="Search Posts" title="Search Posts">
+					 	 <a href="" ng-click="navigationCtrl.postingMode = !navigationCtrl.postingMode" class="dropdown-toggle" alt="Add Post" title="Add Post">
 					 	 	<i class="fa fa-plus fa-2x"></i>
+							<span class="sr-only">Add Post</span>
 					 	 </a>
 						 <div ng-show="navigationCtrl.postingMode">
 							<profile-posting-dir></profile-posting-dir>
-						 </div> 
+						 </div>
 					 </li>
 					 <li><a href="" ng-click="navigationCtrl.logOut()"><i class="fa fa-sign-out fa-2x" alt="Sign-Out" title="Sign-Out"></i><span class="sr-only">Sign-out</span></a></li>
 				 </ul>

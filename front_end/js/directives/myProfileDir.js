@@ -33,7 +33,7 @@ app.directive('myProfileDir', function($localStorage, $location, $state, regLogS
           year: this.user.dob.substring(0, 4),
           month: this.user.dob.substring(5, 7),
           day: this.user.dob.substring(8, 10)
-        }
+        };
       }
 
       $localStorage.userTemp = $localStorage.user[0];
@@ -54,7 +54,7 @@ app.directive('myProfileDir', function($localStorage, $location, $state, regLogS
              console.log('saved');
              $location.path('/myprofile');
            }
-         })
+         });
          //quit editing mode
          this.editorEnabled = false;
          console.dir(updatedUser);

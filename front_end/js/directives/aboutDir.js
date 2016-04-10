@@ -8,5 +8,5 @@ app.directive('aboutDir', function() {
 			this.postingMode = false;
 		},
 		controllerAs: "aboutCtrl"
-	}
-})
+	};
+});

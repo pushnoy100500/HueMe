@@ -11,11 +11,11 @@ app.service('commentingService', function($http, urlService) {
 	};
 
 	this.getComments = function(postId, callback) {
-		 $http.get(urlService.commentsByPostUrl + "?postId=" + postId)
+		 $http.get(urlService.commentsByPostUrl + "/" + postId)
 	 		.then(function(success) {
 	  			callback(success.data);
 	  		}, function(error) {
 	  			callback(error);
-	  		})
+	  		});
 	};
-})
+});

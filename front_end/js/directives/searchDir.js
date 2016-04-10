@@ -7,5 +7,5 @@ app.directive('searchDir', function() {
 
 		},
 		controllerAs: "searchCtrl"
-	}
-})
+	};
+});

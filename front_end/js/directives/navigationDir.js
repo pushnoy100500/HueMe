@@ -7,7 +7,7 @@ app.directive('navigationDir', function($state, regLogService) {
 		controller: function() {
 			this.postingMode = false;
 			this.startSearch = function(tags, users) {
-				$state.go('search', 
+				$state.go('search',
 					{
 						data: {
 							tags: tags,
@@ -15,7 +15,7 @@ app.directive('navigationDir', function($state, regLogService) {
 						}
 					});
 
-			}
+			};
 			this.logOut = function() {
 		        regLogService.logOut(function() {
 		          $state.go('landing');
@@ -23,5 +23,5 @@ app.directive('navigationDir', function($state, regLogService) {
 	     	};
 		},
 		controllerAs: "navigationCtrl"
-	}
-})
+	};
+});

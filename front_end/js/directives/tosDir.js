@@ -6,8 +6,8 @@ app.directive("tosDir", function() {
 		// this is a relative path to the template from index.html file
 		templateUrl: "templates/tos.html",
 		controller: function() {
-			this.name = "JOsh"
+			this.name = "JOsh";
 		},
 		controllerAs: "tosCtrl"
-	}
+	};
 });

@@ -9,5 +9,5 @@ app.service("updateProfileService", function($http, $localStorage, urlService) {
 			console.log(error);
 			callback(false);
 		});
-	}
-})
+	};
+});

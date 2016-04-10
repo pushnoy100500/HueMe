@@ -11,11 +11,11 @@ app.directive("registrationDir", function(regLogService, $state) {
 
 			this.showPass = function(){
 				this.inputType = 'text';
-			}
+			};
 
 			this.hidePass = function(){
 				this.inputType = 'password';
-			}
+			};
 
 			this.formSubmit = function(){
 			regLogService.registerUser(this.formModel, function(isComplete) {
@@ -30,5 +30,5 @@ app.directive("registrationDir", function(regLogService, $state) {
 			};
 		},
 		controllerAs: "ctrl"
-	}
+	};
 });

@@ -1,10 +1,24 @@
-<form class="comment-form" >
-	<div class="form-group"> 
-			<textarea id="comment-inputbox" placeholder="leave a comment" name="comment" ng-trim="false" maxlength="150" ng-model="postCommentingCtrl.commentData.content" required class="form-control"></textarea> 
-			{{150 - postCommentingCtrl.commentData.content.length}} / 150  
-			<button class="btn btn-primary commentBtns" ng-click="postCommentingCtrl.submitComment()"><i class="fa fa-rocket fa-3x" ></i></button>
+<form class="comment-form">
+	<div class="form-group">
+		<!--
+		<div class="input-group">
+				<textarea placeholder="leave a comment" name="comment" ng-trim="false" maxlength="150" ng-model="postCommentingCtrl.commentData.content" required class="form-control custom-control" rows="3" style="resize:none;"></textarea>
+				<span "input-group-addon btn btn-primary" ng-click="postCommentingCtrl.submitComment()"><i class="fa fa-rocket fa" ></i></span>
+			</div>
+		-->
+			<div class="input-group">
+		    <textarea placeholder="Leave a comment!" class="form-control custom-control comment-textarea" ng-model="postCommentingCtrl.commentData.content" name="comment" maxlength="150" rows="2" style="resize:none;"></textarea>
+		    <span class="input-group-addon btn btn-primary" ng-click="postCommentingCtrl.submitComment()">
+					Send <i class="fa fa-rocket fa" ></i><br /><br />
+					<span class="comment-form-text-limit">{{150 - postCommentingCtrl.commentData.content.length}} / 150</span>
+				</span>
+		</div>
+
+			<!--
+			<button class="btn btn-primary commentBtns" ng-click="postCommentingCtrl.submitComment()"></button>
+		-->
 			<span id="commentSuccess" ng-if="postCommentingCtrl.commentsent">
-				Woohoo! New comment!
-			</span> 
-	</div>  
-</form>  
+				Comment Saved!
+			</span>
+	</div>
+</form>
