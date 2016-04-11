@@ -77,18 +77,11 @@ app.directive('postListingDir', function(postingService, $localStorage) {
 
 			this.userId = $localStorage.user[0].id;
 
-  		 	this.enableComment = function ($index){
-  		 		this.selectedIndex = $index;
-  		 		this.commentingMode = !this.commentingMode;
-					this.viewCommentMode = !this.viewCommentMode;
-  		 	};
-
-  		 	this.viewComment = function ($index){
-  		 		this.selectedIndex = $index;
-
-  		 	};
-
-
+		 	this.enableComment = function ($index){
+		 		this.selectedIndex = $index;
+		 		this.commentingMode = !this.commentingMode;
+				this.viewCommentMode = !this.viewCommentMode;
+		 	};
 		},
 		controllerAs: "postListingCtrl"
 	};

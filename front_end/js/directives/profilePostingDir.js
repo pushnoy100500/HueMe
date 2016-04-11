@@ -19,8 +19,8 @@ app.directive("profilePostingDir", function(postingService) {
 				console.log(this.postingData);
 				postingService.sendPost(this.postingData);
 				//clear up the scope
-				 this.postingData = {};
-				 this.hashTags = [];
+				this.postingData = {};
+				this.hashTags = [];				
 			};
 			this.moodColours = postingService.moodColours;
 			this.addHashTag = function(event, hashTag) {
