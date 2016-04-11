@@ -65,7 +65,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			},
 			controller: function(filter, posts) {
 				this.filter = filter;
-				this.posts = posts.data; 
+				this.posts = posts.data;
 			},
 			controllerAs: "searchStateCtrl",
 			template: function () {					

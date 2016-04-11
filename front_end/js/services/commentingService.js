@@ -8,7 +8,7 @@ app.service('commentingService', function($http, urlService) {
 			}, function(error) {
 				console.log(error);
 			});
-	};
+	}; 
 
 	this.getComments = function(postId, callback) {
 		 $http.get(urlService.commentsByPostUrl + "?postId=" + postId)

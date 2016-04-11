@@ -17,6 +17,7 @@ app.directive('navigationDir', function($state, regLogService) {
 
 			}
 			this.logOut = function() {
+				console.log('yo')
 		        regLogService.logOut(function() {
 		          $state.go('landing');
 		        });
